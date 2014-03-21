@@ -1,0 +1,2289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>GA Benchmark Report</title>
+<style type='text/css'>
+  table{
+    background: #ccc;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: small;
+  }
+  th {
+    background: #666;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
+  td {
+    color: #333;
+    background: #e2e2e2;
+    padding: 2px 3px;
+    text-align: center;
+  }
+</style>
+  
+</script>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+      <h1>Information</h1>
+
+      <table>
+        <tr><th colspan=2>Version Info</th></tr>
+        <tr><td>Ruby Install Name</td><td>ruby1.8.7</td></tr>
+        <tr><td>Ruby Version</td><td>1.8.7</td></tr>
+        <tr><td>Charlie Version</td><td>0.8.1</td></tr>
+        <tr><th colspan=2>Benchmark Info</th></tr>
+        <tr><td>Genotype class</td><td>Sombero</td></tr>
+        <tr><td>Population size</td><td>10</td></tr>
+        <tr><td>Number of generations per run</td><td>15</td></tr>
+        <tr><td>Number of tests </td><td>200</td></tr> 
+        <tr><td>Tests repeated </td><td>50 times</td></tr> 
+        <tr><td>Number of runs </td><td>10000</td></tr> 
+        <tr><td>Total number of generations </td><td>150000</td></tr> 
+        <tr><td>Total time</td><td>80.68 seconds</td></tr>
+        <tr><th colspan=2>Best Solution Info</th></tr>
+        <tr><td>Fitness</td><td>1.99999777251227</td></tr>
+        <tr><td>Solution</td><td><textarea rows=3 cols=40>[0.000774130959499741, -0.00176442714152125]</textarea></td></tr>
+      </table>
+<h1>Stats for all</h1><table>
+<tr><th></th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>All</td>
+	<td>0.47149</td>
+	<td>2.00000</td>
+	<td>1.33633</td>
+	<td>0.32827</td>
+	<td>0.00806</td>
+</tr>
+</table><h1>Stats for selection</h1><table>
+<tr><th>selection</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>1.06016</td>
+	<td>1.99999</td>
+	<td>1.41803</td>
+	<td>0.31975</td>
+	<td>0.00810</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>1.05964</td>
+	<td>1.99999</td>
+	<td>1.40760</td>
+	<td>0.32275</td>
+	<td>0.00793</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>1.05995</td>
+	<td>1.99999</td>
+	<td>1.37863</td>
+	<td>0.33272</td>
+	<td>0.00635</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>0.47149</td>
+	<td>2.00000</td>
+	<td>1.24512</td>
+	<td>0.31523</td>
+	<td>0.00900</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>0.47157</td>
+	<td>1.99998</td>
+	<td>1.23229</td>
+	<td>0.29941</td>
+	<td>0.00894</td>
+</tr>
+</table><h1>Stats for crossover</h1><table>
+<tr><th>crossover</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>SinglePointCrossover</td>
+	<td>0.47172</td>
+	<td>1.99999</td>
+	<td>1.34659</td>
+	<td>0.33506</td>
+	<td>0.00836</td>
+</tr>
+<tr>
+	<td>NullCrossover</td>
+	<td>0.47149</td>
+	<td>2.00000</td>
+	<td>1.32608</td>
+	<td>0.32101</td>
+	<td>0.00777</td>
+</tr>
+</table><h1>Stats for mutation</h1><table>
+<tr><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>0.47253</td>
+	<td>1.99960</td>
+	<td>1.50015</td>
+	<td>0.39008</td>
+	<td>0.00812</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>0.47149</td>
+	<td>1.99989</td>
+	<td>1.44132</td>
+	<td>0.40943</td>
+	<td>0.00917</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>0.47199</td>
+	<td>1.99984</td>
+	<td>1.43215</td>
+	<td>0.42681</td>
+	<td>0.00723</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>0.47726</td>
+	<td>1.99991</td>
+	<td>1.41406</td>
+	<td>0.39692</td>
+	<td>0.00759</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>0.47911</td>
+	<td>1.99993</td>
+	<td>1.41391</td>
+	<td>0.37408</td>
+	<td>0.00758</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>0.47921</td>
+	<td>1.99991</td>
+	<td>1.39695</td>
+	<td>0.34083</td>
+	<td>0.00914</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>0.47436</td>
+	<td>1.99996</td>
+	<td>1.37696</td>
+	<td>0.36143</td>
+	<td>0.00913</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>0.47157</td>
+	<td>1.99984</td>
+	<td>1.35443</td>
+	<td>0.37514</td>
+	<td>0.00808</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.01080</td>
+	<td>1.99998</td>
+	<td>1.30024</td>
+	<td>0.27847</td>
+	<td>0.00817</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.05430</td>
+	<td>1.99998</td>
+	<td>1.29079</td>
+	<td>0.27062</td>
+	<td>0.00815</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>0.47272</td>
+	<td>1.99996</td>
+	<td>1.28794</td>
+	<td>0.29179</td>
+	<td>0.00818</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.05269</td>
+	<td>1.99999</td>
+	<td>1.28656</td>
+	<td>0.26321</td>
+	<td>0.00776</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.05212</td>
+	<td>1.99999</td>
+	<td>1.28567</td>
+	<td>0.26035</td>
+	<td>0.00919</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.05785</td>
+	<td>2.00000</td>
+	<td>1.28419</td>
+	<td>0.26723</td>
+	<td>0.00731</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>0.96211</td>
+	<td>1.99996</td>
+	<td>1.28296</td>
+	<td>0.26389</td>
+	<td>0.00729</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>0.48650</td>
+	<td>1.99919</td>
+	<td>1.27952</td>
+	<td>0.28237</td>
+	<td>0.00736</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.05492</td>
+	<td>1.99997</td>
+	<td>1.27930</td>
+	<td>0.25319</td>
+	<td>0.00729</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>0.47854</td>
+	<td>1.99997</td>
+	<td>1.27793</td>
+	<td>0.28163</td>
+	<td>0.00761</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>0.76985</td>
+	<td>1.99988</td>
+	<td>1.27305</td>
+	<td>0.25774</td>
+	<td>0.00916</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>0.62207</td>
+	<td>1.99999</td>
+	<td>1.26860</td>
+	<td>0.25511</td>
+	<td>0.00778</td>
+</tr>
+</table><h1>Detailed Stats</h1><table>
+<tr><th>selection</th><th>crossover</th><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>1.20873</td>
+	<td>1.99960</td>
+	<td>1.83128</td>
+	<td>0.25494</td>
+	<td>0.00671</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>1.20835</td>
+	<td>1.99446</td>
+	<td>1.82563</td>
+	<td>0.18699</td>
+	<td>0.00582</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>1.20739</td>
+	<td>1.99962</td>
+	<td>1.72064</td>
+	<td>0.33106</td>
+	<td>0.00767</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>1.20771</td>
+	<td>1.99991</td>
+	<td>1.69017</td>
+	<td>0.28939</td>
+	<td>0.00769</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>1.16861</td>
+	<td>1.99514</td>
+	<td>1.67482</td>
+	<td>0.31812</td>
+	<td>0.00660</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>1.20786</td>
+	<td>1.99614</td>
+	<td>1.66908</td>
+	<td>0.31244</td>
+	<td>0.00721</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>1.08490</td>
+	<td>1.99989</td>
+	<td>1.64844</td>
+	<td>0.35420</td>
+	<td>0.00679</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>1.20171</td>
+	<td>1.98395</td>
+	<td>1.62650</td>
+	<td>0.28317</td>
+	<td>0.00865</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>1.20699</td>
+	<td>1.99172</td>
+	<td>1.61756</td>
+	<td>0.28985</td>
+	<td>0.00762</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>1.20390</td>
+	<td>1.99840</td>
+	<td>1.61337</td>
+	<td>0.31982</td>
+	<td>0.00683</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>1.20383</td>
+	<td>1.98985</td>
+	<td>1.59688</td>
+	<td>0.29989</td>
+	<td>0.00954</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>1.20608</td>
+	<td>1.99746</td>
+	<td>1.59558</td>
+	<td>0.33425</td>
+	<td>0.00961</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>1.05999</td>
+	<td>1.99991</td>
+	<td>1.58766</td>
+	<td>0.40318</td>
+	<td>0.00562</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>1.20266</td>
+	<td>1.99686</td>
+	<td>1.57748</td>
+	<td>0.32089</td>
+	<td>0.00780</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>1.20315</td>
+	<td>1.99505</td>
+	<td>1.56750</td>
+	<td>0.29827</td>
+	<td>0.00687</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>1.06021</td>
+	<td>1.99875</td>
+	<td>1.56556</td>
+	<td>0.38495</td>
+	<td>0.00619</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>1.20749</td>
+	<td>1.99453</td>
+	<td>1.56089</td>
+	<td>0.34367</td>
+	<td>0.00872</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>1.19627</td>
+	<td>1.98599</td>
+	<td>1.55578</td>
+	<td>0.30520</td>
+	<td>0.00779</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99448</td>
+	<td>1.54936</td>
+	<td>0.35931</td>
+	<td>0.00973</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>1.20200</td>
+	<td>1.99388</td>
+	<td>1.54893</td>
+	<td>0.32078</td>
+	<td>0.00862</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>1.20329</td>
+	<td>1.99644</td>
+	<td>1.54608</td>
+	<td>0.33397</td>
+	<td>0.00784</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>1.05964</td>
+	<td>1.99096</td>
+	<td>1.54339</td>
+	<td>0.32615</td>
+	<td>0.00709</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>1.06019</td>
+	<td>1.99984</td>
+	<td>1.53890</td>
+	<td>0.39203</td>
+	<td>0.00557</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>1.20185</td>
+	<td>1.99925</td>
+	<td>1.53875</td>
+	<td>0.31239</td>
+	<td>0.00869</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>1.06016</td>
+	<td>1.99893</td>
+	<td>1.53769</td>
+	<td>0.34830</td>
+	<td>0.00734</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>1.20755</td>
+	<td>1.99672</td>
+	<td>1.53397</td>
+	<td>0.32584</td>
+	<td>0.00822</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>1.06023</td>
+	<td>1.99817</td>
+	<td>1.53297</td>
+	<td>0.32760</td>
+	<td>0.00784</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>1.20701</td>
+	<td>1.99019</td>
+	<td>1.53211</td>
+	<td>0.33109</td>
+	<td>0.00843</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>1.20649</td>
+	<td>1.99996</td>
+	<td>1.52919</td>
+	<td>0.33228</td>
+	<td>0.00955</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>1.20079</td>
+	<td>1.99874</td>
+	<td>1.52558</td>
+	<td>0.32749</td>
+	<td>0.00766</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>1.18625</td>
+	<td>1.99839</td>
+	<td>1.51281</td>
+	<td>0.31593</td>
+	<td>0.00882</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>1.05995</td>
+	<td>1.99961</td>
+	<td>1.51192</td>
+	<td>0.37828</td>
+	<td>0.00531</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>1.20727</td>
+	<td>1.99262</td>
+	<td>1.50804</td>
+	<td>0.31350</td>
+	<td>0.00886</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>1.19938</td>
+	<td>1.99993</td>
+	<td>1.50657</td>
+	<td>0.30558</td>
+	<td>0.00827</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>1.06023</td>
+	<td>1.99993</td>
+	<td>1.49813</td>
+	<td>0.36547</td>
+	<td>0.00859</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>1.19655</td>
+	<td>1.99932</td>
+	<td>1.49569</td>
+	<td>0.29634</td>
+	<td>0.00872</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>1.20451</td>
+	<td>1.98179</td>
+	<td>1.49337</td>
+	<td>0.29804</td>
+	<td>0.00854</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>1.20681</td>
+	<td>1.99170</td>
+	<td>1.48666</td>
+	<td>0.31703</td>
+	<td>0.00719</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>1.06017</td>
+	<td>1.99950</td>
+	<td>1.48536</td>
+	<td>0.37418</td>
+	<td>0.00518</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>1.19957</td>
+	<td>1.98974</td>
+	<td>1.48223</td>
+	<td>0.27382</td>
+	<td>0.00959</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>1.19613</td>
+	<td>1.99799</td>
+	<td>1.46762</td>
+	<td>0.32956</td>
+	<td>0.00810</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>1.18433</td>
+	<td>1.99755</td>
+	<td>1.46275</td>
+	<td>0.26960</td>
+	<td>0.00957</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>1.07866</td>
+	<td>1.99673</td>
+	<td>1.46270</td>
+	<td>0.30828</td>
+	<td>0.00735</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>1.20432</td>
+	<td>1.99861</td>
+	<td>1.44728</td>
+	<td>0.32818</td>
+	<td>0.00772</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>1.20683</td>
+	<td>1.98491</td>
+	<td>1.43657</td>
+	<td>0.31491</td>
+	<td>0.00761</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>1.17201</td>
+	<td>1.99801</td>
+	<td>1.43577</td>
+	<td>0.34897</td>
+	<td>0.00784</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>1.06022</td>
+	<td>1.99785</td>
+	<td>1.43429</td>
+	<td>0.34972</td>
+	<td>0.00738</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>1.06021</td>
+	<td>1.99922</td>
+	<td>1.40931</td>
+	<td>0.35750</td>
+	<td>0.00674</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>1.20779</td>
+	<td>1.99619</td>
+	<td>1.40900</td>
+	<td>0.31558</td>
+	<td>0.00867</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>1.06015</td>
+	<td>1.99992</td>
+	<td>1.39426</td>
+	<td>0.35612</td>
+	<td>0.00680</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99989</td>
+	<td>1.39376</td>
+	<td>0.33679</td>
+	<td>0.00829</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99996</td>
+	<td>1.39147</td>
+	<td>0.32467</td>
+	<td>0.00778</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.06023</td>
+	<td>1.99965</td>
+	<td>1.39124</td>
+	<td>0.33237</td>
+	<td>0.00718</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>1.06023</td>
+	<td>1.99334</td>
+	<td>1.39108</td>
+	<td>0.32016</td>
+	<td>0.00688</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>1.06011</td>
+	<td>1.99979</td>
+	<td>1.38174</td>
+	<td>0.33180</td>
+	<td>0.00615</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99990</td>
+	<td>1.37151</td>
+	<td>0.32994</td>
+	<td>0.00779</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>1.20840</td>
+	<td>1.99986</td>
+	<td>1.36865</td>
+	<td>0.30640</td>
+	<td>0.00842</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>0.81031</td>
+	<td>1.99569</td>
+	<td>1.36818</td>
+	<td>0.34469</td>
+	<td>0.00863</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>0.47933</td>
+	<td>1.99978</td>
+	<td>1.36704</td>
+	<td>0.44946</td>
+	<td>0.00800</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>1.06021</td>
+	<td>1.99949</td>
+	<td>1.36317</td>
+	<td>0.31653</td>
+	<td>0.00735</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.09428</td>
+	<td>1.99996</td>
+	<td>1.36177</td>
+	<td>0.31222</td>
+	<td>0.00861</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99967</td>
+	<td>1.35674</td>
+	<td>0.32060</td>
+	<td>0.00787</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.05946</td>
+	<td>1.99988</td>
+	<td>1.35125</td>
+	<td>0.34075</td>
+	<td>0.00844</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>0.66265</td>
+	<td>1.93952</td>
+	<td>1.34537</td>
+	<td>0.35762</td>
+	<td>0.00913</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99975</td>
+	<td>1.34511</td>
+	<td>0.32855</td>
+	<td>0.00742</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99994</td>
+	<td>1.34172</td>
+	<td>0.30889</td>
+	<td>0.00737</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99967</td>
+	<td>1.34154</td>
+	<td>0.30850</td>
+	<td>0.00778</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99998</td>
+	<td>1.33922</td>
+	<td>0.31183</td>
+	<td>0.00629</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99977</td>
+	<td>1.33272</td>
+	<td>0.30656</td>
+	<td>0.00767</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99511</td>
+	<td>1.33184</td>
+	<td>0.28830</td>
+	<td>0.00763</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99924</td>
+	<td>1.33051</td>
+	<td>0.28931</td>
+	<td>0.00864</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.06021</td>
+	<td>1.99977</td>
+	<td>1.32708</td>
+	<td>0.28889</td>
+	<td>0.00949</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.06023</td>
+	<td>1.99987</td>
+	<td>1.32579</td>
+	<td>0.28683</td>
+	<td>0.00686</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.05701</td>
+	<td>1.99976</td>
+	<td>1.32544</td>
+	<td>0.30235</td>
+	<td>0.00928</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.06021</td>
+	<td>1.99973</td>
+	<td>1.32532</td>
+	<td>0.29341</td>
+	<td>0.00776</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99649</td>
+	<td>1.32471</td>
+	<td>0.27727</td>
+	<td>0.00761</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99988</td>
+	<td>1.32310</td>
+	<td>0.29698</td>
+	<td>0.00918</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99848</td>
+	<td>1.32278</td>
+	<td>0.27993</td>
+	<td>0.00956</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>1.06018</td>
+	<td>1.99984</td>
+	<td>1.32236</td>
+	<td>0.30274</td>
+	<td>0.00577</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.20867</td>
+	<td>1.99965</td>
+	<td>1.31895</td>
+	<td>0.27299</td>
+	<td>0.01010</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>1.17151</td>
+	<td>1.99758</td>
+	<td>1.31739</td>
+	<td>0.26896</td>
+	<td>0.00870</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.05377</td>
+	<td>1.99922</td>
+	<td>1.31302</td>
+	<td>0.29067</td>
+	<td>0.01095</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.06021</td>
+	<td>1.99999</td>
+	<td>1.31254</td>
+	<td>0.27597</td>
+	<td>0.00812</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.05617</td>
+	<td>1.99998</td>
+	<td>1.31043</td>
+	<td>0.26856</td>
+	<td>0.00924</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99968</td>
+	<td>1.30919</td>
+	<td>0.26896</td>
+	<td>0.00763</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>1.06019</td>
+	<td>1.99808</td>
+	<td>1.30918</td>
+	<td>0.27672</td>
+	<td>0.00850</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.06022</td>
+	<td>1.99974</td>
+	<td>1.30834</td>
+	<td>0.30612</td>
+	<td>0.00666</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.05996</td>
+	<td>2.00000</td>
+	<td>1.30713</td>
+	<td>0.29792</td>
+	<td>0.00747</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99977</td>
+	<td>1.30709</td>
+	<td>0.28072</td>
+	<td>0.00695</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.05848</td>
+	<td>1.99955</td>
+	<td>1.30242</td>
+	<td>0.27147</td>
+	<td>0.00924</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>0.47601</td>
+	<td>1.99856</td>
+	<td>1.30152</td>
+	<td>0.45832</td>
+	<td>0.00811</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99998</td>
+	<td>1.30137</td>
+	<td>0.28482</td>
+	<td>0.00710</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.05601</td>
+	<td>1.99989</td>
+	<td>1.30095</td>
+	<td>0.26562</td>
+	<td>0.00909</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99855</td>
+	<td>1.30039</td>
+	<td>0.28244</td>
+	<td>0.00776</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99987</td>
+	<td>1.29827</td>
+	<td>0.28632</td>
+	<td>0.00660</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99988</td>
+	<td>1.29650</td>
+	<td>0.25751</td>
+	<td>0.00966</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99899</td>
+	<td>1.29643</td>
+	<td>0.28180</td>
+	<td>0.00765</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99998</td>
+	<td>1.29580</td>
+	<td>0.28911</td>
+	<td>0.00620</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99999</td>
+	<td>1.29474</td>
+	<td>0.26248</td>
+	<td>0.00816</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.05212</td>
+	<td>1.99718</td>
+	<td>1.29427</td>
+	<td>0.27786</td>
+	<td>0.00903</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>0.96776</td>
+	<td>1.99936</td>
+	<td>1.29290</td>
+	<td>0.29933</td>
+	<td>0.00850</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.06022</td>
+	<td>1.99988</td>
+	<td>1.29274</td>
+	<td>0.29054</td>
+	<td>0.00616</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.06022</td>
+	<td>1.99969</td>
+	<td>1.29243</td>
+	<td>0.28988</td>
+	<td>0.00679</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99993</td>
+	<td>1.29136</td>
+	<td>0.26318</td>
+	<td>0.00852</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>1.06023</td>
+	<td>1.99989</td>
+	<td>1.29111</td>
+	<td>0.26255</td>
+	<td>0.00671</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.05492</td>
+	<td>1.99875</td>
+	<td>1.28719</td>
+	<td>0.26115</td>
+	<td>0.00848</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>0.47769</td>
+	<td>1.96926</td>
+	<td>1.28482</td>
+	<td>0.39438</td>
+	<td>0.00905</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>0.89792</td>
+	<td>1.99531</td>
+	<td>1.28328</td>
+	<td>0.29910</td>
+	<td>0.00868</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99897</td>
+	<td>1.28239</td>
+	<td>0.26814</td>
+	<td>0.00857</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>1.06021</td>
+	<td>1.99957</td>
+	<td>1.28203</td>
+	<td>0.26723</td>
+	<td>0.00660</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99800</td>
+	<td>1.28133</td>
+	<td>0.23914</td>
+	<td>0.00660</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>1.17705</td>
+	<td>1.99446</td>
+	<td>1.27946</td>
+	<td>0.21604</td>
+	<td>0.00663</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99993</td>
+	<td>1.27897</td>
+	<td>0.24273</td>
+	<td>0.00600</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.05269</td>
+	<td>1.99849</td>
+	<td>1.27883</td>
+	<td>0.25562</td>
+	<td>0.00989</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>1.06021</td>
+	<td>1.99919</td>
+	<td>1.27859</td>
+	<td>0.24177</td>
+	<td>0.00626</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.06022</td>
+	<td>1.99835</td>
+	<td>1.27849</td>
+	<td>0.24136</td>
+	<td>0.00732</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.05997</td>
+	<td>1.99815</td>
+	<td>1.27752</td>
+	<td>0.23790</td>
+	<td>0.00789</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>0.47253</td>
+	<td>1.99959</td>
+	<td>1.27652</td>
+	<td>0.48455</td>
+	<td>0.00980</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99997</td>
+	<td>1.27306</td>
+	<td>0.24627</td>
+	<td>0.00556</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99979</td>
+	<td>1.27288</td>
+	<td>0.24575</td>
+	<td>0.00676</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.06019</td>
+	<td>1.99949</td>
+	<td>1.27239</td>
+	<td>0.24433</td>
+	<td>0.00727</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>0.96211</td>
+	<td>1.99397</td>
+	<td>1.27119</td>
+	<td>0.25851</td>
+	<td>0.00922</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.05923</td>
+	<td>1.99953</td>
+	<td>1.27101</td>
+	<td>0.23686</td>
+	<td>0.00794</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.04692</td>
+	<td>1.99797</td>
+	<td>1.27044</td>
+	<td>0.25505</td>
+	<td>0.00862</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>0.89825</td>
+	<td>1.99489</td>
+	<td>1.26763</td>
+	<td>0.31073</td>
+	<td>0.01061</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.05430</td>
+	<td>1.99887</td>
+	<td>1.26749</td>
+	<td>0.23068</td>
+	<td>0.00973</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99967</td>
+	<td>1.26691</td>
+	<td>0.24891</td>
+	<td>0.00762</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>0.48181</td>
+	<td>1.99013</td>
+	<td>1.26530</td>
+	<td>0.40774</td>
+	<td>0.00738</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.06020</td>
+	<td>1.99994</td>
+	<td>1.26413</td>
+	<td>0.25106</td>
+	<td>0.00598</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.05785</td>
+	<td>1.99957</td>
+	<td>1.26201</td>
+	<td>0.23888</td>
+	<td>0.00786</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.05553</td>
+	<td>1.99976</td>
+	<td>1.26160</td>
+	<td>0.23535</td>
+	<td>0.00856</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.05373</td>
+	<td>1.99665</td>
+	<td>1.26005</td>
+	<td>0.23630</td>
+	<td>0.00974</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.05545</td>
+	<td>1.99990</td>
+	<td>1.25858</td>
+	<td>0.25601</td>
+	<td>0.00964</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.05614</td>
+	<td>1.99831</td>
+	<td>1.25848</td>
+	<td>0.25165</td>
+	<td>0.00832</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>0.61297</td>
+	<td>1.99996</td>
+	<td>1.25790</td>
+	<td>0.30859</td>
+	<td>0.00973</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.06020</td>
+	<td>1.99980</td>
+	<td>1.25381</td>
+	<td>0.22364</td>
+	<td>0.00870</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>0.47911</td>
+	<td>1.99700</td>
+	<td>1.25346</td>
+	<td>0.43220</td>
+	<td>0.00923</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>0.92519</td>
+	<td>1.99869</td>
+	<td>1.25294</td>
+	<td>0.21032</td>
+	<td>0.00865</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.05726</td>
+	<td>1.99941</td>
+	<td>1.25210</td>
+	<td>0.25147</td>
+	<td>0.00855</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>0.49072</td>
+	<td>1.94971</td>
+	<td>1.25158</td>
+	<td>0.36903</td>
+	<td>0.00819</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>0.67100</td>
+	<td>1.99937</td>
+	<td>1.25146</td>
+	<td>0.27867</td>
+	<td>0.00974</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.06021</td>
+	<td>1.99996</td>
+	<td>1.25119</td>
+	<td>0.22634</td>
+	<td>0.00562</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.06022</td>
+	<td>1.99999</td>
+	<td>1.25108</td>
+	<td>0.22589</td>
+	<td>0.00709</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.05786</td>
+	<td>1.99589</td>
+	<td>1.24935</td>
+	<td>0.24449</td>
+	<td>0.00745</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.05674</td>
+	<td>1.99750</td>
+	<td>1.24839</td>
+	<td>0.20251</td>
+	<td>0.00921</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99974</td>
+	<td>1.24828</td>
+	<td>0.22796</td>
+	<td>0.00585</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.8])</td>
+	<td>1.01080</td>
+	<td>1.99916</td>
+	<td>1.24808</td>
+	<td>0.21214</td>
+	<td>0.00821</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>1.06019</td>
+	<td>1.99976</td>
+	<td>1.24766</td>
+	<td>0.22598</td>
+	<td>0.00622</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>0.48989</td>
+	<td>1.98305</td>
+	<td>1.24648</td>
+	<td>0.32110</td>
+	<td>0.01067</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.03000</td>
+	<td>1.99864</td>
+	<td>1.24622</td>
+	<td>0.20333</td>
+	<td>0.00915</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99793</td>
+	<td>1.24382</td>
+	<td>0.19301</td>
+	<td>0.00709</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>0.56699</td>
+	<td>1.97847</td>
+	<td>1.24303</td>
+	<td>0.26614</td>
+	<td>0.00848</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>0.80335</td>
+	<td>1.99263</td>
+	<td>1.24283</td>
+	<td>0.26989</td>
+	<td>0.01088</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>0.47854</td>
+	<td>1.99923</td>
+	<td>1.24244</td>
+	<td>0.32516</td>
+	<td>0.00923</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>0.95479</td>
+	<td>1.98442</td>
+	<td>1.24239</td>
+	<td>0.23622</td>
+	<td>0.01053</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.4])</td>
+	<td>1.05221</td>
+	<td>1.96582</td>
+	<td>1.24092</td>
+	<td>0.18370</td>
+	<td>0.01054</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>0.47970</td>
+	<td>1.95854</td>
+	<td>1.23806</td>
+	<td>0.37252</td>
+	<td>0.00821</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>0.47436</td>
+	<td>1.98533</td>
+	<td>1.23766</td>
+	<td>0.36936</td>
+	<td>0.01087</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>1.06022</td>
+	<td>1.99944</td>
+	<td>1.23517</td>
+	<td>0.19865</td>
+	<td>0.00808</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>0.47952</td>
+	<td>1.96464</td>
+	<td>1.23516</td>
+	<td>0.39630</td>
+	<td>0.00973</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99999</td>
+	<td>1.22954</td>
+	<td>0.20272</td>
+	<td>0.00564</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99998</td>
+	<td>1.22954</td>
+	<td>0.20270</td>
+	<td>0.00605</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>0.90617</td>
+	<td>1.99702</td>
+	<td>1.22913</td>
+	<td>0.23214</td>
+	<td>0.00965</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 0.8])</td>
+	<td>0.76985</td>
+	<td>1.99790</td>
+	<td>1.22800</td>
+	<td>0.23501</td>
+	<td>0.00913</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.05715</td>
+	<td>1.99880</td>
+	<td>1.22736</td>
+	<td>0.19974</td>
+	<td>0.00735</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.06022</td>
+	<td>1.96022</td>
+	<td>1.22328</td>
+	<td>0.15527</td>
+	<td>0.00686</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99994</td>
+	<td>1.21966</td>
+	<td>0.16734</td>
+	<td>0.00666</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>1.06022</td>
+	<td>1.99997</td>
+	<td>1.21962</td>
+	<td>0.16724</td>
+	<td>0.00616</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99956</td>
+	<td>1.21961</td>
+	<td>0.16714</td>
+	<td>0.00659</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>0.70778</td>
+	<td>1.99490</td>
+	<td>1.21865</td>
+	<td>0.25499</td>
+	<td>0.00926</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 0.4])</td>
+	<td>1.06023</td>
+	<td>1.99999</td>
+	<td>1.21372</td>
+	<td>0.17024</td>
+	<td>0.00551</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>1.06023</td>
+	<td>1.99978</td>
+	<td>1.21371</td>
+	<td>0.17021</td>
+	<td>0.00572</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>0.50918</td>
+	<td>1.99903</td>
+	<td>1.21217</td>
+	<td>0.27054</td>
+	<td>0.00764</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>0.47863</td>
+	<td>1.99935</td>
+	<td>1.20907</td>
+	<td>0.31543</td>
+	<td>0.00971</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>0.47288</td>
+	<td>1.98058</td>
+	<td>1.20906</td>
+	<td>0.34735</td>
+	<td>0.00813</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>0.47172</td>
+	<td>1.98093</td>
+	<td>1.20249</td>
+	<td>0.32804</td>
+	<td>0.01093</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>0.73146</td>
+	<td>1.98482</td>
+	<td>1.20226</td>
+	<td>0.28258</td>
+	<td>0.01089</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>0.88377</td>
+	<td>1.99769</td>
+	<td>1.19935</td>
+	<td>0.25163</td>
+	<td>0.00944</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>1.06019</td>
+	<td>1.96677</td>
+	<td>1.19893</td>
+	<td>0.16251</td>
+	<td>0.00562</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>0.60983</td>
+	<td>1.98444</td>
+	<td>1.19862</td>
+	<td>0.22886</td>
+	<td>0.00793</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 1.6])</td>
+	<td>0.68561</td>
+	<td>1.99003</td>
+	<td>1.19266</td>
+	<td>0.22491</td>
+	<td>0.00859</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 1.6])</td>
+	<td>1.05167</td>
+	<td>1.91280</td>
+	<td>1.19265</td>
+	<td>0.15475</td>
+	<td>0.00801</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 1.6])</td>
+	<td>0.65330</td>
+	<td>1.96701</td>
+	<td>1.19072</td>
+	<td>0.25290</td>
+	<td>0.00905</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>0.47726</td>
+	<td>1.99693</td>
+	<td>1.18670</td>
+	<td>0.40693</td>
+	<td>0.00870</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>0.47149</td>
+	<td>1.98690</td>
+	<td>1.18600</td>
+	<td>0.39141</td>
+	<td>0.00976</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>0.47157</td>
+	<td>1.98730</td>
+	<td>1.18472</td>
+	<td>0.35677</td>
+	<td>0.00928</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 6.4])</td>
+	<td>0.66711</td>
+	<td>1.98596</td>
+	<td>1.18313</td>
+	<td>0.29728</td>
+	<td>0.00768</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 3.2])</td>
+	<td>0.48234</td>
+	<td>1.97228</td>
+	<td>1.18076</td>
+	<td>0.42269</td>
+	<td>0.00768</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:gaussian, 0.8])</td>
+	<td>0.62207</td>
+	<td>1.85339</td>
+	<td>1.18025</td>
+	<td>0.18355</td>
+	<td>0.00796</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>0.47272</td>
+	<td>1.99649</td>
+	<td>1.17758</td>
+	<td>0.24159</td>
+	<td>0.00813</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>0.47656</td>
+	<td>1.99442</td>
+	<td>1.16876</td>
+	<td>0.46487</td>
+	<td>0.00926</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 1.6])</td>
+	<td>0.96465</td>
+	<td>1.98612</td>
+	<td>1.16157</td>
+	<td>0.13942</td>
+	<td>0.00857</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 3.2])</td>
+	<td>0.47174</td>
+	<td>1.98743</td>
+	<td>1.15749</td>
+	<td>0.46843</td>
+	<td>0.01063</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>0.80899</td>
+	<td>1.96685</td>
+	<td>1.15739</td>
+	<td>0.15688</td>
+	<td>0.00798</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 6.4])</td>
+	<td>0.54190</td>
+	<td>1.89145</td>
+	<td>1.15228</td>
+	<td>0.26347</td>
+	<td>0.00931</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>0.47921</td>
+	<td>1.84442</td>
+	<td>1.15130</td>
+	<td>0.24404</td>
+	<td>0.00912</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 3.2])</td>
+	<td>0.48650</td>
+	<td>1.96727</td>
+	<td>1.14649</td>
+	<td>0.25326</td>
+	<td>0.00739</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:gaussian, 6.4])</td>
+	<td>0.57238</td>
+	<td>1.82771</td>
+	<td>1.13186</td>
+	<td>0.23283</td>
+	<td>0.00982</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:uniform, 6.4])</td>
+	<td>0.47199</td>
+	<td>1.99053</td>
+	<td>1.12470</td>
+	<td>0.41887</td>
+	<td>0.00851</td>
+</tr>
+<tr>
+	<td>TournamentSelection(3,nil)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:uniform, 3.2])</td>
+	<td>0.49386</td>
+	<td>1.95058</td>
+	<td>1.09102</td>
+	<td>0.31409</td>
+	<td>0.00857</td>
+</tr>
+</table>
+</body>
+</html>

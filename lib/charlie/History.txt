@@ -1,0 +1,47 @@
+== 0.8.1
+* Added PartiallyMappedCrossover for permutations, thanks to Nikos Dimitrakopoulos
+* Fixed small incompatibility with activesupport, also thanks to Nikos.
+* Fixed typo in ThreePointCrossover [bug:19743]
+* Small fix for compatibility with Ruby 1.9.1
+
+== 0.8.0 / 2008-02-12
+* Added BlendingCrossover
+* Benchmark setup/teardown blocks
+* Made population inherit array
+* Support for GP-style evolution (never apply both crossover and mutation)
+* Co-evolution with small tournaments, iterated prisoner's dilemma example.
+* Added evolve_multiple* methods
+* Added support for matrix genotypes, 2-d arrays of floats or bits.
+* Added a genotype for neural networks
+
+== 0.7.1 / 2008-01-12
+* Fixed a major bug in RouletteSelection and ScaledRouletteSelection.
+
+== 0.7.0 / 2008-01-11
+* Added 1.9fixes.rb which removes all calls to super to avoid bug #16493. Now 100% 1.9-compatible.
+* N-point crossovers for lists.
+* Improved/fixed minor bug in PCross, PMutate.
+* Added PCrossN, PMutateN
+* Option check_every added for evolve_until.
+* Moved benchmark methods to GABenchmark, cleaned up code, added support for multiple stats.
+* Save & output overall best solution in benchmark. Also output version information.
+* Renamed PermutationMutator->TranspositionMutator
+* Added InsertionMutator, RotationMutator
+* Cleaned up examples, merged some, removed duplicates, added readme.
+* Changed order of unary/binary in TreeGenotype, removed defaults.
+* Extended tree mutator options.
+
+== 0.6.0 / 2007-12-26
+* Some fixes for some changes in Ruby 1.9
+* Edge recombination crossover added.
+* Inversion mutator added.
+* Removed duplicate code in Population#evolve_* methods, and added evolve_until_* methods.
+* Using allocate instead of new in Genotype#from_genes.
+* Added Genotype::cache_fitness
+* Added Tree based genotypes / genetic programming.
+* Moved Class#use to Genotype::use
+* Better defaults for benchmarks and a fix for csv output.
+
+== 0.5.0 / 2007-12-19
+* First release.
+

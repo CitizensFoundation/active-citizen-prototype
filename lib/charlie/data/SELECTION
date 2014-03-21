@@ -1,0 +1,55 @@
+== Selection documentation
+A selection operator generates the new generation from the old.
+
+The selection strategy should be defined as a +next_generation+ method in the metaclass of your genotype class.
+   class Example < Genotype
+     ...
+     class << self
+       def next_generation(population)
+         # select parents and yield(parent1,parent2) them to the crossover and mutation operator. 
+         # Create an array from several of these calls to get the next generation.
+       end
+     end
+     use RouletteSelection # or include some builtin operator
+   end
+
+The builtin selection operators are implemented as modules which should be included in the metaclass. 
+Using the Genotype.use keyword does this automatically. 
+
+== Fitness-based selection strategies
+These strategies work with genotype classes which define a +fitness+ function. The +fitness+ function should return a number, higher fitness means better and more likely to be selected. All except RouletteSelection can handle negative fitness values.
+
+*   RandomSelection
+*   TruncationSelection(best=0.3), TruncationSelection = TruncationSelection()
+*   BestOnlySelection = TruncationSelection(1)
+*   RouletteSelection
+*   ScaledRouletteSelection(&block), ScaledRouletteSelection = RankSelection = ScaledRouletteSelection()
+*   TournamentSelection(group_size=4,n_times=nil), TournamentSelection = TournamentSelection()
+
+The documentation for <tt>selection.rb</tt>[link:files/lib/charlie/selection_rb.html] contains explanations for most of these.
+
+=== Meta-selection
+==== Elitism(selection,n=1)
+Generates a module which applies elitism to some selection strategy. This:
+* saves the best +n+ solutions
+* applies the selection
+* replaces the last +n+ individuals in the new population with the best +n+ of the old population (unless the newer individual has higher fitness).
+This ensures the maximum fitness can never decrease.
+
+==== GP(selection,crossover_probability=0.75)
+Applies crossover OR mutation instead of both for generating children. Common in genetic programming. Only works for selection methods which use yield to generate children (currently all of the built-in selection methods do this).
+
+== Co-evolutionary selection strategies
+
+*  GladiatorialSelection
+   * This strategy works with genotype classes which define a <tt>fight(other)</tt> function.  This function should return true if the instance defeats +other+ in a 'fight'.
+
+*  CoTournamentSelection(group_size=4,full_tournament=false,n_times=nil)
+   * This strategy works with genotype classes which define a <tt>fight_points(other)</tt> function.  This function should return [points for self,points for other] as a result from a 'fight'. Points should always be >= 0.
+   * Selection is total-points-proportional (as in roulette selection) within tournaments of size <tt>group_size</tt>.
+
+Because there is no way to determine who is the actual best individual, using Population#benchmark 
+for comparing strategies for convergence speed, etc.
+is not possible. Defining a fitness function as some statistic you want to track or using <tt>track_stats</tt> to override the default and then using benchmark should be possible, but is untested.
+
+

@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>GA Benchmark Report</title>
+<style type='text/css'>
+  table{
+    background: #ccc;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: small;
+  }
+  th {
+    background: #666;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
+  td {
+    color: #333;
+    background: #e2e2e2;
+    padding: 2px 3px;
+    text-align: center;
+  }
+</style>
+  
+</script>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+      <h1>Information</h1>
+
+      <table>
+        <tr><th colspan=2>Version Info</th></tr>
+        <tr><td>Ruby Install Name</td><td>ruby1.9</td></tr>
+        <tr><td>Ruby Version</td><td>1.9.1</td></tr>
+        <tr><td>Charlie Version</td><td>0.8.1</td></tr>
+        <tr><th colspan=2>Benchmark Info</th></tr>
+        <tr><td>Genotype class</td><td>Weasel</td></tr>
+        <tr><td>Population size</td><td>20</td></tr>
+        <tr><td>Number of generations per run</td><td>100</td></tr>
+        <tr><td>Number of tests </td><td>36</td></tr> 
+        <tr><td>Tests repeated </td><td>10 times</td></tr> 
+        <tr><td>Number of runs </td><td>360</td></tr> 
+        <tr><td>Total number of generations </td><td>36000</td></tr> 
+        <tr><td>Total time</td><td>47.87 seconds</td></tr>
+        <tr><th colspan=2>Best Solution Info</th></tr>
+        <tr><td>Fitness</td><td>28</td></tr>
+        <tr><td>Solution</td><td><textarea rows=3 cols=40>"methinks it is like a weasel"</textarea></td></tr>
+      </table>
+<h1>Stats for all</h1><table>
+<tr><th></th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>All</td>
+	<td>11.00000</td>
+	<td>28.00000</td>
+	<td>19.96111</td>
+	<td>3.56739</td>
+	<td>0.13291</td>
+</tr>
+</table><h1>Stats for selection</h1><table>
+<tr><th>selection</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>17.00000</td>
+	<td>28.00000</td>
+	<td>21.88333</td>
+	<td>2.36708</td>
+	<td>0.12249</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>17.00000</td>
+	<td>27.00000</td>
+	<td>21.56667</td>
+	<td>2.16307</td>
+	<td>0.10015</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>11.00000</td>
+	<td>25.00000</td>
+	<td>16.43333</td>
+	<td>3.02967</td>
+	<td>0.17611</td>
+</tr>
+</table><h1>Stats for crossover</h1><table>
+<tr><th>crossover</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>UniformCrossover</td>
+	<td>13.00000</td>
+	<td>28.00000</td>
+	<td>21.27500</td>
+	<td>3.23513</td>
+	<td>0.14343</td>
+</tr>
+<tr>
+	<td>SinglePointCrossover</td>
+	<td>13.00000</td>
+	<td>27.00000</td>
+	<td>20.15000</td>
+	<td>3.42454</td>
+	<td>0.13230</td>
+</tr>
+<tr>
+	<td>NullCrossover</td>
+	<td>11.00000</td>
+	<td>26.00000</td>
+	<td>18.45833</td>
+	<td>3.45904</td>
+	<td>0.12302</td>
+</tr>
+</table><h1>Stats for mutation</h1><table>
+<tr><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>15.00000</td>
+	<td>28.00000</td>
+	<td>22.43333</td>
+	<td>2.98533</td>
+	<td>0.12861</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>13.00000</td>
+	<td>26.00000</td>
+	<td>20.76667</td>
+	<td>2.96667</td>
+	<td>0.13169</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>12.00000</td>
+	<td>23.00000</td>
+	<td>18.90000</td>
+	<td>3.21472</td>
+	<td>0.13544</td>
+</tr>
+<tr>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>11.00000</td>
+	<td>24.00000</td>
+	<td>17.74444</td>
+	<td>3.17126</td>
+	<td>0.13592</td>
+</tr>
+</table><h1>Detailed Stats</h1><table>
+<tr><th>selection</th><th>crossover</th><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>24.00000</td>
+	<td>28.00000</td>
+	<td>25.40000</td>
+	<td>1.11355</td>
+	<td>0.12677</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>22.00000</td>
+	<td>27.00000</td>
+	<td>24.10000</td>
+	<td>1.37477</td>
+	<td>0.10432</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>22.00000</td>
+	<td>26.00000</td>
+	<td>24.00000</td>
+	<td>1.26491</td>
+	<td>0.09523</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>21.00000</td>
+	<td>27.00000</td>
+	<td>24.00000</td>
+	<td>1.73205</td>
+	<td>0.08665</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>22.00000</td>
+	<td>26.00000</td>
+	<td>23.90000</td>
+	<td>1.13578</td>
+	<td>0.14327</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>22.00000</td>
+	<td>25.00000</td>
+	<td>23.00000</td>
+	<td>1.00000</td>
+	<td>0.10721</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>18.00000</td>
+	<td>26.00000</td>
+	<td>23.00000</td>
+	<td>2.32379</td>
+	<td>0.15304</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>21.00000</td>
+	<td>25.00000</td>
+	<td>23.00000</td>
+	<td>1.09545</td>
+	<td>0.13952</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>26.00000</td>
+	<td>22.60000</td>
+	<td>1.80000</td>
+	<td>0.08171</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>24.00000</td>
+	<td>22.50000</td>
+	<td>1.20416</td>
+	<td>0.09886</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>21.00000</td>
+	<td>23.00000</td>
+	<td>22.50000</td>
+	<td>0.67082</td>
+	<td>0.10582</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>25.00000</td>
+	<td>22.40000</td>
+	<td>1.42829</td>
+	<td>0.17049</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>23.00000</td>
+	<td>21.60000</td>
+	<td>0.80000</td>
+	<td>0.15574</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>24.00000</td>
+	<td>21.40000</td>
+	<td>1.20000</td>
+	<td>0.09192</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>18.00000</td>
+	<td>23.00000</td>
+	<td>21.30000</td>
+	<td>1.41774</td>
+	<td>0.10281</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>23.00000</td>
+	<td>21.30000</td>
+	<td>0.90000</td>
+	<td>0.11412</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>19.00000</td>
+	<td>22.00000</td>
+	<td>21.00000</td>
+	<td>0.89443</td>
+	<td>0.08745</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>19.00000</td>
+	<td>24.00000</td>
+	<td>21.00000</td>
+	<td>1.67332</td>
+	<td>0.12497</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>20.00000</td>
+	<td>22.00000</td>
+	<td>20.90000</td>
+	<td>0.53852</td>
+	<td>0.12585</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>18.00000</td>
+	<td>23.00000</td>
+	<td>20.10000</td>
+	<td>1.37477</td>
+	<td>0.10679</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>19.00000</td>
+	<td>21.00000</td>
+	<td>19.90000</td>
+	<td>0.53852</td>
+	<td>0.10805</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>17.00000</td>
+	<td>23.00000</td>
+	<td>19.80000</td>
+	<td>1.66132</td>
+	<td>0.18715</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>18.00000</td>
+	<td>22.00000</td>
+	<td>19.50000</td>
+	<td>1.20416</td>
+	<td>0.10732</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>17.00000</td>
+	<td>23.00000</td>
+	<td>19.40000</td>
+	<td>1.56205</td>
+	<td>0.17781</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>18.00000</td>
+	<td>21.00000</td>
+	<td>18.90000</td>
+	<td>0.94340</td>
+	<td>0.09342</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>17.00000</td>
+	<td>20.00000</td>
+	<td>18.40000</td>
+	<td>1.28062</td>
+	<td>0.11117</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.2)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>17.00000</td>
+	<td>20.00000</td>
+	<td>18.10000</td>
+	<td>0.94340</td>
+	<td>0.09962</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>14.00000</td>
+	<td>19.00000</td>
+	<td>17.10000</td>
+	<td>1.44568</td>
+	<td>0.18031</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>15.00000</td>
+	<td>19.00000</td>
+	<td>16.70000</td>
+	<td>1.10000</td>
+	<td>0.18507</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 1],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>15.00000</td>
+	<td>19.00000</td>
+	<td>16.60000</td>
+	<td>1.11355</td>
+	<td>0.15212</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 2],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>13.00000</td>
+	<td>19.00000</td>
+	<td>15.60000</td>
+	<td>1.49666</td>
+	<td>0.15881</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>14.00000</td>
+	<td>17.00000</td>
+	<td>14.90000</td>
+	<td>0.94340</td>
+	<td>0.18826</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>13.00000</td>
+	<td>16.00000</td>
+	<td>14.40000</td>
+	<td>0.80000</td>
+	<td>0.19380</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>13.00000</td>
+	<td>16.00000</td>
+	<td>13.90000</td>
+	<td>0.83066</td>
+	<td>0.17983</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 3],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>12.00000</td>
+	<td>16.00000</td>
+	<td>13.40000</td>
+	<td>1.20000</td>
+	<td>0.16639</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:n_point, 4],[:replace, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])</td>
+	<td>11.00000</td>
+	<td>16.00000</td>
+	<td>13.00000</td>
+	<td>1.26491</td>
+	<td>0.17323</td>
+</tr>
+</table>
+</body>
+</html>

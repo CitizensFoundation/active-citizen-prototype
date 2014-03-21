@@ -1,0 +1,1243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>GA Benchmark Report</title>
+<style type='text/css'>
+  table{
+    background: #ccc;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: small;
+  }
+  th {
+    background: #666;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
+  td {
+    color: #333;
+    background: #e2e2e2;
+    padding: 2px 3px;
+    text-align: center;
+  }
+</style>
+  
+</script>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+      <h1>Information</h1>
+
+      <table>
+        <tr><th colspan=2>Version Info</th></tr>
+        <tr><td>Ruby Install Name</td><td>ruby1.9</td></tr>
+        <tr><td>Ruby Version</td><td>1.9.1</td></tr>
+        <tr><td>Charlie Version</td><td>0.8.1</td></tr>
+        <tr><th colspan=2>Benchmark Info</th></tr>
+        <tr><td>Genotype class</td><td>RoyalRoad</td></tr>
+        <tr><td>Population size</td><td>20</td></tr>
+        <tr><td>Number of generations per run</td><td>100</td></tr>
+        <tr><td>Number of tests </td><td>105</td></tr> 
+        <tr><td>Tests repeated </td><td>10 times</td></tr> 
+        <tr><td>Number of runs </td><td>1050</td></tr> 
+        <tr><td>Total number of generations </td><td>105000</td></tr> 
+        <tr><td>Total time</td><td>146.12 seconds</td></tr>
+        <tr><th colspan=2>Best Solution Info</th></tr>
+        <tr><td>Fitness</td><td>7</td></tr>
+        <tr><td>Solution</td><td><textarea rows=3 cols=40>1111111111111111000011001111111111111111000111101111111111111111</textarea></td></tr>
+      </table>
+<h1>Stats for all</h1><table>
+<tr><th></th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>All</td>
+	<td>1.00000</td>
+	<td>7.00000</td>
+	<td>2.99905</td>
+	<td>1.28025</td>
+	<td>0.13915</td>
+</tr>
+</table><h1>Stats for selection</h1><table>
+<tr><th>selection</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>1.00000</td>
+	<td>7.00000</td>
+	<td>3.46190</td>
+	<td>1.05152</td>
+	<td>0.15609</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.45238</td>
+	<td>0.96615</td>
+	<td>0.15965</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.33333</td>
+	<td>1.20844</td>
+	<td>0.11000</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>1.00000</td>
+	<td>7.00000</td>
+	<td>3.26190</td>
+	<td>1.17229</td>
+	<td>0.10881</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>1.48571</td>
+	<td>0.65631</td>
+	<td>0.16118</td>
+</tr>
+</table><h1>Stats for crossover</h1><table>
+<tr><th>crossover</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>UniformCrossover</td>
+	<td>1.00000</td>
+	<td>7.00000</td>
+	<td>3.20000</td>
+	<td>1.30712</td>
+	<td>0.16472</td>
+</tr>
+<tr>
+	<td>SinglePointCrossover</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.04000</td>
+	<td>1.29993</td>
+	<td>0.12816</td>
+</tr>
+<tr>
+	<td>NullCrossover</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>2.75714</td>
+	<td>1.19087</td>
+	<td>0.12455</td>
+</tr>
+</table><h1>Stats for mutation</h1><table>
+<tr><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.29333</td>
+	<td>1.30918</td>
+	<td>0.14998</td>
+</tr>
+<tr>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.27333</td>
+	<td>1.22690</td>
+	<td>0.14915</td>
+</tr>
+<tr>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.21333</td>
+	<td>1.33959</td>
+	<td>0.15124</td>
+</tr>
+<tr>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>1.00000</td>
+	<td>7.00000</td>
+	<td>3.18667</td>
+	<td>1.31345</td>
+	<td>0.15071</td>
+</tr>
+<tr>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>1.00000</td>
+	<td>6.00000</td>
+	<td>3.11333</td>
+	<td>1.23037</td>
+	<td>0.15410</td>
+</tr>
+<tr>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>7.00000</td>
+	<td>2.90667</td>
+	<td>1.12159</td>
+	<td>0.14835</td>
+</tr>
+<tr>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>5.00000</td>
+	<td>2.00667</td>
+	<td>0.84456</td>
+	<td>0.07049</td>
+</tr>
+</table><h1>Detailed Stats</h1><table>
+<tr><th>selection</th><th>crossover</th><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.40000</td>
+	<td>1.01980</td>
+	<td>0.13897</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.40000</td>
+	<td>1.20000</td>
+	<td>0.11002</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>4.00000</td>
+	<td>5.00000</td>
+	<td>4.30000</td>
+	<td>0.45826</td>
+	<td>0.15719</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>2.00000</td>
+	<td>6.00000</td>
+	<td>4.30000</td>
+	<td>1.18743</td>
+	<td>0.11102</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>7.00000</td>
+	<td>4.30000</td>
+	<td>1.10000</td>
+	<td>0.13993</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>4.30000</td>
+	<td>0.64031</td>
+	<td>0.15652</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.30000</td>
+	<td>0.90000</td>
+	<td>0.19649</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>4.00000</td>
+	<td>5.00000</td>
+	<td>4.30000</td>
+	<td>0.45826</td>
+	<td>0.16098</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.30000</td>
+	<td>0.78102</td>
+	<td>0.20164</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>4.20000</td>
+	<td>0.74833</td>
+	<td>0.16165</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.20000</td>
+	<td>1.07703</td>
+	<td>0.10966</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>3.00000</td>
+	<td>7.00000</td>
+	<td>4.10000</td>
+	<td>1.22066</td>
+	<td>0.19700</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>2.00000</td>
+	<td>6.00000</td>
+	<td>4.10000</td>
+	<td>1.13578</td>
+	<td>0.13778</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>4.10000</td>
+	<td>0.83066</td>
+	<td>0.15444</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.10000</td>
+	<td>1.04403</td>
+	<td>0.14198</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.00000</td>
+	<td>1.00000</td>
+	<td>0.13821</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>4.00000</td>
+	<td>0.63246</td>
+	<td>0.15188</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>4.00000</td>
+	<td>0.89443</td>
+	<td>0.13744</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.70000</td>
+	<td>0.19705</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.70000</td>
+	<td>0.16000</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.70000</td>
+	<td>0.15724</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.70000</td>
+	<td>0.19699</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.53852</td>
+	<td>0.20050</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.70000</td>
+	<td>0.11000</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.90000</td>
+	<td>0.83066</td>
+	<td>0.15523</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.80000</td>
+	<td>0.40000</td>
+	<td>0.16171</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.80000</td>
+	<td>0.87178</td>
+	<td>0.15183</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.80000</td>
+	<td>0.60000</td>
+	<td>0.16076</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>6.00000</td>
+	<td>3.80000</td>
+	<td>1.07703</td>
+	<td>0.14563</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.80000</td>
+	<td>1.07703</td>
+	<td>0.14931</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.70000</td>
+	<td>1.00499</td>
+	<td>0.10796</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.70000</td>
+	<td>0.78102</td>
+	<td>0.10774</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>3.60000</td>
+	<td>0.66332</td>
+	<td>0.15381</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.60000</td>
+	<td>0.91652</td>
+	<td>0.10756</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.60000</td>
+	<td>0.66332</td>
+	<td>0.15625</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.60000</td>
+	<td>0.66332</td>
+	<td>0.11053</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.60000</td>
+	<td>0.48990</td>
+	<td>0.20026</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.60000</td>
+	<td>0.48990</td>
+	<td>0.15340</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.50000</td>
+	<td>0.92195</td>
+	<td>0.10845</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.50000</td>
+	<td>0.50000</td>
+	<td>0.19829</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>3.00000</td>
+	<td>6.00000</td>
+	<td>3.50000</td>
+	<td>1.02470</td>
+	<td>0.20031</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.50000</td>
+	<td>0.50000</td>
+	<td>0.20085</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.50000</td>
+	<td>0.50000</td>
+	<td>0.15643</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>2.00000</td>
+	<td>6.00000</td>
+	<td>3.50000</td>
+	<td>1.02470</td>
+	<td>0.13709</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>3.50000</td>
+	<td>0.67082</td>
+	<td>0.15120</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.50000</td>
+	<td>1.02470</td>
+	<td>0.10943</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.40000</td>
+	<td>0.48990</td>
+	<td>0.16215</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>5.00000</td>
+	<td>3.40000</td>
+	<td>0.66332</td>
+	<td>0.15561</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.40000</td>
+	<td>0.48990</td>
+	<td>0.20258</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.40000</td>
+	<td>1.01980</td>
+	<td>0.10672</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.40000</td>
+	<td>1.11355</td>
+	<td>0.10754</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.30000</td>
+	<td>0.90000</td>
+	<td>0.15017</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>3.30000</td>
+	<td>0.78102</td>
+	<td>0.15449</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>6.00000</td>
+	<td>3.30000</td>
+	<td>1.10000</td>
+	<td>0.10464</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.20000</td>
+	<td>0.40000</td>
+	<td>0.15415</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>3.00000</td>
+	<td>4.00000</td>
+	<td>3.20000</td>
+	<td>0.40000</td>
+	<td>0.19682</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>3.20000</td>
+	<td>0.97980</td>
+	<td>0.11014</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>5.00000</td>
+	<td>3.20000</td>
+	<td>1.16619</td>
+	<td>0.15235</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.20000</td>
+	<td>1.07703</td>
+	<td>0.10642</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.20000</td>
+	<td>1.07703</td>
+	<td>0.10597</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.10000</td>
+	<td>0.83066</td>
+	<td>0.10550</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.10000</td>
+	<td>0.94340</td>
+	<td>0.13547</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>3.10000</td>
+	<td>1.04403</td>
+	<td>0.10561</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>3.10000</td>
+	<td>0.53852</td>
+	<td>0.15951</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>5.00000</td>
+	<td>3.00000</td>
+	<td>1.18322</td>
+	<td>0.15498</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>2.90000</td>
+	<td>0.53852</td>
+	<td>0.10866</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>2.90000</td>
+	<td>0.94340</td>
+	<td>0.13572</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>UniformCrossover</td>
+	<td>NullMutator</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>2.80000</td>
+	<td>0.74833</td>
+	<td>0.07442</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>2.80000</td>
+	<td>0.97980</td>
+	<td>0.10439</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>UniformCrossover</td>
+	<td>NullMutator</td>
+	<td>2.00000</td>
+	<td>5.00000</td>
+	<td>2.70000</td>
+	<td>1.00499</td>
+	<td>0.11519</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>2.60000</td>
+	<td>0.80000</td>
+	<td>0.10669</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>2.50000</td>
+	<td>0.80623</td>
+	<td>0.10862</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>UniformCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>5.00000</td>
+	<td>2.50000</td>
+	<td>1.02470</td>
+	<td>0.10960</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>2.00000</td>
+	<td>4.00000</td>
+	<td>2.40000</td>
+	<td>0.66332</td>
+	<td>0.10311</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>2.40000</td>
+	<td>0.80000</td>
+	<td>0.10442</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>UniformCrossover</td>
+	<td>NullMutator</td>
+	<td>2.00000</td>
+	<td>3.00000</td>
+	<td>2.40000</td>
+	<td>0.48990</td>
+	<td>0.07495</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>2.20000</td>
+	<td>0.97980</td>
+	<td>0.19881</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>SinglePointCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>2.20000</td>
+	<td>0.97980</td>
+	<td>0.04548</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>4.00000</td>
+	<td>2.20000</td>
+	<td>0.74833</td>
+	<td>0.15529</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>SinglePointCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>2.10000</td>
+	<td>0.83066</td>
+	<td>0.07432</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>2.10000</td>
+	<td>0.70000</td>
+	<td>0.11077</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>SinglePointCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>2.00000</td>
+	<td>0.63246</td>
+	<td>0.04548</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>SinglePointCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>2.00000</td>
+	<td>0.89443</td>
+	<td>0.06783</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>2.00000</td>
+	<td>0.63246</td>
+	<td>0.16065</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>1.80000</td>
+	<td>0.60000</td>
+	<td>0.06948</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.70000</td>
+	<td>0.45826</td>
+	<td>0.15541</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 2],:flip)</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>1.70000</td>
+	<td>0.64031</td>
+	<td>0.19863</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.60000</td>
+	<td>0.48990</td>
+	<td>0.04223</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>1.60000</td>
+	<td>0.66332</td>
+	<td>0.15573</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 1],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.60000</td>
+	<td>0.48990</td>
+	<td>0.16100</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.50000</td>
+	<td>0.50000</td>
+	<td>0.06257</td>
+</tr>
+<tr>
+	<td>Elitism(RouletteSelection,1)</td>
+	<td>NullCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.50000</td>
+	<td>0.50000</td>
+	<td>0.06416</td>
+</tr>
+<tr>
+	<td>TruncationSelection(0.3)</td>
+	<td>NullCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.50000</td>
+	<td>0.50000</td>
+	<td>0.03959</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>NullMutator</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.40000</td>
+	<td>0.48990</td>
+	<td>0.06124</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.30000</td>
+	<td>0.45826</td>
+	<td>0.15794</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>1.00000</td>
+	<td>3.00000</td>
+	<td>1.30000</td>
+	<td>0.64031</td>
+	<td>0.16070</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.20000</td>
+	<td>0.40000</td>
+	<td>0.18586</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.20000</td>
+	<td>0.40000</td>
+	<td>0.16113</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.20000</td>
+	<td>0.40000</td>
+	<td>0.16129</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 4],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.20000</td>
+	<td>0.40000</td>
+	<td>0.19998</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>NullCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.20000</td>
+	<td>0.40000</td>
+	<td>0.16567</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.10000</td>
+	<td>0.30000</td>
+	<td>0.20333</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 3],:flip)</td>
+	<td>1.00000</td>
+	<td>2.00000</td>
+	<td>1.10000</td>
+	<td>0.30000</td>
+	<td>0.19854</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>UniformCrossover</td>
+	<td>ListMutator([:expected_n, 5],:flip)</td>
+	<td>1.00000</td>
+	<td>1.00000</td>
+	<td>1.00000</td>
+	<td>0.00000</td>
+	<td>0.20031</td>
+</tr>
+<tr>
+	<td>RouletteSelection</td>
+	<td>SinglePointCrossover</td>
+	<td>ListMutator([:expected_n, 6],:flip)</td>
+	<td>1.00000</td>
+	<td>1.00000</td>
+	<td>1.00000</td>
+	<td>0.00000</td>
+	<td>0.16165</td>
+</tr>
+</table>
+</body>
+</html>

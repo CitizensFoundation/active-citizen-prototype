@@ -1,0 +1,72 @@
+== Genotype documentation
+The genotype, aka genome is a simple representation of a solution to your problem.
+This is usually an array of numbers or bits.
+
+=== Creating your own.
+If you are creating your own genotype, just inherit from the base Genotype class.
+You should initialize an instance in the +initialize+ method, and make sure the +genes+ and <tt>genes=</tt> functions work properly.
+
+The base class includes NullCrossover, NullMutator and Elitism(ScaledRouletteSelection(),1) by default.
+
+All of the other genotypes described here inherit the base class, and its associated selection/crossover/mutation operators, unless
+otherwise indicated.
+
+=== List-based genotypes  <tt>->file</tt>[link:files/lib/charlie/list/list_genotype_rb.html]
+All of these genotypes are based on arrays and can use the list-based crossover and mutation operators.
+They are all generated dynamically by functions, and should be used like:
+
+ class MyGenotype < FloatListGenotype(5)
+   def fitness
+     ...
+   end
+ end
+
+
+====   FloatListGenotype(n,range=0..1)   
+Genotype of +n+ floats initialized in the range +range+. Mutations can take the floats out of this range.
+
+Includes <tt>ListMutator()</tt> (with default parameters :expected_n[3], :uniform[ 0.25 ]) and <tt>SinglePointCrossover</tt> by default.
+
+====  BitStringGenotype(n)
+Genotype of +n+ bits. +genes+ returns an array of 0/1, +to_s+ returns a string.
+
+Includes <tt>ListMutator(:expected_n[3],:flip), SinglePointCrossover</tt> by default.
+
+==== StringGenotype(n,elements)
+Genotype of +n+ elements (not necessarily chars).
+
+Includes <tt>ListMutator(:expected_n[2],:replace[*elements]), SinglePointCrossover</tt> by default.
+
+==== NeuralNetworkGenotype(input_n,hidden_n,output_n=1,scaling=1.0,hidden_f=NN_TANH,output_f=NN_TANH)
+Genotype for a neural network. <tt>->file</tt>[link:files/lib/charlie/list/neural_rb.html]
+
+Inherits FloatListGenotype and includes <tt>UniformCrossover</tt> by default.
+
+
+=== Matrix-based genotypes  <tt>->file</tt>[link:files/lib/charlie/list/matrix_rb.html]
+These genotypes are based on arrays of arrays and can use the matrix-based crossover and mutation operators. Some of the crossovers for lists also work on these, by considering rows as single elements of a list (see the CROSSOVER file for details).
+
+====   FloatMatrixGenotype(rows,columns=rows,range=0..1)   
+Genotype of <tt>rows x columns</tt> floats initialized in the range +range+. Mutations can take the floats out of this range.
+
+Includes <tt>MatrixMutator()</tt> (with default parameters :expected_n[3], :uniform[ 0.25 ]) and <tt>MatrixUniformCrossover</tt> by default.
+
+====  BitStringGenotype(n)
+Genotype of <tt>rows x columns</tt> bits.
+
+Includes <tt>MatrixMutator(:expected_n[3],:flip)</tt> and <tt>MatrixUniformCrossover</tt> by default.
+
+
+=== Specialized genotypes
+These genotypes have their own crossover and mutation operators.
+
+==== PermutationGenotype(n,elements=0...n)  <tt>->file</tt>[link:files/lib/charlie/permutation/permutation_rb.html]
+Genotype for permutations. Includes TranspositionMutator and PermutationCrossover by default.
+
+==== TreeGenotype(terminals, unary_ops, binary_ops)  <tt>->file</tt>[link:files/lib/charlie/tree/tree_rb.html]
+* Genotype for trees. Useful for genetic programming. Includes PMutate(0.5,TreeReplaceMutator) and PCross(0.7,TreeCrossover) by default.
+* Functions included: eval_genes(terminal_values_hash), size, depth, module GPTreeHelper
+* Check examples/tree.rb for usage.
+
+
+

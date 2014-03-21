@@ -1,0 +1,1085 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>GA Benchmark Report</title>
+<style type='text/css'>
+  table{
+    background: #ccc;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: small;
+  }
+  th {
+    background: #666;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
+  td {
+    color: #333;
+    background: #e2e2e2;
+    padding: 2px 3px;
+    text-align: center;
+  }
+</style>
+  
+</script>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+      <h1>Information</h1>
+
+      <table>
+        <tr><th colspan=2>Version Info</th></tr>
+        <tr><td>Ruby Install Name</td><td>jruby</td></tr>
+        <tr><td>Ruby Version</td><td>1.8.6</td></tr>
+        <tr><td>Charlie Version</td><td>0.8.1</td></tr>
+        <tr><th colspan=2>Benchmark Info</th></tr>
+        <tr><td>Genotype class</td><td>TSP</td></tr>
+        <tr><td>Population size</td><td>20</td></tr>
+        <tr><td>Number of generations per run</td><td>400</td></tr>
+        <tr><td>Number of tests </td><td>90</td></tr> 
+        <tr><td>Tests repeated </td><td>8 times</td></tr> 
+        <tr><td>Number of runs </td><td>720</td></tr> 
+        <tr><td>Total number of generations </td><td>288000</td></tr> 
+        <tr><td>Total time</td><td>3772.92 seconds</td></tr>
+        <tr><th colspan=2>Best Solution Info</th></tr>
+        <tr><td>Fitness</td><td>-49.41421356237309</td></tr>
+        <tr><td>Solution</td><td><textarea rows=3 cols=40>[45, 44, 37, 30, 29, 36, 43, 42, 35, 28, 21, 14, 7, 0, 1, 8, 9, 2, 3, 10, 11, 4, 12, 5, 6, 13, 20, 27, 26, 19, 18, 17, 16, 15, 22, 23, 24, 25, 32, 31, 38, 39, 40, 33, 34, 41, 48, 47, 46]</textarea></td></tr>
+      </table>
+<h1>Stats for all</h1><table>
+<tr><th></th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>All</td>
+	<td>-100.53779</td>
+	<td>-49.41421</td>
+	<td>-65.50360</td>
+	<td>12.61846</td>
+	<td>5.23983</td>
+</tr>
+</table><h1>Stats for selection</h1><table>
+<tr><th>selection</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>-71.93748</td>
+	<td>-49.41421</td>
+	<td>-54.85529</td>
+	<td>5.19336</td>
+	<td>4.90572</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>-95.69119</td>
+	<td>-50.24264</td>
+	<td>-63.34164</td>
+	<td>8.89046</td>
+	<td>5.34570</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>-100.53779</td>
+	<td>-58.25798</td>
+	<td>-78.31386</td>
+	<td>9.46055</td>
+	<td>5.46809</td>
+</tr>
+</table><h1>Stats for crossover</h1><table>
+<tr><th>crossover</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>NullCrossover</td>
+	<td>-90.70085</td>
+	<td>-50.24264</td>
+	<td>-62.40723</td>
+	<td>9.85949</td>
+	<td>1.32537</td>
+</tr>
+<tr>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>-90.64844</td>
+	<td>-49.41421</td>
+	<td>-62.54704</td>
+	<td>10.21456</td>
+	<td>1.43405</td>
+</tr>
+<tr>
+	<td>PartiallyMappedCrossover</td>
+	<td>-88.81712</td>
+	<td>-49.41421</td>
+	<td>-65.32797</td>
+	<td>10.78019</td>
+	<td>1.54126</td>
+</tr>
+<tr>
+	<td>EdgeRecombinationCrossover</td>
+	<td>-100.53779</td>
+	<td>-50.24264</td>
+	<td>-66.55111</td>
+	<td>15.20678</td>
+	<td>18.30139</td>
+</tr>
+<tr>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>-93.29972</td>
+	<td>-50.24264</td>
+	<td>-66.88946</td>
+	<td>12.99074</td>
+	<td>7.41908</td>
+</tr>
+<tr>
+	<td>PermutationCrossover</td>
+	<td>-98.70518</td>
+	<td>-49.41421</td>
+	<td>-69.29879</td>
+	<td>14.20591</td>
+	<td>1.41786</td>
+</tr>
+</table><h1>Stats for mutation</h1><table>
+<tr><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-88.31420</td>
+	<td>-49.41421</td>
+	<td>-60.08544</td>
+	<td>10.69441</td>
+	<td>5.23109</td>
+</tr>
+<tr>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-91.79045</td>
+	<td>-49.41421</td>
+	<td>-61.77005</td>
+	<td>12.07371</td>
+	<td>5.21936</td>
+</tr>
+<tr>
+	<td>InversionMutator</td>
+	<td>-94.35641</td>
+	<td>-49.41421</td>
+	<td>-63.67875</td>
+	<td>12.11053</td>
+	<td>5.24938</td>
+</tr>
+<tr>
+	<td>InsertionMutator</td>
+	<td>-91.90842</td>
+	<td>-50.65028</td>
+	<td>-68.13936</td>
+	<td>11.46532</td>
+	<td>5.19251</td>
+</tr>
+<tr>
+	<td>TranspositionMutator</td>
+	<td>-100.53779</td>
+	<td>-54.12899</td>
+	<td>-73.84439</td>
+	<td>11.60701</td>
+	<td>5.30683</td>
+</tr>
+</table><h1>Detailed Stats</h1><table>
+<tr><th>selection</th><th>crossover</th><th>mutation</th><th>min</th><th>max</th><th>avg</th><th>stddev</th><th>time</th></tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PermutationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-51.89949</td>
+	<td>-50.24264</td>
+	<td>-51.01847</td>
+	<td>0.52475</td>
+	<td>1.34726</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-52.72792</td>
+	<td>-50.24264</td>
+	<td>-51.04074</td>
+	<td>1.07573</td>
+	<td>1.46683</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-53.55635</td>
+	<td>-50.24264</td>
+	<td>-51.07107</td>
+	<td>1.09591</td>
+	<td>1.27774</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-53.55635</td>
+	<td>-49.41421</td>
+	<td>-51.17462</td>
+	<td>1.40084</td>
+	<td>1.46998</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-51.89949</td>
+	<td>-50.24264</td>
+	<td>-51.24784</td>
+	<td>0.51865</td>
+	<td>1.37736</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PermutationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-53.13556</td>
+	<td>-49.41421</td>
+	<td>-51.32913</td>
+	<td>1.15067</td>
+	<td>1.33496</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-53.13556</td>
+	<td>-50.24264</td>
+	<td>-51.43268</td>
+	<td>1.00125</td>
+	<td>6.79271</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-52.72792</td>
+	<td>-50.24264</td>
+	<td>-51.53459</td>
+	<td>0.72965</td>
+	<td>6.75273</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-51.89949</td>
+	<td>-51.07107</td>
+	<td>-51.53624</td>
+	<td>0.38410</td>
+	<td>16.71513</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-51.89949</td>
+	<td>-50.65028</td>
+	<td>-51.53624</td>
+	<td>0.48444</td>
+	<td>1.36180</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-52.72792</td>
+	<td>-50.24264</td>
+	<td>-51.53624</td>
+	<td>0.70049</td>
+	<td>1.28764</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-53.31371</td>
+	<td>-50.24264</td>
+	<td>-51.55850</td>
+	<td>0.85687</td>
+	<td>16.82650</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>InversionMutator</td>
+	<td>-53.96399</td>
+	<td>-49.41421</td>
+	<td>-51.63979</td>
+	<td>1.32368</td>
+	<td>1.27114</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>InversionMutator</td>
+	<td>-53.96399</td>
+	<td>-50.65028</td>
+	<td>-52.20851</td>
+	<td>1.07101</td>
+	<td>1.17065</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>InversionMutator</td>
+	<td>-53.96399</td>
+	<td>-50.24264</td>
+	<td>-52.41233</td>
+	<td>1.08898</td>
+	<td>1.39001</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>InversionMutator</td>
+	<td>-54.38478</td>
+	<td>-51.07107</td>
+	<td>-52.46822</td>
+	<td>0.90142</td>
+	<td>6.65909</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PermutationCrossover</td>
+	<td>InversionMutator</td>
+	<td>-53.55635</td>
+	<td>-51.07107</td>
+	<td>-52.51917</td>
+	<td>0.71697</td>
+	<td>1.25546</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>InversionMutator</td>
+	<td>-55.62084</td>
+	<td>-51.07107</td>
+	<td>-53.03694</td>
+	<td>1.28804</td>
+	<td>17.98493</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-61.05248</td>
+	<td>-50.24264</td>
+	<td>-53.41615</td>
+	<td>3.08842</td>
+	<td>17.92414</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>InsertionMutator</td>
+	<td>-58.43613</td>
+	<td>-50.65028</td>
+	<td>-54.18323</td>
+	<td>2.39315</td>
+	<td>1.28251</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-61.79899</td>
+	<td>-50.24264</td>
+	<td>-54.69397</td>
+	<td>4.05277</td>
+	<td>1.59000</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-58.77927</td>
+	<td>-51.07107</td>
+	<td>-54.79493</td>
+	<td>2.59934</td>
+	<td>16.93111</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-64.22441</td>
+	<td>-51.07107</td>
+	<td>-55.45092</td>
+	<td>4.12655</td>
+	<td>1.57284</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-62.47839</td>
+	<td>-51.89949</td>
+	<td>-55.59616</td>
+	<td>3.99775</td>
+	<td>1.47841</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-60.99033</td>
+	<td>-50.65028</td>
+	<td>-55.98891</td>
+	<td>3.94813</td>
+	<td>7.92784</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PermutationCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-61.01262</td>
+	<td>-51.89949</td>
+	<td>-56.09820</td>
+	<td>3.14460</td>
+	<td>1.24140</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>InversionMutator</td>
+	<td>-64.58526</td>
+	<td>-51.89949</td>
+	<td>-56.36364</td>
+	<td>4.05815</td>
+	<td>1.38762</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>InsertionMutator</td>
+	<td>-60.76998</td>
+	<td>-52.72792</td>
+	<td>-56.40133</td>
+	<td>2.51525</td>
+	<td>6.62832</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-66.64216</td>
+	<td>-51.89949</td>
+	<td>-56.48265</td>
+	<td>5.20053</td>
+	<td>7.88027</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-58.54978</td>
+	<td>-54.23335</td>
+	<td>-56.65680</td>
+	<td>1.60414</td>
+	<td>1.38981</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-63.71494</td>
+	<td>-50.65028</td>
+	<td>-56.74567</td>
+	<td>4.64847</td>
+	<td>1.68682</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-62.24869</td>
+	<td>-52.72792</td>
+	<td>-56.76297</td>
+	<td>3.10933</td>
+	<td>1.17301</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PermutationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-61.60770</td>
+	<td>-53.89949</td>
+	<td>-56.86569</td>
+	<td>2.35571</td>
+	<td>1.55024</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>InversionMutator</td>
+	<td>-64.86970</td>
+	<td>-51.65685</td>
+	<td>-56.88289</td>
+	<td>4.05465</td>
+	<td>18.00094</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-60.70140</td>
+	<td>-52.72792</td>
+	<td>-56.99074</td>
+	<td>2.28118</td>
+	<td>1.47317</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-64.23301</td>
+	<td>-52.30714</td>
+	<td>-57.41001</td>
+	<td>3.95268</td>
+	<td>17.95292</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>InversionMutator</td>
+	<td>-70.95018</td>
+	<td>-52.72792</td>
+	<td>-59.21462</td>
+	<td>5.41215</td>
+	<td>1.49431</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-71.77861</td>
+	<td>-53.72135</td>
+	<td>-60.10600</td>
+	<td>5.81677</td>
+	<td>18.15808</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-79.61006</td>
+	<td>-54.14214</td>
+	<td>-61.46829</td>
+	<td>8.27765</td>
+	<td>1.69914</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>NullCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-68.02650</td>
+	<td>-56.19349</td>
+	<td>-61.61809</td>
+	<td>4.50652</td>
+	<td>1.17191</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-67.79189</td>
+	<td>-58.25798</td>
+	<td>-62.95376</td>
+	<td>3.10124</td>
+	<td>1.39235</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PermutationCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-69.98002</td>
+	<td>-57.12627</td>
+	<td>-63.24656</td>
+	<td>4.22917</td>
+	<td>1.29128</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-69.66699</td>
+	<td>-54.12899</td>
+	<td>-63.27157</td>
+	<td>4.48279</td>
+	<td>18.81116</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>InversionMutator</td>
+	<td>-67.17762</td>
+	<td>-58.37163</td>
+	<td>-63.52173</td>
+	<td>2.49348</td>
+	<td>1.41407</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-67.06782</td>
+	<td>-60.54978</td>
+	<td>-63.64268</td>
+	<td>2.20428</td>
+	<td>1.39087</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>TranspositionMutator</td>
+	<td>-71.93748</td>
+	<td>-58.87433</td>
+	<td>-63.88296</td>
+	<td>3.79794</td>
+	<td>1.28602</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>TranspositionMutator</td>
+	<td>-70.31727</td>
+	<td>-58.05520</td>
+	<td>-63.91105</td>
+	<td>4.17222</td>
+	<td>6.79231</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-68.50062</td>
+	<td>-60.76998</td>
+	<td>-64.00164</td>
+	<td>2.46487</td>
+	<td>1.51001</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-76.18014</td>
+	<td>-54.72792</td>
+	<td>-64.10780</td>
+	<td>5.90356</td>
+	<td>18.28287</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PermutationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-74.52851</td>
+	<td>-58.02849</td>
+	<td>-64.28959</td>
+	<td>5.64828</td>
+	<td>1.56345</td>
+</tr>
+<tr>
+	<td>TruncationSelection(1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-71.63793</td>
+	<td>-58.72792</td>
+	<td>-64.52966</td>
+	<td>4.39208</td>
+	<td>1.43074</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>InversionMutator</td>
+	<td>-77.24857</td>
+	<td>-56.02849</td>
+	<td>-65.20977</td>
+	<td>6.23442</td>
+	<td>1.61638</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-70.59568</td>
+	<td>-61.25526</td>
+	<td>-65.35208</td>
+	<td>3.72519</td>
+	<td>1.51361</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>InversionMutator</td>
+	<td>-68.56512</td>
+	<td>-59.67219</td>
+	<td>-65.43296</td>
+	<td>2.63410</td>
+	<td>1.30778</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>InsertionMutator</td>
+	<td>-76.33316</td>
+	<td>-57.02191</td>
+	<td>-66.60507</td>
+	<td>5.63881</td>
+	<td>7.97696</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>TranspositionMutator</td>
+	<td>-77.26472</td>
+	<td>-56.61427</td>
+	<td>-67.38458</td>
+	<td>6.78673</td>
+	<td>7.91481</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-73.47435</td>
+	<td>-63.12627</td>
+	<td>-68.17726</td>
+	<td>3.05746</td>
+	<td>1.57367</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PermutationCrossover</td>
+	<td>InversionMutator</td>
+	<td>-79.26558</td>
+	<td>-62.33562</td>
+	<td>-68.67009</td>
+	<td>5.16203</td>
+	<td>1.47726</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-80.27004</td>
+	<td>-56.95742</td>
+	<td>-69.45924</td>
+	<td>6.93464</td>
+	<td>1.39619</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>InversionMutator</td>
+	<td>-78.78724</td>
+	<td>-61.78942</td>
+	<td>-69.63783</td>
+	<td>4.43087</td>
+	<td>7.91186</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>InversionMutator</td>
+	<td>-73.45804</td>
+	<td>-62.09298</td>
+	<td>-70.26144</td>
+	<td>3.41196</td>
+	<td>1.53101</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-84.77482</td>
+	<td>-60.85691</td>
+	<td>-70.35648</td>
+	<td>6.99122</td>
+	<td>1.60939</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>InsertionMutator</td>
+	<td>-77.79740</td>
+	<td>-64.65633</td>
+	<td>-70.90551</td>
+	<td>4.85202</td>
+	<td>1.50362</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PermutationCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-84.57272</td>
+	<td>-65.85419</td>
+	<td>-71.91277</td>
+	<td>6.13366</td>
+	<td>1.47064</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-77.74517</td>
+	<td>-67.89239</td>
+	<td>-73.77209</td>
+	<td>3.10031</td>
+	<td>1.61746</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>TranspositionMutator</td>
+	<td>-79.56667</td>
+	<td>-66.00989</td>
+	<td>-74.45217</td>
+	<td>4.96511</td>
+	<td>1.46842</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>InsertionMutator</td>
+	<td>-82.02617</td>
+	<td>-67.77655</td>
+	<td>-75.38299</td>
+	<td>4.12463</td>
+	<td>1.45029</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>NullCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-78.95306</td>
+	<td>-67.44153</td>
+	<td>-75.57389</td>
+	<td>3.54858</td>
+	<td>1.37307</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-81.21423</td>
+	<td>-68.14433</td>
+	<td>-75.71036</td>
+	<td>3.73303</td>
+	<td>1.30938</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-78.54454</td>
+	<td>-71.27502</td>
+	<td>-76.54790</td>
+	<td>2.20446</td>
+	<td>1.62271</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-84.69586</td>
+	<td>-68.99252</td>
+	<td>-76.87180</td>
+	<td>4.74084</td>
+	<td>7.57059</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PermutationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-88.31420</td>
+	<td>-72.43345</td>
+	<td>-79.75315</td>
+	<td>5.29434</td>
+	<td>1.51780</td>
+</tr>
+<tr>
+	<td>TournamentSelection(4,nil)</td>
+	<td>PermutationCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-95.69119</td>
+	<td>-68.48816</td>
+	<td>-79.83095</td>
+	<td>7.60732</td>
+	<td>1.45572</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, NullMutator=>0.19999999999999996})</td>
+	<td>-84.67235</td>
+	<td>-72.32316</td>
+	<td>-80.55372</td>
+	<td>4.15918</td>
+	<td>19.38783</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-88.81712</td>
+	<td>-75.67439</td>
+	<td>-80.72416</td>
+	<td>3.61367</td>
+	<td>1.52528</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PartiallyMappedCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-87.74699</td>
+	<td>-71.48475</td>
+	<td>-80.84227</td>
+	<td>4.72291</td>
+	<td>1.48963</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>NullCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-90.70085</td>
+	<td>-71.68534</td>
+	<td>-81.18808</td>
+	<td>5.69578</td>
+	<td>1.29086</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-88.60022</td>
+	<td>-71.74331</td>
+	<td>-81.21190</td>
+	<td>4.83276</td>
+	<td>7.67337</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>InsertionMutator</td>
+	<td>-90.42159</td>
+	<td>-75.03725</td>
+	<td>-82.05514</td>
+	<td>4.47751</td>
+	<td>7.53555</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PermutationCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-88.31594</td>
+	<td>-70.05044</td>
+	<td>-82.15979</td>
+	<td>5.28899</td>
+	<td>1.42023</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.01,EdgeRecombinationCrossover,NullCrossover)</td>
+	<td>TranspositionMutator</td>
+	<td>-90.64844</td>
+	<td>-73.71810</td>
+	<td>-82.73995</td>
+	<td>5.54424</td>
+	<td>1.41473</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PermutationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-91.79045</td>
+	<td>-77.67337</td>
+	<td>-83.19343</td>
+	<td>4.57481</td>
+	<td>1.50540</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>InversionMutator</td>
+	<td>-85.33952</td>
+	<td>-79.53995</td>
+	<td>-83.44185</td>
+	<td>1.72668</td>
+	<td>7.67808</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>PMutateN({InversionMutator=>0.4, InsertionMutator=>0.4, RotationMutator=>0.2})</td>
+	<td>-91.36217</td>
+	<td>-76.14818</td>
+	<td>-84.12954</td>
+	<td>4.78397</td>
+	<td>19.09624</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>InsertionMutator</td>
+	<td>-91.90842</td>
+	<td>-81.16799</td>
+	<td>-86.23350</td>
+	<td>3.36480</td>
+	<td>19.46342</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PermutationCrossover</td>
+	<td>InversionMutator</td>
+	<td>-94.35641</td>
+	<td>-81.91601</td>
+	<td>-86.53313</td>
+	<td>3.67677</td>
+	<td>1.45757</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>InversionMutator</td>
+	<td>-90.45353</td>
+	<td>-84.27518</td>
+	<td>-86.76266</td>
+	<td>1.66214</td>
+	<td>19.48074</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PCross(0.5,EdgeRecombinationCrossover,PermutationCrossover)</td>
+	<td>TranspositionMutator</td>
+	<td>-93.29972</td>
+	<td>-83.18366</td>
+	<td>-87.91437</td>
+	<td>2.99838</td>
+	<td>7.59172</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>PermutationCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-98.70518</td>
+	<td>-85.95908</td>
+	<td>-92.06170</td>
+	<td>4.11158</td>
+	<td>1.37922</td>
+</tr>
+<tr>
+	<td>Elitism(ScaledRouletteSelection[1,2,3,4,...],1)</td>
+	<td>EdgeRecombinationCrossover</td>
+	<td>TranspositionMutator</td>
+	<td>-100.53779</td>
+	<td>-89.43224</td>
+	<td>-94.46613</td>
+	<td>3.95278</td>
+	<td>19.50484</td>
+</tr>
+</table>
+</body>
+</html>

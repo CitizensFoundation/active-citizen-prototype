@@ -1,0 +1,59 @@
+== Benchmark documentation
+GABenchmark.benchmark can compare several selection, crossover and mutation methods and give a report comparing their
+performance, both for convergence and speed.
+
+An example for a call to the function is:
+
+ GABenchmark.benchmark(YourGenotypeClass,'html_output.html','csv_output.csv') {
+   selection RandomSelection, TournamentSelection(3)
+   crossover SinglePointCrossover
+   mutator   ListMutator(:single_point,:uniform[0.25]), ListMutator(:expected_n[2],:gaussian[0.2])
+   repeat 5
+   population_size 27
+ }
+
+* YourGenotypeClass is the class which has Genotype as an ancestor and which has fitness function.
+* <tt>html_output.html</tt> is an output file where a large report with several tables of statistics will be written. Pass nil for no output file of this type.
+* <tt>csv_output.csv</tt> is an output file where the raw data (the maximum fitness value for each run) will be written. Pass nil or omit parameter for no output file of this type.
+
+
+In the block you can call several functions to specify the parameters of the benchmark.
+This is sometimes refered to as a DSL. As inaccurate as that term may be, I'll still use it here.
+
+
+=== Benchmark DSL documentation  (also see GABenchmark::StrategiesDSL)
+In the block you can call the following functions:
+
+==== <tt>selection(*s_args)</tt>
+Will cause each of the selection modules in +s_args+ to be tested.
+==== <tt>crossover(*c_args)</tt>
+Will cause each of the crossover modules in +c_args+ to be tested.
+==== <tt>mutator(*m_args)</tt> or <tt>mutation(*m_args)</tt>
+Will cause each of the mutation modules in +m_args+ to be tested.
+
+==== <tt>generations  g</tt>
+Changes the number of generations in each test to +g+. Default is 50.
+
+==== <tt>population_size  s</tt>
+Changes the population size in each test to +g+. Default is 20.
+
+==== <tt>repeat  r</tt>
+Changes the number of times each test will be repeated to +r+. Default is 10, a higher number here will take longer to 
+complete, but will improve the accuracy of the results.
+
+==== <tt>track_stat{|best| best.fitness }</tt> or <tt>track_stats{|best| [best.fitness, best.some_other_stat] }</tt>
+* Changes the statistic you want to track, the individual with the highest fitness at the end of a run is yielded to the block.
+* Default is the fitness itself.
+* This can be an array, if you want to track multiple stats at once (for example: tracking both training and generalization error).
+
+==== <tt>setup{|population| ... }</tt> and <tt>teardown{|population| ... }</tt>
+* Extra blocks called before and after the tests (before Population#evolve_silent, and after 'track_stats')
+* setup can be used to reshuffle traning data, initialize the population to some specific state, etc.
+
+==== Remarks 
+* If you want to test the module that is already included without repeating it, just pass Module.new as one of the arguments (or Module.new{self.name='default'} for something more descriptive). This is also the default, so <tt>GABenchmark.benchmark(klass){}</tt> will simply test the strategies already included.
+* The methods <tt>selection, crossover, mutator, generations, population_size, repeat</tt> are defined using metaprogramming as <tt>attr_dsl</tt>. Passing no arguments to the function will return the current value, passing more will assign the value. This means you  can do things like <tt>selection << TournamentSelection(3)</tt> in the block. 
+* You can also use calls like <tt>self.repeat = 10</tt>, which are aliases.
+
+
+

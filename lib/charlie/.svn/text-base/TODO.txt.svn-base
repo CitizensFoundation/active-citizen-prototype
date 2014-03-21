@@ -1,0 +1,15 @@
+This is my todo list. Contributions and suggestions don't have to be restricted to these things in any way.
+
+=== Small stuff
+* Brood crossover? 
+=== Bigger stuff
+* More selection algorithms: multiple populations with migration? Niching?
+* More builtin genotypes:
+  * Tree-based, extending into genetic programming. mostly done. add option for ADFs? Cartesian GP?
+* Extend benchmarking options:
+  * Extend dsl to have options for manual test cases given by sel/cross/mut/etc options, or even free code blocks.
+  * Option to compare several generation/population size settings. Especially both of them together while keeping the number of fitness evaluations roughly constant.
+  * Detailed stats for use in comparing a small number of strategies? graphs?
+
+
+

@@ -1,0 +1,68 @@
+== Crossover documentation
+A crossover operator combines two parents to generate one or (usually) two children.
+
+The crossover operator should be defined as a +cross+ method in the metaclass of your genotype class.
+   class Example < Genotype
+     ...
+     class << self
+       def cross(parent1,parent2)
+         # generate children. 
+       end
+     end
+     use NullCrossover # or include some builtin operator
+   end
+Also see the Genotype#from_genes function, which can be useful for generating children after extracting and recombining the parents' genes.
+
+The builtin crossover operators are implemented as modules which should be included in the metaclass. 
+Using the Genotype.use keyword does this automatically. 
+
+== General Crossovers
+=== NullCrossover
+Just returns copies of the two parents, i.e. performs no crossover at all.
+
+== List-based Crossovers  <tt>->file</tt>[link:files/lib/charlie/list/list_crossover_rb.html]
+These crossovers can be used for all list- and string-based genotypes.
+
+=== SinglePointCrossover
+Standard single point crossover. Returns two children.
+
+=== UniformCrossover
+Standard uniform crossover.Returns two children.
+
+=== NPointCrossover(n=2)
+N-point crossover. Returns two children.
+
+=== BlendingCrossover(exploration_alpha=0.1,type=:cube)
+Blending crossover as used in ES
+
+
+== Specialized Crossovers
+=== For PermutationGenotype
+PermutationCrossover is a partial preservation crossover for permutations.
+It is fairly destructive, which can lead to poor performance.
+
+EdgeRecombinationCrossover is a less destructive crossover for permutations.
+It's reasonably effective, but fairly slow and only works for permutations of 0...n, so you have to look up the actual elements in the fitness function.
+
+PartiallyMappedCrossover aka Two point Partial Preservation Crossover.
+
+=== For FloatMatrixGenotype, BitMatrixGenotype
+* MatrixUniformCrossover does a uniform crossover (per-element) on matrices.
+* The normal SinglePointCrossover, UniformCrossover, NPointCrossover can also be used. They act on rows as single elements.
+
+
+=== For TreeGenotype
+TreeCrossover does a standard subtree swapping crossover for trees. Returns two children.
+
+== Meta-crossovers  <tt>->file</tt>[link:files/lib/charlie/crossover_rb.html]
+These functions take one or more crossover modules and generate a new crossover module.
+
+=== SingleChild(crossover)  (#SingleChild)
+Applies an arbitrary crossover and returns a random child.
+ 
+=== PCross(p,crossover,othercrossover=NullCrossover)
+Applies an arbitrary crossover with probability p, and another crossover with probability 1-p.
+
+=== PCrossN(hash of module=>probability pairs)
+Version of PCross for more than two crossover operators. If sum(probability) < 1, NullCrossover will be used for the remaining probability.
+ 

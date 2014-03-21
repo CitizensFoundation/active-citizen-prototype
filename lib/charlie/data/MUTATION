@@ -1,0 +1,72 @@
+== Mutation documentation
+A mutation operator mutates a single instance in place.
+
+
+
+The mutation operator should be defined as a <tt>mutate!</tt> method in your genotype class.
+   class Example < Genotype
+     def mutate!
+       # apply mutation here.
+     end
+     use NullMutator # or include some builtin operator
+   end
+
+The non-destructive counterpart +mutate+ is defined automatically by Genotype#mutate.
+
+== General Mutators
+=== NullMutator
+Just returns self
+
+== List-based Mutators
+These mutators can be used for all list- and string-based genotypes.
+
+=== ListMutator(strategy=:expected_n ,point_mutator=:uniform)
+Generates a wide variety of mutators for lists, strings and bitstrings.
+
+* strategy can be a proc or one of the MutationStrategies : single point, multi-point and probabilistic.
+* point_mutator can be a proc or one of the PointMutators : bit flipping, replacing elements, or adding some offset.
+See the documentation of list_mutate.rb[link:files/lib/charlie/list/list_mutate_rb.html] for more info on these.
+
+Both of these parameters use Symbol#[] in the examples. <tt>:replace['a','b']</tt> is simply equivalent to <tt>[:replace,'a','b']</tt>
+
+== Matrix-based Mutators
+These mutators can be used for all matrix genotypes.
+
+=== MatrixMutator(strategy=:expected_n ,point_mutator=:uniform)
+Generates a wide variety of mutators for matrices of floats or bits.
+
+* strategy can be a proc or one of the MatrixMutationStrategies : single point, multi-point and probabilistic. See the documentation of matrix.rb[link:files/lib/charlie/list/matrix_rb.html] for more info on these.
+* point_mutator can be a proc or one of the PointMutators, as with ListMutator.
+
+
+== Specialized Mutators
+
+
+=== For PermutationGenotype
+All of these will probably work on other array/string/matrix-based genotypes as well, but this is untested.
+
+* TranspositionMutator is a transposition mutator for permutations. It interchanges two elements and leaves the remaining elements in their original positions.
+* InversionMutator is another mutator for permutations. It inverses a part of the genes array.
+* InsertionMutator takes a random element of the permutation, and inserts it at a random position.
+* RotationMutator takes a random element, and rotates the permutation such that this is the first element, i.e. it effectively does nothing if the permutation represents a cycle.
+
+=== For TreeGenotype  <tt>->file</tt>[link:files/lib/charlie/tree/tree_rb.html]
+* TreeReplaceMutator(depth,type) replaces a randomly chosen subtree with a new, randomly generated, subtree.
+* TreePruneMutator replaces a randomly chosen subtree with a randomly generated terminal.
+* TreeRemoveNodeMutator replaces a random node by one of its children.
+* TreeChopMutator replaces the root  by one of its children.
+* TreeInsertNodeMutator replaces a random node x by a new operator node having x as one of its children.
+* TreeTerminalMutator replaces a random terminal by a new one.
+* TreeNumTerminalMutator(mutate=:uniform[ 0.1 ]) mutates a random numeric terminal.
+* TreeEvalMutator(values_hash=Hash{0}) replaces a random terminal by the result of its evaluation.
+
+== Meta-mutators
+These functions take one or more mutator modules and generate a new mutator module.
+
+=== PMutate(p,mutator,othermutator=NullMutator)
+Applies an arbitrary mutator with probability p, and another mutator with probability 1-p.
+
+=== PMutateN(hash of module=>probability pairs)
+Version of PMutate for more than two mutators. If sum(probability) < 1, NullMutator will be used for the remaining probability.
+
+ 

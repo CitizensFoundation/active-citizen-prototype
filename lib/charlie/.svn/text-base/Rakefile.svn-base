@@ -1,0 +1,68 @@
+
+require 'rubygems'
+require 'hoe'
+
+$LOAD_PATH.unshift './lib'
+
+require 'charlie'
+
+h = Hoe.new('charlie', Charlie::VERSION) do |p|
+  p.rubyforge_name = 'charlie'
+  p.url = 'http://charlie.rubyforge.org'
+
+  p.author = 'Sander Land'
+  p.email = 'sander.land+ruby@gmail.com'
+
+  p.summary = 'A genetic algorithms library for Ruby.'
+  p.description =  [1,2,3,6,7].map{|n| p.paragraphs_of('README.txt', n)}.join("\n\n")
+  
+  p.changes = p.paragraphs_of('History.txt', 0..1).join("\n\n")
+
+  #p.test_globs ['test/test_all.rb']  # removed test_all, because rake now does that anyway
+  p.clean_globs = ['test/output/*','./**/*~','./**/*.rbc'] # Remove this on "rake clean" : test output and kate backups, rubinius stuff
+
+  p.rdoc_pattern = /^lib|\.txt$|^data\/[A-Z]+(\..+)?$/  # include data/* doc files
+  p.remote_rdoc_dir = '' # Release to root
+
+end
+
+h.spec.extra_rdoc_files << 'data/GENOTYPE' <<  'data/SELECTION' << 'data/CROSSOVER' << 'data/MUTATION' << 'data/BENCHMARK' # rubygems ignores files on install w/o this?
+h.spec.rdoc_options << "--inline-source" << "--line-numbers"
+
+task :build_manifest => [:clean] do |t|
+  require 'find'
+  paths = []
+  Find.find(".") do |path|
+    next if File.directory?(path)
+    next if path =~ /\.svn/ # no svn
+    next if path =~ /misc-not-gem/ # other stuff not included
+    next if path =~ /~$/    # no kate backups
+    paths << path.sub(%r{^\./}, '') 
+  end
+  File.open("Manifest.txt", "w") do |f|
+    f.puts paths.sort.join("\n")
+  end
+end
+
+
+task :show_desc do |t|
+  puts h.summary
+  puts "-"*75
+  puts h.description
+  puts "-"*75
+  puts h.changes
+end
+
+Rake::RDocTask.new(:docs) do |rd|
+  rd.main = "README.txt"
+
+  rd.rdoc_dir = 'doc'
+  files = h.spec.files.grep(h.rdoc_pattern)
+  files -= ['Manifest.txt']
+  rd.rdoc_files.push(*files)
+
+  rd.title    = "Documentation for charlie-#{Charlie::VERSION} - A genetic algorithms library for Ruby."
+  rd.options << "--inline-source" << "--line-numbers"
+end
+
+
