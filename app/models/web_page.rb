@@ -22,29 +22,4 @@ class WebPage < ActiveRecord::Base
     store_classification_entity("concepts",AlchemyAPI::ConceptTagging.new.search(:url => self.url))
     self.save
   end
-
-  def classify_test
-    test = [
-        {
-            "text" => "er ssd", "relevance" => "0.993164"
-        },
-        {
-            "text" => "ccccccccccc", "relevance" => "0.913164"
-        },
-        {
-            "text" => "bbbbbbbbbbbb", "relevance" => "0.523164"
-        },
-        {
-            "text" => "xxxxxxxxxxxxx", "relevance" => "0.323164"
-        },
-        {
-            "text" => "yyyyyyyyyyyyyyy", "relevance" => "0.223164"
-        },
-    ]
-    store_classification_entity("entities", test)
-    store_classification_entity("keywords", test)
-    store_classification_entity("concepts", test)
-    puts self.inspect
-  end
-
 end
