@@ -3,13 +3,19 @@ namespace :experiment do
   task :screenshots => :environment do
     headless = Headless.new
     headless.start
-    page = WebPage.first
-    browser = Watir::Browser.start page.url
+    browser = Watir::Browser.start "https://www.yrpri.org"
     browser.window.resize_to(1366, 768)
-    page.title = browser.title
-    puts browser.title
-    page.screenshot = browser.screenshot.png
-    page.save
+    WebPage.all.each do |page|
+      browser.goto page.url
+      page.title = browser.title
+      puts browser.title
+      data = StringIO.new(browser.screenshot.png)
+      data.class.class_eval { attr_accessor :original_filename, :content_type }
+      data.original_filename = "screenshot.png"
+      data.content_type = "image/png"
+      page.screenshot = data
+      page.save
+    end
     browser.close
     headless.destroy
   end

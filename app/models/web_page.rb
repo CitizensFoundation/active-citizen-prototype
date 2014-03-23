@@ -1,5 +1,5 @@
 class WebPage < ActiveRecord::Base
-  has_attached_file :screenshot, :styles => { :full => "1366x768>", :large => "683x384>", :medium=>"341x192", :small=>"170x96", :thumb=>"85x48" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :screenshot, :styles => { :full => "1366x768", :large => "683x384", :medium=>"341x192", :small=>"170x96", :thumb=>"85x48" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :screenshot, :content_type => /\Aimage\/.*\Z/
 
   def store_classification_entity(name,response)
