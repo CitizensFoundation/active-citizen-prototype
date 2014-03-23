@@ -8,8 +8,12 @@ gem 'pg'
 gem 'mysql2'
 
 gem 'alchemy-api-rb', :require => 'alchemy_api'
-
 gem 'thinking-sphinx'
+
+gem 'watir-webdriver'
+gem 'headless'
+
+gem "paperclip", "~> 4.1"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

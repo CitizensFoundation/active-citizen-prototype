@@ -1,6 +1,21 @@
 namespace :experiment do
-  desc "Number 1"
-  task :nr1 => :environment do
+  desc "Screenshots"
+  task :screenshots => :environment do
+    headless = Headless.new
+    headless.start
+    page = WebPage.first
+    browser = Watir::Browser.start page.url
+    browser.window.resize_to(1366, 768)
+    page.title = browser.title
+    puts browser.title
+    page.screenshot = browser.screenshot.png
+    page.save
+    browser.close
+    headless.destroy
+  end
+
+  desc "Scan"
+  task :scan => :environment do
     #WebPage.delete_all
     nhs_citizen = [
       "https://nhs-citizen.yrpri.org/ideas/489-add-points-for-and-against-ideas",
