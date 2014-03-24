@@ -12,6 +12,7 @@ class ExperimentsController < ApplicationController
         :concepts_low_relevance => 5
     }
     @source_pages = []
+
     #.search {|page| page.url.include?("nhs-citizen")}
     WebPage.all.each do |page|
       next unless page.url.include?("nhs-citizen")
@@ -34,20 +35,21 @@ class ExperimentsController < ApplicationController
 
       Rails.logger.debug all_entities
       #all_entities = all_entities.gsub("/"," ").split(",").reject{|w| w==""}
-      all_entities = all_entities.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1}
-      all_keywords = all_keywords.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1}
-      all_concepts = all_concepts.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1}
+      all_entities = all_entities.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222}.map{|w| " (#{w}) "}
+      all_keywords = all_keywords.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222}.map{|w| " (#{w}) "}
+      all_concepts = all_concepts.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222}.map{|w| " (#{w}) "}
       Rails.logger.debug all_keywords
-      all_entities += all_keywords[0..0]
-      all_entities += all_concepts[0..0]
+      all_entities = all_entities[0..3]+all_keywords[0..1]
+      all_entities += all_concepts[0..1]
       Rails.logger.debug all_entities
-      if all_entities.length>1
-        query = "#{all_entities[0]} & (#{all_entities[1..all_entities.length].join(" | ")})"
+      if all_entities.length>2
+        query = "#{all_entities[0]} & #{all_entities[1]} | (#{all_entities[2..all_entities.length-1].join(" | ")})"
 
-        hits = ThinkingSphinx.search(query,  :star => true, :ranker=>:bm25)
+        hits = ThinkingSphinx.search(query, :ranker=>:wordcount, :field_weights=>field_weights)[0..4]
         Rails.logger.debug hits.inspect
         #hits += ThinkingSphinx.search(page.concepts_high_relevance)[0..2]
         #hits = hits.reject{|p| p.id==page.id}.uniq
+        #hits.context.panes << ThinkingSphinx::Panes::ExcerptsPane
         @source_pages << {:web_page=>page, :hits=>hits, :query=>query}# unless page.url.include?("nhs-citizen")
       end
     end
