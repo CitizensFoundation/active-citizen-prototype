@@ -2,7 +2,7 @@ class ExperimentsController < ApplicationController
   def match_pages
     field_weights = {
         :entities_high_relevance => 100,
-        :entities_med_relevance    => 70,
+        :entities_med_relevance    => 100,
         :entities_low_relevance => 40,
         :keywords_high_relevance => 60,
         :keywords_med_relevance    => 30,
@@ -34,12 +34,12 @@ class ExperimentsController < ApplicationController
 
       Rails.logger.debug all_entities
       #all_entities = all_entities.gsub("/"," ").split(",").reject{|w| w==""}
-      all_entities = all_entities.gsub("/"," ").split(",").reject{|w| w==""}
-      all_keywords = all_keywords.gsub("/"," ").split(",").reject{|w| w==""}
-      all_concepts = all_concepts.gsub("/"," ").split(",").reject{|w| w==""}
+      all_entities = all_entities.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1}
+      all_keywords = all_keywords.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1}
+      all_concepts = all_concepts.gsub("/"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1}
       Rails.logger.debug all_keywords
-      #all_entities += all_keywords[0..0]
-      #all_entities += all_concepts
+      all_entities += all_keywords[0..0]
+      all_entities += all_concepts[0..0]
       Rails.logger.debug all_entities
       if all_entities.length>1
         query = "#{all_entities[0]} & (#{all_entities[1..all_entities.length].join(" | ")})"
