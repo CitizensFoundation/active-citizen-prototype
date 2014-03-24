@@ -11,9 +11,13 @@ gem 'mysql2'
 
 gem 'alchemy-api-rb', :require => 'alchemy_api'
 gem 'thinking-sphinx'
+gem 'nokogiri'
 
 gem 'watir-webdriver'
 gem 'headless'
+
+gem 'haml-rails'
+
 
 gem "paperclip", "~> 4.1"
 

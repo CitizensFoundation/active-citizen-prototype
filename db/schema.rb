@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323164713) do
+ActiveRecord::Schema.define(version: 20140324134217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,5 +38,8 @@ ActiveRecord::Schema.define(version: 20140323164713) do
     t.string   "screenshot_content_type"
     t.datetime "screenshot_updated_at"
   end
+
+  add_index "web_pages", ["title"], name: "index_web_pages_on_title", using: :btree
+  add_index "web_pages", ["url"], name: "index_web_pages_on_url", using: :btree
 
 end
