@@ -28,17 +28,23 @@ class ExperimentsController < ApplicationController
                       (page.keywords_med_relevance ? ",#{page.keywords_med_relevance}," : ",")+
                       (page.keywords_low_relevance ? page.keywords_low_relevance : "")
 
+      all_concepts =  (page.concepts_high_relevance ? page.concepts_high_relevance : "")+
+                      (page.concepts_med_relevance ? ",#{page.concepts_med_relevance}," : ",")+
+                      (page.concepts_low_relevance ? page.concepts_low_relevance : "")
+
       Rails.logger.debug all_entities
       #all_entities = all_entities.gsub("/"," ").split(",").reject{|w| w==""}
-      all_entities = all_entities.split(",").reject{|w| w==""}
+      all_entities = all_entities.gsub("/"," ").split(",").reject{|w| w==""}
       all_keywords = all_keywords.gsub("/"," ").split(",").reject{|w| w==""}
+      all_concepts = all_concepts.gsub("/"," ").split(",").reject{|w| w==""}
       Rails.logger.debug all_keywords
-      #all_entities += all_keywords[0..2]
+      #all_entities += all_keywords[0..0]
+      #all_entities += all_concepts
       Rails.logger.debug all_entities
       if all_entities.length>1
-        query = "#{all_entities[0]} & #{all_entities[1..all_entities.length].join(" | ")}"
+        query = "#{all_entities[0]} & (#{all_entities[1..all_entities.length].join(" | ")})"
 
-        hits = ThinkingSphinx.search(query, :field_weights=>field_weights, :star => true, :ranker=>:bm25)
+        hits = ThinkingSphinx.search(query,  :star => true, :ranker=>:bm25)
         Rails.logger.debug hits.inspect
         #hits += ThinkingSphinx.search(page.concepts_high_relevance)[0..2]
         #hits = hits.reject{|p| p.id==page.id}.uniq
