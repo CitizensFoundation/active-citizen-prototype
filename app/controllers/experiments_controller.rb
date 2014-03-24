@@ -15,16 +15,35 @@ class ExperimentsController < ApplicationController
     #.search {|page| page.url.include?("nhs-citizen")}
     WebPage.all.each do |page|
       next unless page.url.include?("nhs-citizen")
-      all_entities =  [page.entities_high_relevance,page.entities_med_relevance,page.entities_low_relevance].join(",")
-      query = all_entities.split(",").collect{|p| " *#{p}* "}.join(" ")
-      if not all_entities.empty?
-        hits = ThinkingSphinx.search(query, :field_weights=>field_weights)[0..2]
-      else
-        hits += ThinkingSphinx.search(page.keywords_high_relevance)[0..2]
+      Rails.logger.debug page.title
+      Rails.logger.debug page.entities_high_relevance
+      Rails.logger.debug page.entities_med_relevance
+      Rails.logger.debug page.entities_low_relevance
+
+      all_entities =  (page.entities_high_relevance ? page.entities_high_relevance : "")+
+                      (page.entities_med_relevance ? ",#{page.entities_med_relevance}," : ",")+
+                      (page.entities_low_relevance ? page.entities_low_relevance : "")
+
+      all_keywords =  (page.keywords_high_relevance ? page.keywords_high_relevance : "")+
+                      (page.keywords_med_relevance ? ",#{page.keywords_med_relevance}," : ",")+
+                      (page.keywords_low_relevance ? page.keywords_low_relevance : "")
+
+      Rails.logger.debug all_entities
+      #all_entities = all_entities.gsub("/"," ").split(",").reject{|w| w==""}
+      all_entities = all_entities.split(",").reject{|w| w==""}
+      all_keywords = all_keywords.gsub("/"," ").split(",").reject{|w| w==""}
+      Rails.logger.debug all_keywords
+      #all_entities += all_keywords[0..2]
+      Rails.logger.debug all_entities
+      if all_entities.length>1
+        query = "#{all_entities[0]} & #{all_entities[1..all_entities.length].join(" | ")}"
+
+        hits = ThinkingSphinx.search(query, :field_weights=>field_weights, :star => true, :ranker=>:bm25)
+        Rails.logger.debug hits.inspect
+        #hits += ThinkingSphinx.search(page.concepts_high_relevance)[0..2]
+        #hits = hits.reject{|p| p.id==page.id}.uniq
+        @source_pages << {:web_page=>page, :hits=>hits, :query=>query}# unless page.url.include?("nhs-citizen")
       end
-      #hits += ThinkingSphinx.search(page.concepts_high_relevance)[0..2]
-      hits = hits.reject{|p| p.id==page.id}.uniq
-      @source_pages << {:web_page=>page, :hits=>hits, :query=>query}
     end
   end
 end
