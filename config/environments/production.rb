@@ -77,4 +77,13 @@ ActiveCitizen::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_controller.asset_host = Proc.new { |source, request = nil, *_|
+    if request and source =~ /respond\.proxy-.+(js|gif)$/
+      "#{request.protocol}#{request.host_with_port}"
+    else
+      ENV['CF_ASSET_HOST']
+    end
+  }
+  config.paperclip_defaults = {:storage => :s3}
 end

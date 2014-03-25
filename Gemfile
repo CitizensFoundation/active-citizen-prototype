@@ -21,6 +21,8 @@ gem 'foundation-rails'
 
 gem "paperclip", "~> 4.1"
 
+gem 'asset_sync'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
