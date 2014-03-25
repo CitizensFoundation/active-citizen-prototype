@@ -9,6 +9,8 @@ gem 'rails', '4.0.4'
 gem 'pg'
 gem 'mysql2'
 
+gem 'airbrake'
+
 gem 'alchemy-api-rb', :require => 'alchemy_api'
 gem 'thinking-sphinx'
 gem 'flying-sphinx'
