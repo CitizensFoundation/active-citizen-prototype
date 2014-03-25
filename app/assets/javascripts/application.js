@@ -16,8 +16,9 @@
 //= require turbolinks
 //= require Three
 //= require Tween
-//= require helvetiker_regular.typeface.js
-//= require RequestAnimationFrame.js
+//= require helvetiker_regular.typeface
+//= require RequestAnimationFrame
+//= require THREEx.KeyboardState
 //= #require_tree .
 
 $(function(){ $(document).foundation(); });

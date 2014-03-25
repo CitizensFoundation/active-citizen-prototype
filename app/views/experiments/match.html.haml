@@ -6,7 +6,10 @@
           = link_to "Back","/"
       %td
         %h1{:style=>"color:#ddd;"}
-          Active Citizen
+          = "Active Citizen"
+      %td
+        %h4{:style=>"color:#999;"}
+          = @pages.first.title
 #container{style: "position:relative;margin:0 auto;padding:0;cursor:pointer"}
 :javascript
   var images=[

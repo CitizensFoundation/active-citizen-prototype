@@ -1,7 +1,11 @@
 %center
   %h1
     Active Citizen
+  %h5
+    %em
+      Discover news stories from NHS Cizien ideas
   %p
+%hr
 %ul.medium-block-grid-3
   - @pages.each do |page|
     %li{:style=>"padding-bottom:50px;"}
@@ -9,3 +13,8 @@
         %h5
           = page.title
       = link_to image_tag(page.screenshot.url(:large)), "/experiments/match/#{page.id}"
+%hr
+%center
+  %h4
+    %em
+      = link_to "Citizens Foundation (c) 2014","http://www.citizens.is"

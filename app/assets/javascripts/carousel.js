@@ -171,8 +171,11 @@ container.style.marginTop = 0.5 * (window.innerHeight - h) + 'px';
 scene = new THREE.Scene();
 
 camera = new THREE.PerspectiveCamera(70, w / h, 1, 50000);
-camera.position.y = -120;
-camera.position.z = 3720;
+camera.position.x = 0;
+camera.position.y = 1150;
+camera.position.z = 1900;
+
+
 scene.add(camera);
 
 
@@ -182,8 +185,8 @@ scene.add(camera);
  particles = new THREE.Geometry(),
  pMaterial = new THREE.ParticleBasicMaterial({
  color: 0x000000,
- size: 20,
- map: THREE.ImageUtils.loadTexture("img/particle_blue3.png"),
+ size: 200,
+ map: THREE.ImageUtils.loadTexture("https://s3.amazonaws.com/yrpri-direct-asset/YP_FinalLogo_light_grey.png"),
  blending: THREE.AdditiveBlending,
  transparent: true
  })
@@ -199,7 +202,7 @@ scene.add(camera);
  // create the particle system
  var particleSystem = new THREE.ParticleSystem(particles, pMaterial);
  particleSystem.sortParticles = true;
- scene.addChild(particleSystem);
+ scene.add(particleSystem);
  /* --- PARTICLES --- */
 
 
@@ -217,11 +220,27 @@ container.addEventListener('mousedown', onDocumentMouseDown, false);
 container.addEventListener('touchstart', onDocumentTouchStart, false);
 container.addEventListener('touchmove', onDocumentTouchMove, false);
 
+
+var start_position = { x : 0, y: 1150, z: 1900 };
+var target_position = { x : 0, y: -120, z: 3720 };
+var tween = new TWEEN.Tween(start_position).to(target_position, 900);
+
+tween.onUpdate(function(){
+    camera.position.set(start_position.x,start_position.y,start_position.z);
+});
+
+tween.delay(1200);
+tween.start();
+
+var keyboard	= new THREEx.KeyboardState();
+var current_id = 0;
+
 /****** INIT *****/
 
 animate();
 
-function rotateCarousel(item) {
+
+function rotateCarousel(item,easing) {
     carouselupdate = false;
     var angle = (item.carouselAngle - Math.PI / 2) % (2 * Math.PI);
     var b = carousel.rotation.y % (2 * Math.PI);
@@ -235,10 +254,18 @@ function rotateCarousel(item) {
     else {
         ang = b + (angle - b);
     }
-    new TWEEN.Tween(carousel.rotation).to({y: ang}, 800).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
-        carouselupdate = true;
-        targetRotationY = carousel.rotation.y;
-    }).start();
+
+    if (easing) {
+        new TWEEN.Tween(carousel.rotation).to({y: ang}, 800).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
+            carouselupdate = true;
+            targetRotationY = carousel.rotation.y;
+        }).start();
+    } else {
+        new TWEEN.Tween(carousel.rotation).to({y: ang}, 100).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
+            carouselupdate = true;
+            targetRotationY = carousel.rotation.y;
+        }).start();
+    }
 }
 
 function ondblClick(event) {
@@ -255,9 +282,9 @@ function ondblClick(event) {
     var intersects = ray.intersectObjects(carousel.children);
 
     if (intersects.length > 0) {
-        rotateCarousel(intersects[0].object);
+        rotateCarousel(intersects[0].object,true);
+        setCurrentetChildId(intersects[0].object);
     }
-
 }
 
 function onDocumentMouseDown(event) {
@@ -367,6 +394,14 @@ function animate() {
     render();
 }
 
+function setCurrentetChildId(object) {
+    for (i=0;i<carousel.children.length;i++) {
+      if (carousel.children[i]==object) {
+          current_id=i;
+      }
+    }
+}
+
 function render() {
     if (carouselupdate)
         carousel.rotation.y += ( targetRotationY - carousel.rotation.y ) * 0.05;
@@ -375,7 +410,13 @@ function render() {
 
 
     renderer.render(scene, camera);
-    updatecamera = false;
+    updatecamera = true;
 //				carouselupdate=true;
+    if (keyboard.pressed("shift") || keyboard.pressed("ctrl")) {
+            if (current_id>carousel.children.length-1) {
+                current_id=0;
+            }
+            rotateCarousel(carousel.children[current_id+=1],false);
+    }
     TWEEN.update();
 }
