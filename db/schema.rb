@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324134217) do
+ActiveRecord::Schema.define(version: 20140325232015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "web_pages", force: true do |t|
-    t.string   "url",                     null: false
+    t.string   "url",                                    null: false
     t.text     "entities_api_response"
     t.text     "entities_high_relevance"
     t.text     "entities_med_relevance"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140324134217) do
     t.integer  "screenshot_file_size"
     t.string   "screenshot_content_type"
     t.datetime "screenshot_updated_at"
+    t.boolean  "active",                  default: true
   end
 
   add_index "web_pages", ["title"], name: "index_web_pages_on_title", using: :btree
