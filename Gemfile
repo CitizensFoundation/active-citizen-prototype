@@ -17,7 +17,7 @@ gem 'watir-webdriver'
 gem 'headless'
 
 gem 'haml-rails'
-
+gem 'foundation-rails'
 
 gem "paperclip", "~> 4.1"
 

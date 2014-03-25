@@ -1,3 +1,11 @@
-- @pages.each do |page|
-  %div
-    = image_tag(page.screenshot.url(:large))
+%center
+  %h1
+    Active Citizen
+  %p
+%ul.medium-block-grid-3
+  - @pages.each do |page|
+    %li{:style=>"padding-bottom:50px;"}
+      %center
+        %h5
+          = page.title
+      = link_to image_tag(page.screenshot.url(:large)), "/experiments/match/#{page.id}"

@@ -1,7 +1,7 @@
 ActiveCitizen::Application.routes.draw do
   get "experiments/match_pages"
   get "experiments/nhs_citizen"
-  get "experiments/match"
+  get "experiments/match/:id", :controller=>"experiments", :action=>"match"
   root 'experiments#nhs_citizen'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

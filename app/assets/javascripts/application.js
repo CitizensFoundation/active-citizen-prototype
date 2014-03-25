@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require Three
 //= require Tween
 //= require helvetiker_regular.typeface.js
 //= require RequestAnimationFrame.js
 //= #require_tree .
+
+$(function(){ $(document).foundation(); });
