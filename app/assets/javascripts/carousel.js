@@ -98,13 +98,7 @@ Carousel.prototype.buildCarousel = function (scope) {
                 plane.scale.x = 3;
                 plane.scale.y = 3;
 
-                reflectionplane.rotation.y = 0;
-                reflectionplane.position = new THREE.Vector3(1, 1224, 1);
-                reflectionplane.doubleSided = true;
-                reflectionplane.carouselAngle = 0;
-                reflectionplane.scale.x = 3;
-                reflectionplane.scale.x = 3;
-                reflectionplane.position.y = textcontainer.position.y - 10 - 3 * size;
+                main_idea_plane = plane;
             }
 
             //						this.add( textcontainer );
@@ -178,6 +172,7 @@ camera.position.z = 1900;
 
 scene.add(camera);
 
+var main_idea_plane;
 
 /* --- PARTICLES ---/
  // create the particle variables
@@ -223,14 +218,25 @@ container.addEventListener('touchmove', onDocumentTouchMove, false);
 
 var start_position = { x : 0, y: 1150, z: 1900 };
 var target_position = { x : 0, y: -120, z: 3720 };
-var tween = new TWEEN.Tween(start_position).to(target_position, 900);
+var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
 
-tween.onUpdate(function(){
+camera_tween.onUpdate(function(){
     camera.position.set(start_position.x,start_position.y,start_position.z);
 });
 
-tween.delay(1200);
-tween.start();
+camera_tween.delay(1200);
+camera_tween.start();
+
+var start_rotation = { x : 0, y: 0.0, z: 0.0 };
+var target_rotation = { x : 0, y: 6.30, z: 0.0 };
+var main_idea_tween = new TWEEN.Tween(start_rotation).to(target_rotation, 270000);
+
+main_idea_tween.onUpdate(function(){
+    main_idea_plane.rotation.y=start_rotation.y;
+});
+
+main_idea_tween.delay(1200);
+main_idea_tween.start();
 
 var keyboard	= new THREEx.KeyboardState();
 var current_id = 0;
