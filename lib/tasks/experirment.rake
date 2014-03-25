@@ -21,6 +21,37 @@ namespace :experiment do
     headless.destroy
   end
 
+
+
+  desc "Search and add telegraph links"
+  task :search_and_add_telegraph_links => :environment do
+    urls = []
+    next_url = "http://www.telegraph.co.uk/search/?queryText=#{URI.escape(ENV['term'])}&type=relevant&sort=date%3AD%3AL%3Ad1&startIndex=0&site=default_collection&version="
+    counter = 0
+    while next_url do
+      puts "Checking #{next_url}"
+      doc = Nokogiri::HTML.parse(open(next_url))
+      #puts doc.xpath('//a').map { |link| link['href'] }
+      doc.xpath('//a').map { |link| link['href'] }.select{|x| x ? x.include?("www.telegraph.co.uk/health") : false}.each do |url_from_telegraph|
+        urls << url_from_telegraph
+        unless WebPage.where(:url=>url_from_telegraph).first
+          puts "Create #{url_from_telegraph}"
+          WebPage.create(:url=>url_from_telegraph)
+        end
+      end
+      next_url = nil
+      unless (counter+=1)>90
+        #puts doc.xpath('//a').map { |link| link['class'] }
+        doc.xpath('//a').map { |link| [link['href'],link['class']] }.select{|x| (x[1]=="searchNext" || x[1]=="moreresults") if x[1]}.each do |url_from_telegraph|
+          next_url = "http://www.telegraph.co.uk#{URI.escape(url_from_telegraph[0])}"
+          puts next_url
+        end
+      end
+    end
+    puts urls.uniq
+    puts urls.uniq.count
+  end
+
   desc "Search and add bbc links"
   task :search_and_add_bbc_links => :environment do
     urls = []
@@ -48,7 +79,7 @@ namespace :experiment do
 
   desc "Classify all"
   task :classify_all => :environment do
-    WebPage.where("keywords_api_response IS NULL").each do |page|
+    WebPage.where("keywords_api_response IS NULL OR entities_api_response IS NULL OR concepts_api_response IS NULL").order("created_at DESC").each do |page|
       page.classify!
     end
   end
