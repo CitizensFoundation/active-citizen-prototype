@@ -217,7 +217,7 @@ container.addEventListener('touchmove', onDocumentTouchMove, false);
 
 
 var start_position = { x : 0, y: 1150, z: 1900 };
-var target_position = { x : 0, y: -120, z: 3720 };
+var target_position = { x : 0, y: -120, z: 3520 };
 var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
 
 camera_tween.onUpdate(function(){
