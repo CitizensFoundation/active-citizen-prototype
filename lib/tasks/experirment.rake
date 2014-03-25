@@ -6,6 +6,7 @@ namespace :experiment do
     browser = Watir::Browser.start "https://www.yrpri.org"
     browser.window.resize_to(1366, 768)
     WebPage.all.each do |page|
+      next if page.screenshot?
       browser.goto page.url
       page.title = browser.title
       puts browser.title
@@ -26,6 +27,7 @@ namespace :experiment do
     next_url = "http://www.bbc.co.uk/search/news/?q=#{URI.escape(ENV['term'])}"
     counter = 0
     while next_url do
+      puts "Checking #{next_url}"
       doc = Nokogiri::HTML.parse(open(next_url))
       doc.xpath('//a').map { |link| link['href'] }.select{|x| x.include?("www.bbc.co.uk/news") }.each do |url_from_bbc|
         urls << url_from_bbc
@@ -35,7 +37,7 @@ namespace :experiment do
         end
       end
       next_url = nil
-      unless (counter+=1)>15
+      unless (counter+=1)>40
         doc.xpath('//a').map { |link| link['href'] }.select{|x| x.include?("search/news/?page=") }.each do |url_from_bbc|
           next_url = "http://www.bbc.co.uk#{URI.escape(url_from_bbc)}"
         end

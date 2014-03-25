@@ -1,5 +1,14 @@
 class WebPage < ActiveRecord::Base
-  has_attached_file :screenshot, :styles => { :full => "1366x768", :large => "683x384", :medium=>"341x192", :small=>"170x96", :thumb=>"85x48" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :screenshot,
+                    :styles => { :full => "", :large => "", :medium=>"", :small=>"", :thumb=>"" },
+                    :convert_options => {
+                        :full => "-gravity north -thumbnail 1366x768^ -extent 1366x768",
+                        :large => "-gravity north -thumbnail 683x384^ -extent 683x384",
+                        :medium => "-gravity north -thumbnail 341x192^ -extent 341x192",
+                        :small => "-gravity north -thumbnail 170x96^ -extent 170x96",
+                        :thumb => "-gravity north -thumbnail 85x48^ -extent 85x48"
+                    },
+                    :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :screenshot, :content_type => /\Aimage\/.*\Z/
 
   def store_classification_entity(name,response)

@@ -1,0 +1,9 @@
+#aside
+  %h1
+    Active Citizen
+#container{style: "position:relative;margin:0 auto;padding:0;cursor:pointer"}
+:javascript
+  var images=[
+   #{create_carousel_urls_from_pages(@pages)}
+  ];
+= javascript_include_tag "carousel.js"

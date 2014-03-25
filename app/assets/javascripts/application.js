@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require Three
+//= require Tween
+//= require helvetiker_regular.typeface.js
+//= require RequestAnimationFrame.js
+//= #require_tree .
