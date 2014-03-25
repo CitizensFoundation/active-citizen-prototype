@@ -12,8 +12,8 @@ gem 'mysql2'
 gem 'airbrake'
 
 gem 'alchemy-api-rb', :require => 'alchemy_api'
-gem 'thinking-sphinx'
-gem 'flying-sphinx'
+gem 'thinking-sphinx', '3.0.3'
+gem 'flying-sphinx',   '1.0.0'
 gem 'nokogiri'
 
 gem 'watir-webdriver'
