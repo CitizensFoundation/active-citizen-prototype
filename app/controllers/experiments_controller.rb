@@ -1,7 +1,7 @@
 class ExperimentsController < ApplicationController
   def nhs_citizen
     @pages = []
-    WebPage.all.each do |page|
+    WebPage.where(:active=>true).all.each do |page|
       @pages << page if page.url.include?("nhs-citizen")
     end
   end
