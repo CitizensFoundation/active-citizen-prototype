@@ -85,5 +85,12 @@ ActiveCitizen::Application.configure do
       ENV['CF_ASSET_HOST']
     end
   }
-  config.paperclip_defaults = {:storage => :s3}
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => ENV['S3_BUCKET'],
+          :access_key_id => ENV['S3_KEY'],
+          :secret_access_key => ENV['S3_SECRET']
+      }
+  }
 end
