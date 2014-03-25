@@ -6,7 +6,7 @@ namespace :experiment do
     browser = Watir::Browser.start "https://www.yrpri.org"
     browser.window.resize_to(1366, 768)
     WebPage.all.each do |page|
-      next if page.screenshot?
+      next if page.screenshot? and page.screenshot.exists?
       browser.goto page.url
       page.title = browser.title
       puts browser.title
