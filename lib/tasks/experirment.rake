@@ -79,7 +79,7 @@ namespace :experiment do
 
   desc "Classify all"
   task :classify_all => :environment do
-    WebPage.where("keywords_api_response IS NULL OR entities_api_response IS NULL OR concepts_api_response IS NULL").order("random()").each do |page|
+    WebPage.where("keywords_api_response IS NULL OR entities_api_response IS NULL OR concepts_api_response IS NULL").order("created_at DESC").each do |page|
       page.classify!
     end
   end
