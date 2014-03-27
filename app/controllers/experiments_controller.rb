@@ -99,7 +99,7 @@ class ExperimentsController < ApplicationController
       all_entities += all_concepts[0..1]
       Rails.logger.debug all_entities
       if all_entities.length>2
-        query = "#{all_entities[0]} & #{all_entities[1]} | (#{all_entities[2..all_entities.length-1].join(" | ")})"
+        query = "(#{all_entities[0]} | #{all_entities[1]}) & (#{all_entities[0..all_entities.length-1].join(" | ")})"
 
         hits = ThinkingSphinx.search(query, :ranker=>:wordcount, :field_weights=>field_weights)[0..4]
         Rails.logger.debug hits.inspect
