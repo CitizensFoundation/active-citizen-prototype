@@ -1,3 +1,21 @@
+require 'rss'
+
+RSS_FEEDS = ["http://www.theguardian.com/society/health/rss","http://feeds.bbci.co.uk/news/health/rss.xml",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=99","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=4441",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=8870","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=551",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=554","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=14636",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=572","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=1055",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=557","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=560",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=9481","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=563",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=569","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=14637",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=14638","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=143",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=719","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=627",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=226","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=711",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=713","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=714",
+             "http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=715","http://www.hsj.co.uk/XmlServers/navsectionRSS.aspx?navsectioncode=716",
+             "https://www.rcn.org.uk/newsevents/news/rss_c/uk-wide","https://nhs-citizen.yrpri.org/ideas/top.rss?per_page=5000",
+             "http://www.ehi.co.uk/rss.cfm?channel=2&category=49","http://www.ehi.co.uk/rss.cfm?channel=2&category=12"]
+
 namespace :experiment do
   desc "Screenshots"
   task :screenshots => :environment do
@@ -5,23 +23,40 @@ namespace :experiment do
     headless.start
     browser = Watir::Browser.start "https://www.yrpri.org"
     browser.window.resize_to(1366, 768)
-    WebPage.order("random()").all.each do |page|
-      next if page.screenshot? and page.screenshot.exists?
-      browser.goto page.url
-      page.title = browser.title
-      puts browser.title
-      data = StringIO.new(browser.screenshot.png)
-      data.class.class_eval { attr_accessor :original_filename, :content_type }
-      data.original_filename = "screenshot.png"
-      data.content_type = "image/png"
-      page.screenshot = data
-      page.save
+    while true
+      WebPage.order("random()").all.each do |page|
+        next if page.screenshot? and page.screenshot.exists?
+        browser.goto page.url
+        page.title = browser.title
+        puts browser.title
+        data = StringIO.new(browser.screenshot.png)
+        data.class.class_eval { attr_accessor :original_filename, :content_type }
+        data.original_filename = "screenshot.png"
+        data.content_type = "image/png"
+        page.screenshot = data
+        page.save
+      end
+      sleep 10
     end
     browser.close
     headless.destroy
   end
 
-
+  desc "Scan RSS feeds"
+  task :scan_rss => :environment do
+    RSS_FEEDS.each do |url|
+      open(url) do |rss|
+        feed = RSS::Parser.parse(rss)
+        puts "Title: #{feed.channel.title}"
+        feed.items.each do |item|
+          unless WebPage.where(:url=>item.link).first
+            puts "Create #{item.link}"
+            WebPage.create(:url=>item.link, :title=>item.title)
+          end
+        end
+      end
+    end
+  end
 
   desc "Search and add telegraph links"
   task :search_and_add_telegraph_links => :environment do

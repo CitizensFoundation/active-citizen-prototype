@@ -1,4 +1,4 @@
-%table{:border=>1}
+%table{:border=>1, :style=>"border_color: #faa"}
   - @source_pages.each do |page|
     %th
       Query
@@ -28,30 +28,29 @@
         = page[:web_page].concepts_med_relevance
         = page[:web_page].concepts_low_relevance
       %td
-        %table{:border=>1}
-          - page[:hits].each do |hit|
-            - #next if hit.url.include?("nhs-citizen")
-            %th
-              Title
-            %th
-              Entities
-            %th
-              Keywords
-            %th
-              Concepts
-            %tr
-              %td
-                = hit.title
-              %td
-                = hit.entities_high_relevance
-                = hit.entities_med_relevance
-                = hit.entities_low_relevance
-              %td
-                = hit.keywords_high_relevance
-                = hit.keywords_med_relevance
-                = hit.keywords_low_relevance
-              %td
-                = hit.concepts_high_relevance
-                = hit.concepts_med_relevance
-                = hit.concepts_low_relevance
+    - page[:hits].each do |hit|
+      - #next if hit.url.include?("nhs-citizen")
+      %th
+        Title
+      %th
+        Entities
+      %th
+        Keywords
+      %th
+        Concepts
+      %tr
+        %td
+          = hit.title
+        %td
+          = hit.entities_high_relevance
+          = hit.entities_med_relevance
+          = hit.entities_low_relevance
+        %td
+          = hit.keywords_high_relevance
+          = hit.keywords_med_relevance
+          = hit.keywords_low_relevance
+        %td
+          = hit.concepts_high_relevance
+          = hit.concepts_med_relevance
+          = hit.concepts_low_relevance
 
