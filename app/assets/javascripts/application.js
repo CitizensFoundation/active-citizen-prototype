@@ -19,6 +19,7 @@
 //= require helvetiker_regular.typeface
 //= require RequestAnimationFrame
 //= require THREEx.KeyboardState
+//= require jquery.colorbox
 //= #require_tree .
 
 $(function(){ $(document).foundation(); });
