@@ -13,9 +13,17 @@
       %td
         %h4{:style=>"color:#999;"}
           = "double click, drag, ctrl & shift"
+    - if false
+      %tr
+        %td{:colspan=>4}
+          %center
+            = "Searching: #{@query.gsub("(","").gsub(")","")}"
+            %br
+            = "Entities: "+@page.all_entities
 #container{style: "position:relative;margin:0 auto;padding:0;cursor:pointer"}
 :javascript
   var images=[
    #{create_carousel_urls_from_pages(@pages)}
   ];
+
 = javascript_include_tag "carousel.js"

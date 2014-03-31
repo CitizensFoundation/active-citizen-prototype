@@ -1,4 +1,4 @@
-%table{:border=>1, :style=>"border_color: #faa"}
+%table{:width=>"100%"}
   - @source_pages.each do |page|
     %th
       Query
@@ -12,21 +12,26 @@
       Concepts
     %tr
       %td
-        = page[:query]
+        %b
+          = page[:query]
       %td
-        = page[:web_page].title
+        %b
+          = page[:web_page].title
       %td
-        = page[:web_page].entities_high_relevance
-        = page[:web_page].entities_med_relevance
-        = page[:web_page].entities_low_relevance
+        %b
+          = page[:web_page].entities_high_relevance
+          = page[:web_page].entities_med_relevance
+          = page[:web_page].entities_low_relevance
       %td
-        = page[:web_page].keywords_high_relevance
-        = page[:web_page].keywords_med_relevance
-        = page[:web_page].keywords_low_relevance
+        %b
+          = page[:web_page].keywords_high_relevance
+          = page[:web_page].keywords_med_relevance
+          = page[:web_page].keywords_low_relevance
       %td
-        = page[:web_page].concepts_high_relevance
-        = page[:web_page].concepts_med_relevance
-        = page[:web_page].concepts_low_relevance
+        %b
+          = page[:web_page].concepts_high_relevance
+          = page[:web_page].concepts_med_relevance
+          = page[:web_page].concepts_low_relevance
       %td
     - page[:hits].each do |hit|
       - #next if hit.url.include?("nhs-citizen")
@@ -42,15 +47,15 @@
         %td
           = hit.title
         %td
-          = hit.entities_high_relevance
-          = hit.entities_med_relevance
-          = hit.entities_low_relevance
+          =  raw hit.entities_high_relevance if hit.entities_high_relevance
+          =  raw hit.entities_med_relevance if hit.entities_med_relevance
+          =  raw hit.entities_low_relevance if hit.entities_low_relevance
         %td
-          = hit.keywords_high_relevance
-          = hit.keywords_med_relevance
-          = hit.keywords_low_relevance
+          =  raw hit.keywords_high_relevance if hit.keywords_high_relevance
+          =  raw hit.keywords_med_relevance if hit.keywords_med_relevance
+          =  raw hit.keywords_low_relevance if hit.keywords_low_relevance
         %td
-          = hit.concepts_high_relevance
-          = hit.concepts_med_relevance
-          = hit.concepts_low_relevance
+          =  raw hit.concepts_high_relevance if hit.concepts_high_relevance
+          =  raw hit.concepts_med_relevance if hit.concepts_med_relevance
+          =  raw hit.concepts_low_relevance if hit.concepts_low_relevance
 

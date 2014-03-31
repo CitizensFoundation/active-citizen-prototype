@@ -9,11 +9,13 @@ var Carousel = function (rad, images, w, h) {
     this.reflectionOpacity = 0.1;
     this.reflectionHeightPer = 0.5;
     this.imgs = [];
+    this.page_urls = [];
     var thiss = this;
     this.w = w;
     this.h = h;
     for (var i = 0; i < this.images.length; i++) {
         this.imgs[i] = new Image();
+        this.page_urls[i] = this.images[i].page_url;
         this.imgs[i].onload = function () {
             thiss.buildCarousel(thiss);
         };
@@ -87,6 +89,7 @@ Carousel.prototype.buildCarousel = function (scope) {
             reflectionplane.scale.x = -1;
             reflectionplane.position.y = textcontainer.position.y - 10 - 3 * size;
 
+            plane["page_url"] = scope.images[i].page_url;
             this.add(plane);
             this.add(reflectionplane);
 
@@ -288,8 +291,13 @@ function ondblClick(event) {
     var intersects = ray.intersectObjects(carousel.children);
 
     if (intersects.length > 0) {
-        rotateCarousel(intersects[0].object,true);
-        setCurrentetChildId(intersects[0].object);
+        if (current_page(intersects[0].object)) {
+            //alert(carousel.children[current_id].page_url);
+            window.open(carousel.children[current_id].page_url, '_blank');
+        } else {
+            rotateCarousel(intersects[0].object,true);
+            setCurrentetChildId(intersects[0].object);
+        }
     }
 }
 
@@ -407,6 +415,15 @@ function setCurrentetChildId(object) {
       }
     }
 }
+
+function current_page(object) {
+    found = false;
+    if (carousel.children[current_id]==object) {
+        found=true;
+    }
+    return found;
+}
+
 
 function render() {
     if (carouselupdate)

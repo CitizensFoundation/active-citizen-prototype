@@ -1,4 +1,4 @@
-SKIP = ["Facebook","Terms of Service"]
+SKIP = ["Facebook","Terms of Service","NHS","NHS Citizen","Priorities Spaces","Privacy policy"]
 
 class ExperimentsController < ApplicationController
   def nhs_citizen
@@ -10,6 +10,7 @@ class ExperimentsController < ApplicationController
 
   def setup_field_weights
     @field_weights = {
+        :title => 200,
         :entities_high_relevance => 100,
         :entities_med_relevance    => 70,
         :entities_low_relevance => 40,
@@ -25,9 +26,7 @@ class ExperimentsController < ApplicationController
   def setup_match(web_page_id)
     @page = WebPage.find(web_page_id)
 
-    @all_entities =  (@page.entities_high_relevance ? @page.entities_high_relevance : "")+
-        (@page.entities_med_relevance ? ",#{@page.entities_med_relevance}," : ",")+
-        (@page.entities_low_relevance ? @page.entities_low_relevance : "")
+    @all_entities = @page.all_entities
 
     @all_keywords =  (@page.keywords_high_relevance ? @page.keywords_high_relevance : "")+
         (@page.keywords_med_relevance ? ",#{@page.keywords_med_relevance}," : ",")+
@@ -43,12 +42,12 @@ class ExperimentsController < ApplicationController
     @all_keywords = @all_keywords.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
     @all_concepts = @all_concepts.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
     Rails.logger.debug @all_keywords
-    @all_search_items = @all_entities[0..500]+@all_keywords[0..7]+=@all_concepts[0..7]
+    @all_search_items = @all_entities[0..1000]+@all_keywords[0..20]+=@all_concepts[0..100]
     Rails.logger.debug @all_search_items
   end
 
   def setup_query
-    if @all_entities.length>1
+    if false and @all_entities.length>1
       @query = "(#{@all_search_items[0]} & #{@all_search_items[1]}) & (#{@all_search_items[2..@all_search_items.length-1].join(" | ")})"
     else
       @query = "(#{@all_search_items[0..@all_search_items.length-1].join(" | ")})"
@@ -56,11 +55,14 @@ class ExperimentsController < ApplicationController
   end
 
   def search
-    @hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :star=>true, :@field_weights=>@field_weights)[0..7000]
+    news_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount,  :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"news").first.id})[0..6]
+    industry_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..2]
+    #@excerpter = ThinkingSphinx::Excerpter.new 'web_page_core', @query
+    @hits = (news_hits+industry_hits).shuffle
     Rails.logger.debug @hits.inspect
     #@hits += ThinkingSphinx.search(@page.concepts_high_relevance)[0..2]
     @hits = @hits.reject{|p| p.id==@page.id || p.url.include?("nhs-citizen")}.uniq
-    @hits = @hits[0..7]
+    @hits = @hits[0..8]
     #@hits.context.panes << ThinkingSphinx::Panes::ExcerptsPane
   end
 

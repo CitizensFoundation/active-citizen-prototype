@@ -1,4 +1,7 @@
 class WebPage < ActiveRecord::Base
+
+  #scope :active => where(:active=>true)
+
   has_attached_file :screenshot,
                     :styles => { :full => "", :large => "", :medium=>"", :small=>"", :thumb=>"" },
                     :convert_options => {
@@ -10,6 +13,8 @@ class WebPage < ActiveRecord::Base
                     },
                     :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :screenshot, :content_type => /\Aimage\/.*\Z/
+
+  belongs_to :web_page_type
 
   def store_classification_entity(name,response)
     self.send("#{name}_api_response=", response.to_json)
@@ -33,5 +38,11 @@ class WebPage < ActiveRecord::Base
     store_classification_entity("keywords",AlchemyAPI::KeywordExtraction.new.search(:url => self.url))
     store_classification_entity("concepts",AlchemyAPI::ConceptTagging.new.search(:url => self.url))
     self.save
+  end
+
+  def all_entities
+    (self.entities_high_relevance ? self.entities_high_relevance : "")+
+        (self.entities_med_relevance ? ",#{self.entities_med_relevance}," : ",")+
+        (self.entities_low_relevance ? self.entities_low_relevance : "")
   end
 end

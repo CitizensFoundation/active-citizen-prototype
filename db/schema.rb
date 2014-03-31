@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325232015) do
+ActiveRecord::Schema.define(version: 20140331133401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "web_page_types", force: true do |t|
+    t.string   "name"
+    t.integer  "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "web_page_types", ["name"], name: "index_web_page_types_on_name", using: :btree
 
   create_table "web_pages", force: true do |t|
     t.string   "url",                                    null: false
@@ -38,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140325232015) do
     t.string   "screenshot_content_type"
     t.datetime "screenshot_updated_at"
     t.boolean  "active",                  default: true
+    t.integer  "web_page_type_id"
   end
 
   add_index "web_pages", ["title"], name: "index_web_pages_on_title", using: :btree
