@@ -31,16 +31,6 @@ Carousel.prototype.buildCarousel = function (scope) {
     scope.howMany++;
     if (scope.howMany == scope.images.length) {
         for (var i = 0; i < scope.images.length; i++) {
-            // text caption
-            var size = (0.9) * (scope.w / scope.images[i].url.length);
-            var height = 1;
-            var text3d = new THREE.TextGeometry(scope.images[i].url, {size: size, height: height, curveSegments: 2, font: 'helvetiker'});
-            var textMaterial = new THREE.MeshBasicMaterial({ color: 0x525252, overdraw: true });
-            var text = new THREE.Mesh(text3d, textMaterial);
-            text.doubleSided = false;
-            var textcontainer = new THREE.Object3D();
-            	textcontainer.add(text);
-
             // image plane
             var texture = new THREE.Texture(scope.imgs[i]);
             var plane = new THREE.Mesh(new THREE.PlaneGeometry(scope.w, scope.h, 3, 3), new THREE.MeshBasicMaterial({ map: texture, overdraw: true }));
@@ -51,49 +41,11 @@ Carousel.prototype.buildCarousel = function (scope) {
             plane.carouselAngle = aa;//plane.rotation.y;
             plane.scale.x = -1;
 
-            textcontainer.position.x = plane.position.x;
-            textcontainer.position.y = plane.position.y - size - 0.5 * scope.h - 5;
-            textcontainer.position.z = plane.position.z;
-            textcontainer.rotation.y = plane.rotation.y;
-            text.scale.x = plane.scale.x;
-            text.position.x = scope.w * 0.5;
-
-            // reflection
-            var canvas = document.createElement('canvas');
-            canvas.width = scope.w;
-            canvas.height = scope.reflectionHeightPer * scope.h;
-
-            var cntx = canvas.getContext('2d');
-            cntx.save();
-            cntx.globalAlpha = scope.reflectionOpacity;
-            cntx.translate(0, scope.h - 1);
-            cntx.scale(1, -1);
-            cntx.drawImage(scope.imgs[i], 0, 0, scope.w, scope.h /*,0,0,scope.w, scope.reflectionHeightPer*scope.h*/);
-            cntx.restore();
-            cntx.globalCompositeOperation = "destination-out";
-            var gradient = cntx.createLinearGradient(0, 0, 0, scope.reflectionHeightPer * scope.h);
-            gradient.addColorStop(1, "rgba(255, 255, 255, 1.0)");
-            gradient.addColorStop(0, "rgba(255, 255, 255, 0.0)");
-            cntx.fillStyle = gradient;
-            cntx.fillRect(0, 0, scope.w, 2 * scope.reflectionHeightPer * scope.h);
-
-            var texture2 = new THREE.Texture(canvas);
-            texture2.needsUpdate = true;
-
-            var material = new THREE.MeshBasicMaterial({ map: texture2, transparent: true });
-            var reflectionplane = new THREE.Mesh(new THREE.PlaneGeometry(scope.w, scope.reflectionHeightPer * scope.h, 3, 3), material);
-            reflectionplane.rotation.y = -aa - Math.PI / 2;
-            reflectionplane.position = new THREE.Vector3(this.rad * Math.cos(aa), 0, this.rad * Math.sin(aa));
-            reflectionplane.doubleSided = true;
-            reflectionplane.carouselAngle = aa;
-            reflectionplane.scale.x = -1;
-            reflectionplane.position.y = textcontainer.position.y - 10 - 3 * size;
-
             plane["page_url"] = scope.images[i].page_url;
             this.add(plane);
-            this.add(reflectionplane);
+            //this.add(reflectionplane);
 
-            if (i==0) {
+            if (i == 0) {
                 plane.rotation.y = 0;
                 plane.position = new THREE.Vector3(1, 1324, 1);
                 plane.doubleSided = true;
@@ -103,8 +55,6 @@ Carousel.prototype.buildCarousel = function (scope) {
 
                 main_idea_plane = plane;
             }
-
-            //						this.add( textcontainer );
         }
     }
 };
@@ -117,9 +67,9 @@ canvas.height = window.innerHeight;
 var context = canvas.getContext('2d');
 var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
 gradient.addColorStop(0, "#FFFFFF");
-gradient.addColorStop(0.6, "#FFFFFF");
-gradient.addColorStop(0.7, "#EEEEFF");
-gradient.addColorStop(1, "#EEDDFF");
+gradient.addColorStop(0.5, "#FFFFFF");
+gradient.addColorStop(0.82, "#DDDDDD");
+gradient.addColorStop(1, "#AAAAAA");
 context.fillStyle = gradient;
 context.fillRect(0, 0, canvas.width, canvas.height);
 document.body.style.background = 'url(' + canvas.toDataURL('image/png') + ')';
@@ -129,17 +79,17 @@ var camera, scene, renderer, projector;
 var updatecamera = false, carouselupdate = true;
 var carousel;
 /*var images = [
-    {url: 'img/d1.jpg', width: 150, height: 100},
-    {url: 'img/d2.jpg', width: 150, height: 100},
-    {url: 'img/d3.png', width: 150, height: 100},
-    {url: 'img/d4.jpg', width: 150, height: 100},
-    {url: 'img/d5.jpg', width: 150, height: 100},
-    {url: 'img/d6.png', width: 150, height: 100},
-    {url: 'img/d7.png', width: 150, height: 100},
-    {url: 'img/d8.png', width: 150, height: 100},
-    {url: 'img/d9.jpg', width: 150, height: 100},
-    {url: 'img/d10.jpg', width: 150, height: 100}
-];*/
+ {url: 'img/d1.jpg', width: 150, height: 100},
+ {url: 'img/d2.jpg', width: 150, height: 100},
+ {url: 'img/d3.png', width: 150, height: 100},
+ {url: 'img/d4.jpg', width: 150, height: 100},
+ {url: 'img/d5.jpg', width: 150, height: 100},
+ {url: 'img/d6.png', width: 150, height: 100},
+ {url: 'img/d7.png', width: 150, height: 100},
+ {url: 'img/d8.png', width: 150, height: 100},
+ {url: 'img/d9.jpg', width: 150, height: 100},
+ {url: 'img/d10.jpg', width: 150, height: 100}
+ ];*/
 var targetRotationY = 0;
 var targetRotationOnMouseDownY = 0;
 var targetRotationX = 0;
@@ -177,33 +127,6 @@ scene.add(camera);
 
 var main_idea_plane;
 
-/* --- PARTICLES ---/
- // create the particle variables
- var particleCount = 3000,
- particles = new THREE.Geometry(),
- pMaterial = new THREE.ParticleBasicMaterial({
- color: 0x000000,
- size: 200,
- map: THREE.ImageUtils.loadTexture("https://s3.amazonaws.com/yrpri-direct-asset/YP_FinalLogo_light_grey.png"),
- blending: THREE.AdditiveBlending,
- transparent: true
- })
- // create the individual particles
- for (var p = 0; p < particleCount; p++) {
- var pX = Math.random() * 300,
- pY = Math.random() * 1000 - 250,
- pZ = Math.random() * 1000,
- particle = new THREE.Vertex(new THREE.Vector3(pX, pY, pZ));
- particle.velocity = new THREE.Vector3(0, Math.random(), 0);
- particles.vertices.push(particle);
- }
- // create the particle system
- var particleSystem = new THREE.ParticleSystem(particles, pMaterial);
- particleSystem.sortParticles = true;
- scene.add(particleSystem);
- /* --- PARTICLES --- */
-
-
 // Carousel
 carousel = new Carousel(2570, images, 1366, 768);
 scene.add(carousel);
@@ -219,29 +142,29 @@ container.addEventListener('touchstart', onDocumentTouchStart, false);
 container.addEventListener('touchmove', onDocumentTouchMove, false);
 
 
-var start_position = { x : 0, y: 1150, z: 1900 };
-var target_position = { x : 0, y: -120, z: 3520 };
+var start_position = { x: 0, y: 1150, z: 1900 };
+var target_position = { x: 0, y: -120, z: 3520 };
 var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
 
-camera_tween.onUpdate(function(){
-    camera.position.set(start_position.x,start_position.y,start_position.z);
+camera_tween.onUpdate(function () {
+    camera.position.set(start_position.x, start_position.y, start_position.z);
 });
 
 camera_tween.delay(1200);
 camera_tween.start();
 
-var start_rotation = { x : 0, y: 0.0, z: 0.0 };
-var target_rotation = { x : 0, y: 6.30, z: 0.0 };
+var start_rotation = { x: 0, y: 0.0, z: 0.0 };
+var target_rotation = { x: 0, y: 6.30, z: 0.0 };
 var main_idea_tween = new TWEEN.Tween(start_rotation).to(target_rotation, 270000);
 
-main_idea_tween.onUpdate(function(){
-    main_idea_plane.rotation.y=start_rotation.y;
+main_idea_tween.onUpdate(function () {
+    main_idea_plane.rotation.y = start_rotation.y;
 });
 
 main_idea_tween.delay(1200);
 main_idea_tween.start();
 
-var keyboard	= new THREEx.KeyboardState();
+var keyboard = new THREEx.KeyboardState();
 var current_id = 0;
 
 /****** INIT *****/
@@ -249,7 +172,7 @@ var current_id = 0;
 animate();
 
 
-function rotateCarousel(item,easing) {
+function rotateCarousel(item, easing) {
     carouselupdate = false;
     var angle = (item.carouselAngle - Math.PI / 2) % (2 * Math.PI);
     var b = carousel.rotation.y % (2 * Math.PI);
@@ -294,10 +217,10 @@ function ondblClick(event) {
         if (current_page(intersects[0].object)) {
             //alert(carousel.children[current_id].page_url);
             //window.open(carousel.children[current_id].page_url, '_blank');
-            $.colorbox({href:carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
+            $.colorbox({href: carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
 
         } else {
-            rotateCarousel(intersects[0].object,true);
+            rotateCarousel(intersects[0].object, true);
             setCurrentetChildId(intersects[0].object);
         }
     }
@@ -331,10 +254,10 @@ function onDocumentMouseMove(event) {
     targetRotationX = targetRotationOnMouseDownX + ( mouseY - mouseYOnMouseDown ) * 0.002;
 
     if (camera.position.z < 430) {
-      //  camera.position.z = 430
+        //  camera.position.z = 430
     }
     if (camera.position.z > 600) {
-      //  camera.position.z = 600
+        //  camera.position.z = 600
     }
     updatecamera = true;
 }
@@ -390,38 +313,22 @@ function onDocumentTouchMove(event) {
 //
 
 function animate() {
-    /* --- PARTICLES --- /
-     var pCount = particleCount;
-     while (pCount--) {
-     var particle = particles.vertices[pCount];
-     if (particle.position.y > 250) {
-     particle.position.y = -250;
-     particle.velocity.y = 0;
-     }
-     particle.velocity.y = Math.random() * 5;
-     particle.position.addSelf(particle.velocity);
-
-     }
-     particleSystem.geometry.__dirtyVertices = true;
-     renderer.render(scene, camera);
-     /* --- PARTICLES --- */
-
     requestAnimationFrame(animate);
     render();
 }
 
 function setCurrentetChildId(object) {
-    for (i=0;i<carousel.children.length;i++) {
-      if (carousel.children[i]==object) {
-          current_id=i;
-      }
+    for (i = 0; i < carousel.children.length; i++) {
+        if (carousel.children[i] == object) {
+            current_id = i;
+        }
     }
 }
 
 function current_page(object) {
     found = false;
-    if (carousel.children[current_id]==object) {
-        found=true;
+    if (carousel.children[current_id] == object) {
+        found = true;
     }
     return found;
 }
@@ -438,10 +345,10 @@ function render() {
     updatecamera = true;
 //				carouselupdate=true;
     if (keyboard.pressed("enter")) {
-            if (current_id>carousel.children.length-1) {
-                current_id=0;
-            }
-            rotateCarousel(carousel.children[current_id+=1],false);
+        if (current_id > carousel.children.length - 1) {
+            current_id = 0;
+        }
+        rotateCarousel(carousel.children[current_id += 1], false);
     }
     TWEEN.update();
 }

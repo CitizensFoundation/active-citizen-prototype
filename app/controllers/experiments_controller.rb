@@ -47,8 +47,7 @@ class ExperimentsController < ApplicationController
     @all_search_items = @all_entities[0..1]+@all_entities+
                         @all_keywords+
                         @all_concepts+
-                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+
-                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
+                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
 
         Rails.logger.debug "--------------------------------------------------------------"
     Rails.logger.debug @all_search_items
