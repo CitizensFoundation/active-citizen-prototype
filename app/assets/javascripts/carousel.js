@@ -294,7 +294,7 @@ function ondblClick(event) {
         if (current_page(intersects[0].object)) {
             //alert(carousel.children[current_id].page_url);
             //window.open(carousel.children[current_id].page_url, '_blank');
-            $.colorbox({href:carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "65%", innerWidth: "65%" });
+            $.colorbox({href:carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
 
         } else {
             rotateCarousel(intersects[0].object,true);
@@ -437,7 +437,7 @@ function render() {
     renderer.render(scene, camera);
     updatecamera = true;
 //				carouselupdate=true;
-    if (keyboard.pressed("shift") || keyboard.pressed("ctrl")) {
+    if (keyboard.pressed("enter")) {
             if (current_id>carousel.children.length-1) {
                 current_id=0;
             }

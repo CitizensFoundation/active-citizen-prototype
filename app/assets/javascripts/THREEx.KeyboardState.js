@@ -69,6 +69,7 @@ THREEx.KeyboardState.ALIAS	= {
 	'space'		: 32,
 	'pageup'	: 33,
 	'pagedown'	: 34,
+    'enter'     : 13,
 	'tab'		: 9
 };
 
@@ -108,7 +109,11 @@ THREEx.KeyboardState.prototype.pressed	= function(keyDesc)
 		}else if( Object.keys(THREEx.KeyboardState.ALIAS).indexOf( key ) != -1 ){
 			pressed	= this.keyCodes[ THREEx.KeyboardState.ALIAS[key] ];
 		}else {
-			pressed	= this.keyCodes[key.toUpperCase().charCodeAt(0)]
+            if (key == 13) {
+              pressed = "enter";
+            } else {
+                pressed	= this.keyCodes[key.toUpperCase().charCodeAt(0)];
+            }
 		}
 		if( !pressed)	return false;
 	};

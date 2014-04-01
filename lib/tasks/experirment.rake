@@ -17,6 +17,17 @@ RSS_FEEDS = ["http://www.theguardian.com/society/health/rss","http://feeds.bbci.
              "http://www.ehi.co.uk/rss.cfm?channel=2&category=49","http://www.ehi.co.uk/rss.cfm?channel=2&category=12"]
 
 namespace :experiment do
+  desc "Fix"
+  task :fix_web_page_types => :environment do
+    nhs = WebPageType.create(:name=>"nhs")
+    WebPage.all.each do |webpage|
+      if webpage.url.include?("nhs-citizen")
+        webpage.web_page_type = nhs
+        webpage.save
+      end
+    end
+  end
+
   desc "Screenshots"
   task :screenshots => :environment do
     headless = Headless.new

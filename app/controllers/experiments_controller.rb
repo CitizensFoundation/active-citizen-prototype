@@ -1,4 +1,4 @@
-SKIP = ["Facebook","Terms of Service","NHS","NHS Citizen","Priorities Spaces","Privacy policy"]
+SKIP = ["Facebook","Terms of Service","NHS","Priorities Spaces","Privacy policy"]
 
 class ExperimentsController < ApplicationController
   def nhs_citizen
@@ -10,7 +10,7 @@ class ExperimentsController < ApplicationController
 
   def setup_field_weights
     @field_weights = {
-        :title => 200,
+        :title => 100,
         :entities_high_relevance => 100,
         :entities_med_relevance    => 70,
         :entities_low_relevance => 40,
@@ -41,8 +41,14 @@ class ExperimentsController < ApplicationController
     @all_entities = @all_entities.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
     @all_keywords = @all_keywords.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
     @all_concepts = @all_concepts.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
+
+    @all_title_words = @page.title.split(" ")
+
     Rails.logger.debug @all_keywords
-    @all_search_items = @all_entities[0..1000]+@all_keywords[0..20]+=@all_concepts[0..100]
+    @all_search_items = @all_entities[0..0]+@all_entities[0..1]+@all_entities[0..2]+@all_entities+
+                        @all_keywords+
+                        @all_concepts+
+                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
     Rails.logger.debug @all_search_items
   end
 
