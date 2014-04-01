@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require Three
+//= require three
 //= require Tween
 //= require helvetiker_regular.typeface
 //= require RequestAnimationFrame

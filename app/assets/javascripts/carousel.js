@@ -40,7 +40,7 @@ Carousel.prototype.buildCarousel = function (scope) {
             plane.doubleSided = true;
             plane.carouselAngle = aa;//plane.rotation.y;
             plane.scale.x = -1;
-
+            plane.material.side = THREE.DoubleSide;
             plane["page_url"] = scope.images[i].page_url;
             this.add(plane);
             //this.add(reflectionplane);
@@ -122,7 +122,6 @@ camera.position.x = 0;
 camera.position.y = 1150;
 camera.position.z = 1900;
 
-
 scene.add(camera);
 
 var main_idea_plane;
@@ -134,6 +133,7 @@ scene.add(carousel);
 projector = new THREE.Projector();
 renderer = new THREE.CanvasRenderer();
 renderer.setSize(w, h);
+renderer.setClearColor( 0xffffff, 1 );
 container.appendChild(renderer.domElement);
 
 container.addEventListener('dblclick', ondblClick, false);
@@ -209,7 +209,7 @@ function ondblClick(event) {
     var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
     projector.unprojectVector(vector, camera);
 
-    var ray = new THREE.Ray(camera.position, vector.subSelf(camera.position).normalize());
+    var ray = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
 
     var intersects = ray.intersectObjects(carousel.children);
 
