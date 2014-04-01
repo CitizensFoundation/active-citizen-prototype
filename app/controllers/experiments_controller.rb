@@ -3,7 +3,7 @@ SKIP = ["Facebook","Terms of Service","NHS","Priorities Spaces","Privacy policy"
 class ExperimentsController < ApplicationController
   def nhs_citizen
     @pages = []
-    WebPage.where(:active=>true).all.each do |page|
+    WebPage.where(:active=>true).all.shuffle.each do |page|
       @pages << page if page.url.include?("nhs-citizen")
     end
   end
@@ -38,17 +38,22 @@ class ExperimentsController < ApplicationController
 
 
     #@all_search_items = @all_search_items.gsub("/"," ").split(",").reject{|w| w==""}
-    @all_entities = @all_entities.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
-    @all_keywords = @all_keywords.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
-    @all_concepts = @all_concepts.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.split(" ").count>1222 || SKIP.include?(x)}.map{|w| " (#{w}) "}
+    @all_entities = @all_entities.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.empty? || x.split(" ").count>3 || SKIP.include?(x)}.map{|w| " (#{w}) "}
+    @all_keywords = @all_keywords.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.empty? || x.split(" ").count>3 || SKIP.include?(x)}.map{|w| " (#{w}) "}
+    @all_concepts = @all_concepts.gsub("/"," ").gsub("&"," ").gsub("-"," ").split(",").reject{|w| w==""}.reject{|x| x.empty? || x.split(" ").count>3 || SKIP.include?(x)}.map{|w| " (#{w}) "}
 
-    @all_title_words = @page.title.split(" ")
+    @all_title_words = @page.title.split(" ").map{|x| x.gsub("!","").gsub("'","").gsub("-"," ").gsub("?","")}.reject{|x| x.empty? || x.split(" ").count>2 || SKIP.include?(x) || x.length<3}
+    @all_title_words_grouped = []
+    @all_title_words.each_slice(2).each do |words|
+      @all_title_words_grouped << words.map{|w| "(#{w})"}.join(" ")
+    end
 
     Rails.logger.debug @all_keywords
-    @all_search_items = @all_entities[0..0]+@all_entities[0..1]+@all_entities[0..2]+@all_entities+
+    @all_search_items = @all_entities[0..1]+@all_entities+
                         @all_keywords+
                         @all_concepts+
-                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
+                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
+    Rails.logger.debug "--------------------------------------------------------------"
     Rails.logger.debug @all_search_items
   end
 
@@ -56,13 +61,13 @@ class ExperimentsController < ApplicationController
     if false and @all_entities.length>1
       @query = "(#{@all_search_items[0]} & #{@all_search_items[1]}) & (#{@all_search_items[2..@all_search_items.length-1].join(" | ")})"
     else
-      @query = "(#{@all_search_items[0..@all_search_items.length-1].join(" | ")})"
+      @query = "#{@all_search_items[0..@all_search_items.length-1].join(" | ")}"
     end
   end
 
   def search
-    news_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount,  :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"news").first.id})[0..6]
-    industry_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..2]
+    news_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount,  :star=>true, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"news").first.id})[0..5]
+    industry_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :star=>true, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..1]
     #@excerpter = ThinkingSphinx::Excerpter.new 'web_page_core', @query
     @hits = (news_hits+industry_hits).shuffle
     Rails.logger.debug @hits.inspect
