@@ -397,9 +397,9 @@ function render() {
         carousel.rotation.y += ( targetRotationY - carousel.rotation.y ) * 0.05;
     if (updatecamera && Math.abs(mouse.y - prevmouse.y) > Math.abs(mouse.x - prevmouse.x))
         camera.position.z += (mouse.y - prevmouse.y) * 20;
-
+    render_loader();
     if (!done) {
-        render_loader();
+       // do nothing
     } else if (have_set_first_item==false) {
         //rotateCarousel(carousel.children[0], true);
         var target_position = { x: 0, y: -120, z: 3400 };
