@@ -402,7 +402,7 @@ function render() {
     if (carousel.loading==true) {
         render_loader();
     } else if (have_set_first_item==false) {
-        rotateCarousel(carousel.children[0], true);
+        //rotateCarousel(carousel.children[0], true);
         have_set_first_item = true;
     };
 
