@@ -42,6 +42,7 @@ Carousel.prototype.buildCarousel = function (scope) {
             plane.scale.x = -1;
             plane.material.side = THREE.DoubleSide;
             plane["page_url"] = scope.images[i].page_url;
+            plane["page_id"] = i;
             this.add(plane);
             //this.add(reflectionplane);
 
@@ -59,6 +60,66 @@ Carousel.prototype.buildCarousel = function (scope) {
     }
 };
 
+function createFloor() {
+    // Grid
+    var size = 6000, step = 500;
+    var y = -440.0;
+
+    var geometry = new THREE.Geometry();
+
+    colors = [], colors2 = [], colors3 = [];
+
+    for ( i = 0; i < 5; i ++ ) {
+        colors[ i ] = new THREE.Color( 0xffffff );
+        colors[ i ].setHSL( 0.6, 1.0, Math.max( 0, ( 200 - 5 ) / 400 ) * 0.5 + 0.5 );
+
+        colors2[ i ] = new THREE.Color( 0xffffff );
+        colors2[ i ].setHSL( 0.3, 1.0, Math.max( 0, ( 200 + 6 ) / 400 ) * 0.5 );
+
+        colors3[ i ] = new THREE.Color( 0xffffff );
+        colors3[ i ].setHSL( i / 5, 1.0, 0.5 );
+
+    }
+
+    var material = new THREE.LineBasicMaterial( { color: 0xbbbbbb, opacity: 1, linewidth: 2.2} );
+
+    for ( var i = - size; i <= size; i += step ) {
+
+        geometry.vertices.push( new THREE.Vector3( - size, y, i ) );
+        geometry.vertices.push( new THREE.Vector3(   size, y, i ) );
+
+        geometry.vertices.push( new THREE.Vector3( i, y, - size ) );
+        geometry.vertices.push( new THREE.Vector3( i, y,   size ) );
+
+    }
+
+    var line = new THREE.Line( geometry, material, THREE.LinePieces );
+    scene.add( line );
+}
+
+shifted=false;
+
+$(document).bind('keyup keydown', function(e){shifted = e.shiftKey} );
+
+$("body").keypress(function(e){
+    if (e.which==13) {
+        if (shifted==true) {
+            if (current_id == 0) {
+                current_id = carousel.children.length-1;
+                rotateCarousel(carousel.children[current_id], false);
+            } else {
+                rotateCarousel(carousel.children[current_id -= 1], false);
+            }
+        } else {
+            if (current_id >= carousel.children.length-1) {
+                current_id = 0;
+                rotateCarousel(carousel.children[current_id], false);
+            } else {
+                rotateCarousel(carousel.children[current_id += 1], false);
+            }
+        };
+    };
+});
 
 // Bg gradient
 var canvas = document.createElement('canvas');
@@ -167,6 +228,9 @@ main_idea_tween.start();
 var keyboard = new THREEx.KeyboardState();
 var current_id = 0;
 
+
+createFloor();
+
 /****** INIT *****/
 
 animate();
@@ -198,6 +262,10 @@ function rotateCarousel(item, easing) {
             targetRotationY = carousel.rotation.y;
         }).start();
     }
+}
+
+function findPage(page_id) {
+
 }
 
 function ondblClick(event) {
@@ -310,8 +378,6 @@ function onDocumentTouchMove(event) {
     }
 }
 
-//
-
 function animate() {
     requestAnimationFrame(animate);
     render();
@@ -323,6 +389,7 @@ function setCurrentetChildId(object) {
             current_id = i;
         }
     }
+    alert("Current is "+current_id);
 }
 
 function current_page(object) {
@@ -344,11 +411,5 @@ function render() {
     renderer.render(scene, camera);
     updatecamera = true;
 //				carouselupdate=true;
-    if (keyboard.pressed("enter")) {
-        if (current_id > carousel.children.length - 1) {
-            current_id = 0;
-        }
-        rotateCarousel(carousel.children[current_id += 1], false);
-    }
     TWEEN.update();
 }

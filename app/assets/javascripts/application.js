@@ -13,13 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
-//= require three
-//= require Tween
-//= require helvetiker_regular.typeface
-//= require RequestAnimationFrame
-//= require THREEx.KeyboardState
-//= require jquery.colorbox
-//= #require_tree .
+//= #require turbolinks
+//= require_tree .
 
 $(function(){ $(document).foundation(); });
