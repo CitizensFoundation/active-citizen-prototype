@@ -5,7 +5,6 @@ var Carousel = function (rad, images, w, h, scene) {
     THREE.Object3D.call(this);
     this.images = images;
     this.rad = rad;
-    this.loading = true;
     this.howMany = 0;
     this.reflectionOpacity = 0.1;
     this.reflectionHeightPer = 0.5;
@@ -24,19 +23,9 @@ var Carousel = function (rad, images, w, h, scene) {
     }
     this.anglePer = 2 * Math.PI / this.images.length;
     scene.add(this);
-    this.loading = false;
-    var target_position = { x: 0, y: -120, z: 3400 };
-    var start_position = { x: 0, y: -50, z: 420 };
-    var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
-
-    camera_tween.onUpdate(function () {
-        camera.position.set(start_position.x, start_position.y, start_position.z);
-    });
-
-    camera_tween.delay(600);
-    camera_tween.start();
-
 }
+
+done = false;
 
 // Carousel is subclass of Object3D
 Carousel.prototype = new THREE.Object3D;
@@ -72,6 +61,7 @@ Carousel.prototype.buildCarousel = function (scope) {
             }
         }
     }
+    done = true;
 };
 
 function createFloor() {
@@ -112,8 +102,9 @@ function createFloor() {
 }
 
 shifted=false;
+alted=false;
 
-$(document).bind('keyup keydown', function(e){shifted = e.shiftKey} );
+$(document).bind('keyup keydown', function(e){ shifted = e.shiftKey; ctrled = e.altKey } );
 
 $("body").keypress(function(e){
     if (e.which==13) {
@@ -124,6 +115,8 @@ $("body").keypress(function(e){
             } else {
                 rotateCarousel(carousel.children[current_id -= 1], false);
             }
+        } else if (alted==true) {
+          $.colorbox({href: carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
         } else {
             if (current_id >= carousel.children.length-1) {
                 current_id = 0;
@@ -393,16 +386,25 @@ function current_page(object) {
 
 
 function render() {
-
     if (carouselupdate)
         carousel.rotation.y += ( targetRotationY - carousel.rotation.y ) * 0.05;
     if (updatecamera && Math.abs(mouse.y - prevmouse.y) > Math.abs(mouse.x - prevmouse.x))
         camera.position.z += (mouse.y - prevmouse.y) * 20;
 
-    if (carousel.loading==true) {
+    if (!done) {
         render_loader();
     } else if (have_set_first_item==false) {
         //rotateCarousel(carousel.children[0], true);
+        var target_position = { x: 0, y: -120, z: 3400 };
+        var start_position = { x: 0, y: -50, z: 420 };
+        var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
+
+        camera_tween.onUpdate(function () {
+            camera.position.set(start_position.x, start_position.y, start_position.z);
+        });
+
+        camera_tween.delay(600);
+        camera_tween.start();
         have_set_first_item = true;
     };
 

@@ -135,8 +135,9 @@ function render_loader() {
     for (var i = 0; i < loader_scene.children.length; i++) {
 
         var object = loader_scene.children[ i ];
-        if (object instanceof THREE.Line) object.rotation.y = time * ( i % 2 ? 1 : -1 );
-
+        if (object instanceof THREE.Line) {
+            if (object.material.color.getHex()!=0xbbbbbb) object.rotation.y = time * ( i % 2 ? 1 : -1 );
+        }
     }
 
     //loader_renderer.clear();
