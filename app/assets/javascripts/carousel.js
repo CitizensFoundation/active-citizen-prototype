@@ -16,9 +16,16 @@ var Carousel = function (rad, images, w, h, scene) {
     for (var i = 0; i < this.images.length; i++) {
         this.imgs[i] = new Image();
         this.page_urls[i] = this.images[i].page_url;
-        this.imgs[i].onload = function () {
-            thiss.buildCarousel(thiss);
-        };
+        if (i==this.images.length-1) {
+            this.imgs[i].onload = function () {
+                thiss.buildCarousel(thiss,true);
+            };
+
+        } else {
+            this.imgs[i].onload = function () {
+                thiss.buildCarousel(thiss,false);
+            };
+        }
         this.imgs[i].src = this.images[i].url;
     }
     this.anglePer = 2 * Math.PI / this.images.length;
@@ -30,7 +37,7 @@ done = false;
 // Carousel is subclass of Object3D
 Carousel.prototype = new THREE.Object3D;
 Carousel.prototype.constructor = Carousel;
-Carousel.prototype.buildCarousel = function (scope) {
+Carousel.prototype.buildCarousel = function (scope,setDone) {
     scope.howMany++;
     if (scope.howMany == scope.images.length) {
         for (var i = 0; i < scope.images.length; i++) {
@@ -61,7 +68,7 @@ Carousel.prototype.buildCarousel = function (scope) {
             }
         }
     }
-    done = true;
+    if (setDone) { done = true; }
 };
 
 function createFloor() {
