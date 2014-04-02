@@ -1,11 +1,4 @@
 // From http://www.mingoland.co.uk/webgl/carousel/
-function sleep(millis, callback) {
-    setTimeout(function()
-        { callback(); }
-        , millis);
-}
-function foobar_cont(){
-};
 
 /* -- Carousel -- */
 var Carousel = function (rad, images, w, h, scene) {
