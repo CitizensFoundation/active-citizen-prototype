@@ -1,10 +1,18 @@
 // From http://www.mingoland.co.uk/webgl/carousel/
+function sleep(millis, callback) {
+    setTimeout(function()
+        { callback(); }
+        , millis);
+}
+function foobar_cont(){
+};
 
 /* -- Carousel -- */
-var Carousel = function (rad, images, w, h) {
+var Carousel = function (rad, images, w, h, scene) {
     THREE.Object3D.call(this);
     this.images = images;
     this.rad = rad;
+    this.loading = true;
     this.howMany = 0;
     this.reflectionOpacity = 0.1;
     this.reflectionHeightPer = 0.5;
@@ -22,6 +30,19 @@ var Carousel = function (rad, images, w, h) {
         this.imgs[i].src = this.images[i].url;
     }
     this.anglePer = 2 * Math.PI / this.images.length;
+    this.loading = false;
+    scene.add(this);
+    var target_position = { x: 0, y: -120, z: 3400 };
+    var start_position = { x: 0, y: -50, z: 420 };
+    var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
+
+    camera_tween.onUpdate(function () {
+        camera.position.set(start_position.x, start_position.y, start_position.z);
+    });
+
+    camera_tween.delay(600);
+    camera_tween.start();
+
 }
 
 // Carousel is subclass of Object3D
@@ -140,6 +161,8 @@ var camera, scene, renderer, projector;
 var updatecamera = false, carouselupdate = true;
 var carousel;
 
+var have_set_first_item=false;
+
 var targetRotationY = 0;
 var targetRotationOnMouseDownY = 0;
 var targetRotationX = 0;
@@ -152,7 +175,6 @@ var mouseY = 0;
 var mouseYOnMouseDown = 0;
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
-
 
 /****** INIT *****/
 
@@ -169,16 +191,18 @@ scene = new THREE.Scene();
 
 camera = new THREE.PerspectiveCamera(70, w / h, 1, 50000);
 camera.position.x = 0;
-camera.position.y = 1150;
-camera.position.z = 1900;
+camera.position.y = -50;
+camera.position.z = 420;
 
 scene.add(camera);
 
 var main_idea_plane;
 
+
+initLoader(scene,camera);
+
 // Carousel
-carousel = new Carousel(2570, images, 1366, 768);
-scene.add(carousel);
+carousel = new Carousel(2570, images, 1366, 768, scene);
 
 projector = new THREE.Projector();
 renderer = new THREE.CanvasRenderer();
@@ -190,18 +214,6 @@ container.addEventListener('dblclick', ondblClick, false);
 container.addEventListener('mousedown', onDocumentMouseDown, false);
 container.addEventListener('touchstart', onDocumentTouchStart, false);
 container.addEventListener('touchmove', onDocumentTouchMove, false);
-
-
-var start_position = { x: 0, y: 1150, z: 1900 };
-var target_position = { x: 0, y: -120, z: 3520 };
-var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
-
-camera_tween.onUpdate(function () {
-    camera.position.set(start_position.x, start_position.y, start_position.z);
-});
-
-camera_tween.delay(1200);
-camera_tween.start();
 
 var start_rotation = { x: 0, y: 0.0, z: 0.0 };
 var target_rotation = { x: 0, y: 6.30, z: 0.0 };
@@ -215,7 +227,6 @@ main_idea_tween.delay(1200);
 main_idea_tween.start();
 
 var current_id = 0;
-
 
 createFloor();
 
@@ -389,11 +400,18 @@ function current_page(object) {
 
 
 function render() {
+
     if (carouselupdate)
         carousel.rotation.y += ( targetRotationY - carousel.rotation.y ) * 0.05;
     if (updatecamera && Math.abs(mouse.y - prevmouse.y) > Math.abs(mouse.x - prevmouse.x))
         camera.position.z += (mouse.y - prevmouse.y) * 20;
 
+    if (carousel.loading==true) {
+        render_loader();
+    } else if (have_set_first_item==false) {
+        rotateCarousel(carousel.children[current_id+=1], true);
+        have_set_first_item = true;
+    };
 
     renderer.render(scene, camera);
     updatecamera = true;
