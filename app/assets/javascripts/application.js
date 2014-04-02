@@ -14,7 +14,19 @@
 //= require jquery_ujs
 //= require foundation
 //= #require turbolinks
+//= require jquery.colorbox
 //= require three
-//= require_tree .
+//= require Tween
+//= require helvetiker_regular.typeface
+//= require shaders/ConvolutionShader
+//= require shaders/FXAAShader
+//= require shaders/CopyShader
+//= require postprocessing/BloomPass
+//= require postprocessing/EffectComposer
+//= require postprocessing/MaskPass
+//= require postprocessing/RenderPass
+//= require postprocessing/ShaderPass
+//= require carousel
+//= #require_tree .
 
 $(function(){ $(document).foundation(); });

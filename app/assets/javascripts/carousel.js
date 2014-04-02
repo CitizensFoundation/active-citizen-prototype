@@ -139,18 +139,7 @@ var container;
 var camera, scene, renderer, projector;
 var updatecamera = false, carouselupdate = true;
 var carousel;
-/*var images = [
- {url: 'img/d1.jpg', width: 150, height: 100},
- {url: 'img/d2.jpg', width: 150, height: 100},
- {url: 'img/d3.png', width: 150, height: 100},
- {url: 'img/d4.jpg', width: 150, height: 100},
- {url: 'img/d5.jpg', width: 150, height: 100},
- {url: 'img/d6.png', width: 150, height: 100},
- {url: 'img/d7.png', width: 150, height: 100},
- {url: 'img/d8.png', width: 150, height: 100},
- {url: 'img/d9.jpg', width: 150, height: 100},
- {url: 'img/d10.jpg', width: 150, height: 100}
- ];*/
+
 var targetRotationY = 0;
 var targetRotationOnMouseDownY = 0;
 var targetRotationX = 0;
@@ -225,7 +214,6 @@ main_idea_tween.onUpdate(function () {
 main_idea_tween.delay(1200);
 main_idea_tween.start();
 
-var keyboard = new THREEx.KeyboardState();
 var current_id = 0;
 
 
@@ -389,7 +377,6 @@ function setCurrentetChildId(object) {
             current_id = i;
         }
     }
-    alert("Current is "+current_id);
 }
 
 function current_page(object) {
