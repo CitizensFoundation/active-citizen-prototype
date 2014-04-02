@@ -26,7 +26,6 @@
 //= require postprocessing/MaskPass
 //= require postprocessing/RenderPass
 //= require postprocessing/ShaderPass
-//= require carousel
 //= #require_tree .
 
 $(function(){ $(document).foundation(); });
