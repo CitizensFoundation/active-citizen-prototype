@@ -410,7 +410,7 @@ function render() {
             camera.position.set(start_position.x, start_position.y, start_position.z);
         });
 
-        camera_tween.delay(600);
+        camera_tween.delay(1200);
         camera_tween.start();
         have_set_first_item = true;
     };
