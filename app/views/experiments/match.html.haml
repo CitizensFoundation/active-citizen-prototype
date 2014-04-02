@@ -20,7 +20,7 @@
             = "Searching: #{@query.gsub("(","").gsub(")","")}"
             %br
             = "Entities: "+@page.all_entities
-#container{style: "position:relative;margin:0 auto;padding:0;cursor:pointer"}
+#container{style: "cursor:pointer"}
 :javascript
   var images=[
    #{create_carousel_urls_from_pages(@pages)}

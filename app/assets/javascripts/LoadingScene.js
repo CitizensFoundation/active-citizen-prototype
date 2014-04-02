@@ -129,14 +129,15 @@ function hilbert3D(center, side, iterations, v0, v1, v2, v3, v4, v5, v6, v7) {
 }
 
 
-function render_loader() {
+function render_loader(done) {
     var time = Date.now() * 0.0005;
 
     for (var i = 0; i < loader_scene.children.length; i++) {
 
+        var change = done ? 0.1 : 1
         var object = loader_scene.children[ i ];
         if (object instanceof THREE.Line) {
-            if (object.material.color.getHex()!=0xbbbbbb) object.rotation.y = time * ( i % 2 ? 1 : -1 );
+            if (object.material.color.getHex()!=0xbbbbbb) object.rotation.y = time * ( i % 2 ? change : -(change) );
         }
     }
 

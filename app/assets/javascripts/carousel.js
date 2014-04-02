@@ -397,7 +397,7 @@ function render() {
         carousel.rotation.y += ( targetRotationY - carousel.rotation.y ) * 0.05;
     if (updatecamera && Math.abs(mouse.y - prevmouse.y) > Math.abs(mouse.x - prevmouse.x))
         camera.position.z += (mouse.y - prevmouse.y) * 20;
-    render_loader();
+    render_loader(done);
     if (!done) {
        // do nothing
     } else if (have_set_first_item==false) {
@@ -410,7 +410,7 @@ function render() {
             camera.position.set(start_position.x, start_position.y, start_position.z);
         });
 
-        camera_tween.delay(2200);
+        camera_tween.delay(2000);
         camera_tween.start();
         have_set_first_item = true;
     };
