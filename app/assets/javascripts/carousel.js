@@ -23,8 +23,8 @@ var Carousel = function (rad, images, w, h, scene) {
         this.imgs[i].src = this.images[i].url;
     }
     this.anglePer = 2 * Math.PI / this.images.length;
-    this.loading = false;
     scene.add(this);
+    this.loading = false;
     var target_position = { x: 0, y: -120, z: 3400 };
     var start_position = { x: 0, y: -50, z: 420 };
     var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
