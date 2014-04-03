@@ -56,7 +56,7 @@ Carousel.prototype.buildCarousel = function (scope,setDone) {
             this.add(plane);
             //this.add(reflectionplane);
 
-            if (i == 0) {
+            if (false) {
                 plane.rotation.y = 0;
                 plane.position = new THREE.Vector3(1, 1224, 1);
                 plane.doubleSided = true;
@@ -115,7 +115,7 @@ $(document).bind('keyup keydown', function(e){ shifted = e.shiftKey; ctrled = e.
 
 $("body").keypress(function(e){
     if (e.which==13) {
-        if (shifted==true) {
+        if (shifted==false) {
             if (current_id == 0) {
                 current_id = carousel.children.length-1;
                 rotateCarousel(carousel.children[current_id], false);
@@ -196,7 +196,7 @@ initLoader(scene,camera);
 setupStarfield();
 
 // Carousel
-carousel = new Carousel(2570, images, 1366, 768, scene);
+carousel = new Carousel(2320, images, 1366, 768, scene);
 
 projector = new THREE.Projector();
 renderer = new THREE.CanvasRenderer();
@@ -214,7 +214,7 @@ var target_rotation = { x: 0, y: 6.30, z: 0.0 };
 var main_idea_tween = new TWEEN.Tween(start_rotation).to(target_rotation, 270000);
 
 main_idea_tween.onUpdate(function () {
-    main_idea_plane.rotation.y = start_rotation.y;
+    //main_idea_plane.rotation.y = start_rotation.y;
 });
 
 main_idea_tween.delay(1200);
@@ -406,8 +406,8 @@ function render() {
     if (!done) {
        // do nothing
     } else if (have_set_first_item==false) {
-        //rotateCarousel(carousel.children[0], true);
-        var target_position = { x: 0, y: -120, z: 3400 };
+        rotateCarousel(carousel.children[0], true);
+        var target_position = { x: 0, y: -60, z: 3100 };
         var start_position = { x: 0, y: -50, z: 420 };
         var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
 

@@ -8,11 +8,20 @@
         %p{:style=>"color:#000;"}
           = "Active Citizen Demo"
       %td
-        %p{:style=>"color:#777;"}
-          = @pages.first.title
+        %p{:style=>"color:#444;"}
+          %b
+            = @pages.first.title
       %td
-        %p{:style=>"color:#999;"}
-          = "double click to select - double click to open - drag - enter next page - shift enter previous page"
+        %p{:style=>"color:#666;"}
+          %b
+            enter
+          next /
+          %b
+            shift enter
+          previous /
+          %b
+            double click
+          open webpage
     - unless true or Rails.env.production?
       %tr
         %td{:colspan=>4}

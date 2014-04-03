@@ -1,7 +1,7 @@
     function setupStarfield() {
         starfield = new THREE.Object3D();
-        addCelestialObjectsTo(starfield, 570, createStar);
-        addCelestialObjectsTo(starfield, 30, createRedDwarf);
+        addCelestialObjectsTo(starfield, 670, createStar);
+        addCelestialObjectsTo(starfield, 90, createRedDwarf);
 
         scene.add( starfield );
     }
@@ -37,9 +37,9 @@
 
         for(var i=0; i < max; ++i) {
             celObj = new THREE.Particle(material);
-            celObj.position.x = Math.random() * 2000 - 1000;
-            celObj.position.y = Math.random() * 2000 - 1000;
-            celObj.position.z = Math.random() * 2000 - 1000;
+            celObj.position.x = Math.random() * 3300 - 1000;
+            celObj.position.y = Math.random() * 3300 - 1000;
+            celObj.position.z = Math.random() * 3300 - 1000;
             celObj.scale.x = celObj.scale.y = Math.random() * 2;
 
             group.add(celObj);
