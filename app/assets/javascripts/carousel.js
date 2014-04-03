@@ -277,7 +277,11 @@ function ondblClick(event) {
         if (current_page(intersects[0].object)) {
             //alert(carousel.children[current_id].page_url);
             //window.open(carousel.children[current_id].page_url, '_blank');
-            $.colorbox({href: carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
+            if (carousel.children[current_id].page_url.indexOf("bbc.co.uk") == -1) {
+                $.colorbox({href: carousel.children[current_id].page_url, iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
+            } else {
+                $.colorbox({href: carousel.children[current_id].page_url.replace("http","https"), iframe: true, opacity: 1.0, open: true, innerHeight: "85%", innerWidth: "85%" });
+            }
 
         } else {
             rotateCarousel(intersects[0].object, true);
