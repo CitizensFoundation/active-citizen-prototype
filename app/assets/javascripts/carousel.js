@@ -58,11 +58,11 @@ Carousel.prototype.buildCarousel = function (scope,setDone) {
 
             if (i == 0) {
                 plane.rotation.y = 0;
-                plane.position = new THREE.Vector3(1, 1324, 1);
+                plane.position = new THREE.Vector3(1, 1224, 1);
                 plane.doubleSided = true;
                 plane.carouselAngle = 0;//plane.rotation.y;
-                plane.scale.x = 3;
-                plane.scale.y = 3;
+                plane.scale.x = 2.5;
+                plane.scale.y = 2.5;
 
                 main_idea_plane = plane;
             }
@@ -141,10 +141,10 @@ canvas.width = 32;
 canvas.height = window.innerHeight;
 var context = canvas.getContext('2d');
 var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-gradient.addColorStop(0, "#FFFFFF");
-gradient.addColorStop(0.5, "#FFFFFF");
-gradient.addColorStop(0.82, "#DDDDDD");
-gradient.addColorStop(1, "#AAAAAA");
+gradient.addColorStop(0, "#000");
+gradient.addColorStop(0.5, "#000");
+gradient.addColorStop(0.82, "#000");
+gradient.addColorStop(1, "#000");
 context.fillStyle = gradient;
 context.fillRect(0, 0, canvas.width, canvas.height);
 document.body.style.background = 'url(' + canvas.toDataURL('image/png') + ')';
@@ -200,7 +200,7 @@ carousel = new Carousel(2570, images, 1366, 768, scene);
 projector = new THREE.Projector();
 renderer = new THREE.CanvasRenderer();
 renderer.setSize(w, h);
-renderer.setClearColor( 0xffffff, 1 );
+renderer.setClearColor( 0x000000, 1 );
 container.appendChild(renderer.domElement);
 
 container.addEventListener('dblclick', ondblClick, false);

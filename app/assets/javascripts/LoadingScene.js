@@ -134,7 +134,7 @@ function render_loader(done) {
 
     for (var i = 0; i < loader_scene.children.length; i++) {
 
-        var change = done ? 0.1 : 1
+        var change = done ? 0.6 : 1
         var object = loader_scene.children[ i ];
         if (object instanceof THREE.Line) {
             if (object.material.color.getHex()!=0xbbbbbb) object.rotation.y = time * ( i % 2 ? change : -(change) );
