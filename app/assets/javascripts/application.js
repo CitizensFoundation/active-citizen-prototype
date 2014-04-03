@@ -17,6 +17,7 @@
 //= require jquery.colorbox
 //= require three
 //= require Tween
+//= require Starfield
 //= require helvetiker_regular.typeface
 //= require shaders/ConvolutionShader
 //= require shaders/FXAAShader

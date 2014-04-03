@@ -134,14 +134,14 @@ function render_loader(done) {
 
     for (var i = 0; i < loader_scene.children.length; i++) {
 
-        var change = done ? 0.6 : 1
+        var change = done ? 1.5 : 1
         var object = loader_scene.children[ i ];
         if (object instanceof THREE.Line) {
             if (object.material.color.getHex()!=0xbbbbbb) object.rotation.y = time * ( i % 2 ? change : -(change) );
 
             if (done && object.material.color.getHex()!=0xbbbbbb) {
                 //object.position.x = object.position.x + time * ( i % 2 ? 0.0000000019 : -(0.0000000019) )
-                object.position.z = object.position.z + time * ( i % 2 ? 0.0000000089 : -(0.0000000089) )
+                object.position.z = object.position.z + time * ( i % 2 ? 0.0000000099 : -(0.0000000099) )
             }
 
         }

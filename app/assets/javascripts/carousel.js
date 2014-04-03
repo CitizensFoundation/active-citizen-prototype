@@ -193,6 +193,7 @@ var main_idea_plane;
 
 
 initLoader(scene,camera);
+setupStarfield();
 
 // Carousel
 carousel = new Carousel(2570, images, 1366, 768, scene);
