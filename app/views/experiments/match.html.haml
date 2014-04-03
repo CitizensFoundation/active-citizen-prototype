@@ -2,17 +2,17 @@
   %table{:width=>"100%"}
     %tr
       %td
-        %h3{:style=>"margin-left: 0px"}
+        %p{:style=>"margin-left: 0px"}
           = link_to "Back","/"
       %td
-        %h1{:style=>"color:#ddd;"}
+        %p{:style=>"color:#000;"}
           = "Active Citizen Demo"
       %td
-        %h4{:style=>"color:#999;"}
+        %p{:style=>"color:#777;"}
           = @pages.first.title
       %td
-        %h5{:style=>"color:#999;"}
-          = "double click to select, double click for live page, drag and enter for next page"
+        %p{:style=>"color:#999;"}
+          = "double click to select - double click to open - drag - enter next page - shift enter last page"
     - unless true or Rails.env.production?
       %tr
         %td{:colspan=>4}
