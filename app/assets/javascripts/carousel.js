@@ -245,12 +245,12 @@ function rotateCarousel(item, easing) {
     }
 
     if (easing) {
-        new TWEEN.Tween(carousel.rotation).to({y: ang}, 800).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
+        new TWEEN.Tween(carousel.rotation).to({y: ang}, 1400).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
             carouselupdate = true;
             targetRotationY = carousel.rotation.y;
         }).start();
     } else {
-        new TWEEN.Tween(carousel.rotation).to({y: ang}, 100).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
+        new TWEEN.Tween(carousel.rotation).to({y: ang}, 420).easing(TWEEN.Easing.Exponential.EaseInOut).onComplete(function () {
             carouselupdate = true;
             targetRotationY = carousel.rotation.y;
         }).start();
