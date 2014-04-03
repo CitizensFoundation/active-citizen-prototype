@@ -64,11 +64,11 @@ class ExperimentsController < ApplicationController
     industry_hits = ThinkingSphinx.search(@query, :star=>true, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..1]
     #@excerpter = ThinkingSphinx::Excerpter.new 'web_page_core', @query
     #@hits = (news_hits+news_title_hits+industry_hits).shuffle
-    @hits = (news_hits+industry_hits).shuffle
+    @hits = (news_hits+industry_hits)
     Rails.logger.debug @hits.inspect
     #@hits += ThinkingSphinx.search(@page.concepts_high_relevance)[0..2]
     @hits = @hits.reject{|p| p.id==@page.id || p.url.include?("nhs-citizen")}.uniq
-    @hits = @hits[0..9]
+    @hits = @hits[0..9].reverse
     #@hits.context.panes << ThinkingSphinx::Panes::ExcerptsPane
   end
 
