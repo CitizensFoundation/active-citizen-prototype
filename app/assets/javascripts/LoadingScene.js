@@ -7,10 +7,11 @@ var mouseX = 0, mouseY = 0,
     windowHalfX = window.innerWidth / 2,
     windowHalfY = window.innerHeight / 2,
 
-    loader_scene, loader_renderer, loader_material, loader_composer;
+    loader_text,loader_scene, loader_renderer, loader_material, loader_composer;
 
 function initLoader(scene,camera) {
 
+    createLoadingText();
     var i, container;
     loader_scene = scene;
 
@@ -85,6 +86,36 @@ function initLoader(scene,camera) {
     loader_composer.addPass(effectCopy);
 }
 
+
+function createLoadingText() {
+
+    var text3d = new THREE.TextGeometry( "Loading...", {
+
+        size: 80,
+        height: 20,
+        curveSegments: 20,
+        font: "helvetiker"
+
+    });
+
+    text3d.computeBoundingBox();
+    var centerOffset = -0.5 * ( text3d.boundingBox.max.x - text3d.boundingBox.min.x );
+
+    var textMaterial = new THREE.MeshBasicMaterial( { color: 0x0033ff, overdraw: true } );
+    text = new THREE.Mesh( text3d, textMaterial );
+
+    text.position.x = centerOffset;
+    text.position.y = 100;
+    text.position.z = 0;
+
+    text.rotation.x = 0;
+    text.rotation.y = Math.PI * 2;
+
+    loader_text = new THREE.Object3D();
+    loader_text.add( text );
+    scene.add(loader_text);
+
+}
 
 // port of Processing Java code by Thomas Diewald
 // http://www.openprocessing.org/visuals/?visualID=15599

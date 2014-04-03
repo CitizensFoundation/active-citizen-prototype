@@ -407,6 +407,7 @@ function render() {
        // do nothing
     } else if (have_set_first_item==false) {
         rotateCarousel(carousel.children[0], true);
+        loader_text.visible = false;
         var target_position = { x: 0, y: -60, z: 3100 };
         var start_position = { x: 0, y: -50, z: 420 };
         var camera_tween = new TWEEN.Tween(start_position).to(target_position, 900);
