@@ -3,16 +3,17 @@
     = "Active Citizen Demo"
   %h5
     %em
-      Discover news stories from NHS Citizen Ideas
+      = raw "Discover news stories from #{"<a href='https://nhs-citizen.yrpri.org/' target='_blank'>NHS Citizen</a>"} Ideas"
   %p
 %hr
-%ul.medium-block-grid-3
+%ul.large-block-grid-2
   - @pages.each do |page|
-    %li{:style=>"padding-bottom:50px;"}
-      %center
-        %h5
-          = page.title
-      = link_to image_tag(page.screenshot.url(:large)), "/experiments/match/#{page.id}"
+    %li{:style=>"padding-bottom:100px;"}
+      = link_to image_tag(page.screenshot.url(:full)), "/experiments/match/#{page.id}"
+%hr
+%div{:style=>"float:left;width:100%"}
+  %center
+    = will_paginate @pages, renderer: FoundationPagination::Rails
 %hr
 %center
   %h4

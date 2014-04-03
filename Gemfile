@@ -21,7 +21,7 @@ gem 'headless'
 
 gem 'haml-rails'
 gem 'foundation-rails'
-
+gem 'will_paginate-foundation'
 gem "paperclip", "~> 4.1"
 
 gem 'asset_sync'

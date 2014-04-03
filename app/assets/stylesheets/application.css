@@ -18,3 +18,8 @@
     text-color: #f00 !important;
     color: #f00;
 }
+
+.pagination-wrapper {
+    width: 100%; /* or whatever width you require */
+    margin: 0 auto;
+}

@@ -2,10 +2,8 @@ SKIP = ["Facebook","Terms of Service","NHS","Priorities Spaces","Privacy policy"
 
 class ExperimentsController < ApplicationController
   def nhs_citizen
-    @pages = []
-    WebPage.where(:active=>true).all.shuffle.each do |page|
-      @pages << page if page.url.include?("nhs-citizen")
-    end
+    nhs = WebPageType.where(:name=>"nhs").first
+    @pages = WebPage.where(:active=>true,:web_page_type_id=>nhs.id).order("created_at DESC").paginate(:page => params[:page],:per_page=>7)
   end
 
   def setup_field_weights
