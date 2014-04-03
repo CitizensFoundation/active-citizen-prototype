@@ -89,7 +89,7 @@ function initLoader(scene,camera) {
 
 function createLoadingText() {
 
-    var text3d = new THREE.TextGeometry( "Loading...", {
+    var text3d = new THREE.TextGeometry( "Thinking...", {
 
         size: 80,
         height: 20,
