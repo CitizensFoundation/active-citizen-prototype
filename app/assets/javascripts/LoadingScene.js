@@ -101,12 +101,12 @@ function createLoadingText() {
     text3d.computeBoundingBox();
     var centerOffset = -0.5 * ( text3d.boundingBox.max.x - text3d.boundingBox.min.x );
 
-    var textMaterial = new THREE.MeshBasicMaterial( { color: 0x0033ff, overdraw: true } );
+    var textMaterial = new THREE.MeshBasicMaterial( { color: 0xed4f11, overdraw: true } );
     text = new THREE.Mesh( text3d, textMaterial );
 
     text.position.x = centerOffset;
     text.position.y = 100;
-    text.position.z = 0;
+    text.position.z = -50;
 
     text.rotation.x = 0;
     text.rotation.y = Math.PI * 2;
