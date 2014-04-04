@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140331133401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "web_page_types", force: true do |t|
     t.string   "name"
