@@ -196,7 +196,7 @@ initLoader(scene,camera);
 setupStarfield();
 
 // Carousel
-carousel = new Carousel(2320, images, 1366, 768, scene);
+carousel = new Carousel(2327, images, 1366, 768, scene);
 
 projector = new THREE.Projector();
 renderer = new THREE.CanvasRenderer();
