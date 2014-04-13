@@ -45,4 +45,18 @@ class WebPage < ActiveRecord::Base
         (self.entities_med_relevance ? ",#{self.entities_med_relevance}," : ",")+
         (self.entities_low_relevance ? self.entities_low_relevance : "")
   end
+
+  def self.dedup!
+    grouped = where(:active=>true).order("created_at DESC").group_by{|page| [page.title] }
+    grouped.values.each do |duplicates|
+      first_one = duplicates.pop
+      unless duplicates.empty?
+        duplicates.sort_by{|d| d.created_at}.each do |double|
+          Rails.logger.info("Deactivated duplicates of #{first_one.url} from here #{double.url}")
+          double.active=false
+          double.save
+        end
+      end
+    end
+  end
 end

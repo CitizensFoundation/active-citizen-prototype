@@ -12,5 +12,5 @@ ThinkingSphinx::Index.define :web_page, :with => :active_record do
   #indexes concepts_low_relevance
 
   # attributes
-  has created_at, updated_at, web_page_type_id
+  has created_at, updated_at, web_page_type_id, active
 end

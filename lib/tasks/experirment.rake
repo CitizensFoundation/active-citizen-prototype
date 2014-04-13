@@ -17,6 +17,11 @@ RSS_FEEDS = ["http://www.theguardian.com/society/health/rss","http://feeds.bbci.
              "http://www.ehi.co.uk/rss.cfm?channel=2&category=49","http://www.ehi.co.uk/rss.cfm?channel=2&category=12"]
 
 namespace :experiment do
+  desc "Deactive duplicates (mostly bbc news changing the urls of their stories)"
+  task :deactive_duplicate_web_pages => :environment do
+    WebPage.dedup!
+  end
+
   desc "Fix"
   task :fix_web_page_types => :environment do
     nhs = WebPageType.create(:name=>"nhs")

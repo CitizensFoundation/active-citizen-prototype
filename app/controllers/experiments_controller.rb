@@ -60,8 +60,8 @@ class ExperimentsController < ApplicationController
   end
 
   def search
-    news_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :star=>true, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"news").first.id})[0..7]
-    industry_hits = ThinkingSphinx.search(@query, :star=>true, :@field_weights=>@field_weights, :with => {:web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..1]
+    news_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :star=>true, :@field_weights=>@field_weights, :with => {:active=>true, :web_page_type_id => WebPageType.where(:name=>"news").first.id})[0..7]
+    industry_hits = ThinkingSphinx.search(@query, :star=>true, :@field_weights=>@field_weights, :with => {:active=>true, :web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..1]
     #@excerpter = ThinkingSphinx::Excerpter.new 'web_page_core', @query
     #@hits = (news_hits+news_title_hits+industry_hits).shuffle
     @hits = (news_hits+industry_hits)
