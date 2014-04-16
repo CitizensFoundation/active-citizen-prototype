@@ -40,6 +40,10 @@ class WebPage < ActiveRecord::Base
     self.save
   end
 
+  def set_main_text!
+    self.update_attribute(:main_text, AlchemyAPI::TextExtraction.new.search(:url => self.url))
+  end
+
   def all_entities
     (self.entities_high_relevance ? self.entities_high_relevance : "")+
         (self.entities_med_relevance ? ",#{self.entities_med_relevance}," : ",")+

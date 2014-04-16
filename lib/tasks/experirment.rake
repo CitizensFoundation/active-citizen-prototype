@@ -130,8 +130,11 @@ namespace :experiment do
 
   desc "Classify all"
   task :classify_all => :environment do
-    WebPage.where("keywords_api_response IS NULL OR entities_api_response IS NULL OR concepts_api_response IS NULL").order("created_at DESC").each do |page|
+    WebPage.where("active = 't' AND (keywords_api_response IS NULL OR entities_api_response IS NULL OR concepts_api_response IS NULL)").order("created_at DESC").each do |page|
       page.classify!
+    end
+    WebPage.where("active = 't' AND (main_text IS NULL OR main_text = '')").each do |page|
+      page.set_main_text!
     end
   end
 
