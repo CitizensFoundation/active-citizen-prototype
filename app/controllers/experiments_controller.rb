@@ -6,6 +6,18 @@ class ExperimentsController < ApplicationController
     @pages = WebPage.where(:active=>true,:web_page_type_id=>nhs.id).order("created_at DESC").paginate(:page => params[:page],:per_page=>8)
   end
 
+  def match_from_url
+    setup_field_weights
+    setup_match(WebPage.where(:url=>params[:url]).first.id)
+    @pages = []
+    if @all_search_items.length>2
+      setup_query
+      search
+      @pages = [@page]+@hits # unless @page.url.include?("nhs-citizen")
+    end
+    render json: @pages
+  end
+
   def match
     setup_field_weights
     setup_match(params[:id])

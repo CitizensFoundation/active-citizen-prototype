@@ -1,5 +1,6 @@
 ActiveCitizen::Application.routes.draw do
   get "experiments/match_pages"
+  get "experiments/match_from_url"
   get "experiments/nhs_citizen"
   get "experiments/match/:id", :controller=>"experiments", :action=>"match"
   root 'experiments#nhs_citizen'
