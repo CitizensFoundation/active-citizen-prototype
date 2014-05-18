@@ -22,6 +22,17 @@ namespace :experiment do
     WebPage.dedup!
   end
 
+  desc "Set screenshot meta"
+  task :set_screenshots_meta_data => :environment do
+    WebPage.where("screenshot_content_type IS NULL").all.each do |page|
+      page.screenshot_file_name="screenshot.png"
+      page.screenshot_file_size=547717
+      page.screenshot_content_type="image/png"
+      page.screenshot_updated_at=DateTime.now
+      page.save
+    end
+ end
+
   desc "Fix"
   task :fix_web_page_types => :environment do
     nhs = WebPageType.create(:name=>"nhs")

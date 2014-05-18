@@ -6,6 +6,33 @@ class ExperimentsController < ApplicationController
     @pages = WebPage.where(:active=>true,:web_page_type_id=>nhs.id).order("created_at DESC").paginate(:page => params[:page],:per_page=>8)
   end
 
+  def match
+    setup_field_weights
+    setup_match(params[:id])
+    if @all_search_items.length>2
+      setup_query
+      search
+      @pages = [@page]+@hits # unless @page.url.include?("nhs-citizen")
+    end
+  end
+
+  def match_pages
+    setup_field_weights
+    @source_pages = []
+    #.search {|@page| @page.url.include?("nhs-citizen")}
+    WebPage.all.each do |page|
+      next unless page.url.include?("nhs-citizen")
+      setup_match(page.id)
+      if @all_search_items.length>2
+        setup_query
+        search
+        @source_pages << {:web_page=>page, :hits=>@hits, :query=>@query}# unless page.url.include?("nhs-citizen")
+      end
+    end
+  end
+
+  private
+
   def setup_field_weights
     @field_weights = {
         :title => 100,
@@ -43,11 +70,11 @@ class ExperimentsController < ApplicationController
 
     Rails.logger.debug @all_keywords
     @all_search_items = @all_entities[0..1]+@all_entities+
-                        @all_keywords+
-                        @all_concepts+
-                        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
+        @all_keywords+
+        @all_concepts+
+        @all_title_words+@all_title_words+@all_title_words+@all_title_words+@all_title_words
 
-        Rails.logger.debug "--------------------------------------------------------------"
+    Rails.logger.debug "--------------------------------------------------------------"
     Rails.logger.debug @all_search_items
   end
 
@@ -72,28 +99,4 @@ class ExperimentsController < ApplicationController
     #@hits.context.panes << ThinkingSphinx::Panes::ExcerptsPane
   end
 
-  def match
-    setup_field_weights
-    setup_match(params[:id])
-    if @all_search_items.length>2
-      setup_query
-      search
-      @pages = [@page]+@hits # unless @page.url.include?("nhs-citizen")
-    end
-  end
-
-  def match_pages
-    setup_field_weights
-    @source_pages = []
-    #.search {|@page| @page.url.include?("nhs-citizen")}
-    WebPage.all.each do |page|
-      next unless page.url.include?("nhs-citizen")
-      setup_match(page.id)
-      if @all_search_items.length>2
-        setup_query
-        search
-        @source_pages << {:web_page=>page, :hits=>@hits, :query=>@query}# unless page.url.include?("nhs-citizen")
-      end
-    end
-  end
 end
