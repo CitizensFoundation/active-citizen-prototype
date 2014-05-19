@@ -16,6 +16,8 @@ gem 'thinking-sphinx', '3.0.3'
 gem 'flying-sphinx',   '1.0.0'
 gem 'nokogiri'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 gem 'watir-webdriver'
 gem 'headless'
 
