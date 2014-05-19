@@ -12,8 +12,8 @@ class ExperimentsController < ApplicationController
     @pages = []
     if @all_search_items.length>2
       setup_query
-      search
-      @pages = [@page]+@hits # unless @page.url.include?("nhs-citizen")
+      search(false)
+      @pages = @hits # unless @page.url.include?("nhs-citizen")
     end
     render json: @pages
   end
@@ -98,7 +98,7 @@ class ExperimentsController < ApplicationController
     end
   end
 
-  def search
+  def search(reverse = true)
     news_hits = ThinkingSphinx.search(@query, :ranker=>:wordcount, :star=>true, :@field_weights=>@field_weights, :with => {:active=>true, :web_page_type_id => WebPageType.where(:name=>"news").first.id})[0..7]
     industry_hits = ThinkingSphinx.search(@query, :star=>true, :@field_weights=>@field_weights, :with => {:active=>true, :web_page_type_id => WebPageType.where(:name=>"industry").first.id})[0..1]
     #@excerpter = ThinkingSphinx::Excerpter.new 'web_page_core', @query
@@ -107,7 +107,11 @@ class ExperimentsController < ApplicationController
     Rails.logger.debug @hits.inspect
     #@hits += ThinkingSphinx.search(@page.concepts_high_relevance)[0..2]
     @hits = @hits.reject{|p| p.id==@page.id || p.url.include?("nhs-citizen")}.uniq
-    @hits = @hits[0..9].reverse
+    if reverse
+      @hits = @hits[0..9].reverse
+    else
+      @hits = @hits[0..9]
+    end
     #@hits.context.panes << ThinkingSphinx::Panes::ExcerptsPane
   end
 
